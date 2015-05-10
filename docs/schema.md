@@ -5,15 +5,16 @@ column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
 email               | string    | not null, unique
-username            | string    | not null, unique
 password_digest     | string    | not null
 session_token       | string    | not null, unique
-profile             | integer   | not null, foreign key
 
 ## profile
 column name         | data type | details
 --------------------|-----------|-----------------------
-gender              | integer   | not null
+id                  | integer   | not null, primary key
+user_id             | integer   | not null, foreign key
+username            | string    | not null, unique
+gender              | integer   | not null, foreign key
 orientation         | integer   | not null, foreign key
 birthday            | date      | not null
 self-summary        | text      |
