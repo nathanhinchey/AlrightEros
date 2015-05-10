@@ -1,5 +1,7 @@
 # Schema Information
 
+*Note: I may rework the gender/orientation system*
+
 ## users
 column name         | data type | details
 --------------------|-----------|-----------------------

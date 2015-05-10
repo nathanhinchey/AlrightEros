@@ -56,20 +56,16 @@ QuestionAnswers.
 [Details][phase-two]
 
 ### Phase 3: Editing and User Profiles and Questions (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+I'll build all the connections for questions and profiles between Rails and
+Backbone. Users can view question answers and other users' profiles in a mostly
+single page JavaScript application. User login and signup will still be directly
+connected to the backend, but all other functions pushed to the front end.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Searching for Users (~2 days)
+I'll integrate a search function that allows users to search for other users by
+age, gender, and orientation.
 
 [Details][phase-four]
 

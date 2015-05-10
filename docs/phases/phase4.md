@@ -4,10 +4,10 @@
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::UsersController (search)
 
 ### Views
-posts/feed.json.jbuilder
+<!-- posts/feed.json.jbuilder -->
 
 ## Backbone
 ### Models
@@ -15,6 +15,6 @@ posts/feed.json.jbuilder
 ### Collections
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* SearchResultsShow (composite view, contains Profile subview)
 
 ## Gems/Libraries
