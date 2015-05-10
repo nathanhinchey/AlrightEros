@@ -1,4 +1,4 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Shifting Features to Front End
 
 ## Rails
 ### Models
@@ -11,13 +11,15 @@
 
 ## Backbone
 ### Models
+* Profile
+* QuestionAnswer
 
 ### Collections
+* Profiles
+* QuestionAnswers
 
 ### Views
-* PostForm
+* QuestionForm
+* Profile
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown

@@ -84,7 +84,7 @@ collections, but they will fetch from the new `search` routes.
 ### Bonus Features (TBD)
 - [ ] Matching algorithm to compare user question answers
 - [ ] Like feature for liking profiles
-- [ ]
+- [ ] Facebook Login options
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
