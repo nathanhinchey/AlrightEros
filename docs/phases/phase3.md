@@ -6,6 +6,8 @@
 ### Controllers
 
 ### Views
+* API::QuestionAnswers
+* API::Profiles
 
 ## Backbone
 ### Models

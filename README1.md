@@ -1,24 +1,33 @@
 # OkCupid Clone
 
-[Heroku link][heroku]
+<!-- [Heroku link][heroku] -->
 
-[heroku]: http://flux-capacitr.herokuapp.com
+<!-- [heroku]: http:// MY URL WILL GO HERE  .herokuapp.com -->
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+This site will be a clone of OkCupid built on Rails and using Backbone.
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Edit profile
-- [ ] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+###MVP Proposal:
+- [ ] **Create accounts**
+- [ ] **Create sessions (log in)**
+- [ ] **Edit profile**
+  * [ ] *use "summary" text area*
+  * [ ] *use "looking for" drop down*
+  * [ ] *use "gender" drop down*
+  * [ ] *use "birthday" calendar field*
+  * [ ] *upload photo*
+- [ ] **Answer questions**
+- [ ] **See other users**
+  * [ ] *See summary text*
+  * [ ] *See question answers*
+- [ ] **Search Users**
+  * [ ] *by gender*
+  * [ ] *by age*
+  * [ ] *orientation*
+  * [ ] *all three in combination*
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -31,22 +40,22 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ### Phase 1: User Authentication, Blog Creation (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
+App Academy. By the end of this phase, users will be able to create profiles using
 a simple text form in a Rails view. The most important part of this phase will
 be pushing the app to Heroku and ensuring that everything works before moving on
 to phase 2.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Answering Questions (~1 day)
+I will implement a question answer form in Rails that displays a simple text
+version of questions and there corresponding answer choices, and lets logged
+in users create new QuestionAnswers. Also allows users to edit their existing
+QuestionAnswers.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
+### Phase 3: Editing and User Profiles and Questions (~2 days)
 I plan to use third-party libraries to add functionality to the `PostForm` and
 `PostShow` views in this phase. First I'll need to add a Markdown editor to the
 `PostForm`, and make sure that the Markdown is properly escaped and formatted in
@@ -73,15 +82,9 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+- [ ] Matching algorithm to compare user question answers
+- [ ] Like feature for liking profiles
+- [ ]
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

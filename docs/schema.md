@@ -8,7 +8,12 @@ email               | string    | not null, unique
 username            | string    | not null, unique
 password_digest     | string    | not null
 session_token       | string    | not null, unique
-gender              | integer   | not null, foreign key
+profile             | integer   | not null, foreign key
+
+## profile
+column name         | data type | details
+--------------------|-----------|-----------------------
+gender              | integer   | not null
 orientation         | integer   | not null, foreign key
 birthday            | date      | not null
 self-summary        | text      |
@@ -65,9 +70,6 @@ question_id     | integer   | not null, foreign key
 user_choice     | integer   | not null
 match_choices   | integer[] | not null  (not sure how best to handle this)
 user_comment    | string    |
-
-
-
 
 ## likes
 column name | data type | details
