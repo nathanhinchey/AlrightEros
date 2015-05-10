@@ -1,15 +1,24 @@
 # Schema Information
 
 ## users
+column name         | data type | details
+--------------------|-----------|-----------------------
+id                  | integer   | not null, primary key
+email               | string    | not null, unique
+username            | string    | not null, unique
+password_digest     | string    | not null
+session_token       | string    | not null, unique
+gender              | integer   | not null, foreign key
+orientation         | integer   | not null, foreign key
+birthday            | date      | not null
+self-summary        | text      |
+relationship_status | integer   | foreign key
+
+##relationship_statuses
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-email           | string    | not null, unique
-username        | string    | not null, unique
-password_digest | string    | not null
-session_token   | string    | not null, unique
-gender          | integer   | not null, foreign key
-orientation     | integer   | not null, foreign key
+name            | string    | not null, unique
 
 ## genders
 column name     | data type | details
@@ -53,8 +62,12 @@ column name     | data type | details
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key
 question_id     | integer   | not null, foreign key
-answer_choice   | integer   | not null
-answer_comment  | string    |
+user_choice     | integer   | not null
+match_choices   | integer[] | not null  (not sure how best to handle this)
+user_comment    | string    |
+
+
+
 
 ## likes
 column name | data type | details
