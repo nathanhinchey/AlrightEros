@@ -69,18 +69,17 @@ age, gender, and orientation.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Uploading Images (~2 days)
+I'll allow users to upload images. I don't know how to do that yet. I'll figure
+it out and implement it. I assume that there are libraries for that.
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
 - [ ] Matching algorithm to compare user question answers
 - [ ] Like feature for liking profiles
-- [ ] Facebook Login options
+- [ ] Facebook Login option
+- [ ] User feed
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
