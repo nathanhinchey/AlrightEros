@@ -1,6 +1,6 @@
 class Session < ActiveRecord::Base
-  validates :user_id presence: true
-  validates :session_token presence: true, uniqueness: true
+  validates :user_id, presence: true
+  validates :session_token, presence: true, uniqueness: true
 
   after_initialize :ensure_session_token
 

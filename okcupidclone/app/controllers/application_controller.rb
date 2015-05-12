@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 
   def login!(user)
     @curret_user = user
-    session[:session_token] = user.sessions.create.token
+    session[:session_token] = user.sessions.create.session_token
   end
 end

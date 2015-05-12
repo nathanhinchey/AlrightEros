@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 
     if user
       login!(user)
-      #redirect somewhere
+      render json: user
     else
-      #show errors, render this page again
+      render json: "invalid username or password"
     end
   end
 
