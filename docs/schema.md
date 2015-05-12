@@ -8,7 +8,13 @@ column name         | data type | details
 id                  | integer   | not null, primary key
 email               | string    | not null, unique
 password_digest     | string    | not null
+
+## sessions
+column name         | data type | details
+--------------------|-----------|-----------------------
+id                  | integer   | not null, primary key
 session_token       | string    | not null, unique
+user_id             | string    | not null
 
 ## profiles
 column name         | data type | details
@@ -40,12 +46,13 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null, unique
 
-## orientation_liked_genders
+<!-- Probably not gonna use this -->
+<!-- ## orientation_liked_genders
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 orientation_id  | integer   | not null, foreign key
-liked_gender_id | integer   | not null, foreign key (references gender)
+liked_gender_id | integer   | not null, foreign key (references gender) -->
 
 ## questions
 column name     | data type | details
