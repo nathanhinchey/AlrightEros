@@ -33,9 +33,9 @@ body {
 }
 
 button {
-  border: 1px solid darkblue;
+  border: 1px solid purple;
   background-color: lightgreen;
-  color: darkblue;
+  color: purple;
 }
 
 input {
