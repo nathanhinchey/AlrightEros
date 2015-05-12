@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+
+/*reset*/
+
+html, body, p, h1, a, form, input, button {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font: inherit;
+  text-decoration: inherit;
+  border: none;
+
+  background: transparent;
+}
+
+body {
+  font-family: sans-serif;
+  background: lightpink;
+}
+
+button {
+  border: 1px solid darkblue;
+  background-color: lightgreen;
+  color: darkblue;
+}
+
+input {
+  border: 1px dotted green;
+  background: yellow;
+}
+
+h1 {
+  font-size: 200%;
+  color: red;
+  outline: 1px solid red;
+}
+
+form {
+  outline: 1px solid darkblue;
+  color: darkblue;
+}
