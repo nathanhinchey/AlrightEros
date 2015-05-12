@@ -7,14 +7,14 @@
 
 ### Controllers
 * UsersController (create, new)
-* ProfilesController (create, new, edit, show)
+* ProfilesController (create, edit, show)
 * SessionsController (create, new, destroy)
 
 ### Views
-<!-- * users/new.html.erb
+* users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb -->
+* profile/edit.html.erb
+* profile/show.html.erb -->
 
 ## Backbone
 ### Models
