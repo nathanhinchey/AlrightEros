@@ -39,14 +39,14 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null, unique
 
-## user_genders
+## profile_genders
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 profile_id      | integer   | not null, foreign key
 gender_id       | integer   | not null, foreign key
 
-## user_gender_preferences
+## profile_gender_preferences
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
