@@ -24,5 +24,4 @@ class User < ActiveRecord::Base
   def is_password?(password)
     BCrypt::Password.new(password_digest).is_password?(password)
   end
-
 end

@@ -14,7 +14,7 @@ column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
 session_token       | string    | not null, unique
-user_id             | string    | not null
+user_id             | string    | not null, foreign key
 
 ## profiles
 column name         | data type | details
