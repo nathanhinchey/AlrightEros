@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user
       login!(user)
-      render json: user
+      render json: [user, current_user]
     else
       render json: "invalid username or password"
     end

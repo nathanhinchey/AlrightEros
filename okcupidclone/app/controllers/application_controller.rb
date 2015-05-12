@@ -4,7 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def login!(user)
-    @curret_user = user
+    @current_user = user
     session[:session_token] = user.sessions.create.session_token
+  end
+
+  def current_user
+    unless @current_user
+      return nil if session[:session_token].nil?
+      device = Session.find_by(session_token: session[:session_token])
+      return nil if device.nil?
+    end
+    @current_user ||= User.find(device.user_id)
   end
 end
