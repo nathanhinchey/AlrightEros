@@ -4,12 +4,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   #TODO: validate :unique_username
 
-  attr_reader :password
-
-  def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
-  end
+  attr_reader :username
 
   has_many :session_tokens
 end
