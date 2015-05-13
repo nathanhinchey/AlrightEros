@@ -1,20 +1,25 @@
-# Phase 4: User Feeds
+# Phase 3: Shifting Features to Front End
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::UsersController (search)
 
 ### Views
-<!-- posts/feed.json.jbuilder -->
+* API::QuestionAnswers
+* API::Profiles
 
 ## Backbone
 ### Models
+* Profile
+* QuestionAnswer
 
 ### Collections
+* Profiles
+* QuestionAnswers
 
 ### Views
-* SearchResultsShow (composite view, contains Profile subview)
+* QuestionForm
+* Profile
 
 ## Gems/Libraries

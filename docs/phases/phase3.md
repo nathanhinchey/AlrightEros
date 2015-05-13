@@ -1,25 +1,25 @@
-# Phase 3: Shifting Features to Front End
+# Phase 2: Answering Questions
 
 ## Rails
 ### Models
+* Question
+* QuestionAnswer
 
 ### Controllers
+* QuestionAnswersController (show, create, edit)
 
 ### Views
-* API::QuestionAnswers
-* API::Profiles
 
 ## Backbone
 ### Models
-* Profile
-* QuestionAnswer
 
 ### Collections
-* Profiles
-* QuestionAnswers
 
 ### Views
-* QuestionForm
-* Profile
+<!-- * BlogForm
+* BlogShow (composite view, contains PostsIndex subview)
+* PostsIndex (composite view, contains PostsIndexItem subviews)
+* PostsIndexItem
+* PostShow -->
 
 ## Gems/Libraries

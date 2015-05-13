@@ -1,14 +1,18 @@
-# Phase 2: Answering Questions
+# Phase 1: User Authentication, Basic Blogs and Posts
 
 ## Rails
 ### Models
-* Question
-* QuestionAnswer
+* User
+* Profile
+* Session
 
 ### Controllers
-* QuestionAnswersController (show, create, edit)
+* ProfilesController (create, edit, show)
 
 ### Views
+* profile/new.html.erb
+* profile/edit.html.erb
+* profile/show.html.erb
 
 ## Backbone
 ### Models
@@ -16,10 +20,5 @@
 ### Collections
 
 ### Views
-<!-- * BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow -->
 
 ## Gems/Libraries
