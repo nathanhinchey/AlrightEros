@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :current_user
+  helper_method :current_user, :current_user_has_profile?
 
   def login!(user)
     @current_user = user
@@ -16,7 +16,12 @@ class ApplicationController < ActionController::Base
       device = Session.find_by(session_token: session[:session_token])
       return nil if device.nil?
     end
-    
+
     @current_user ||= User.find(device.user_id)
+  end
+
+  def current_user_has_profile?
+    return false unless @current_user
+    !!@current_user.profile
   end
 end

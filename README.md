@@ -51,7 +51,7 @@ I will implement user authentication in Rails based on the practices learned at 
 [Details][phase-one]
 
 ### Phase 2: Create and view profiles (~1 day)
-I will implement a basic text interface for updating user profiles. Users will be prompted to create a profile upon creating their account. Users who have not created a profile will only be able to view the 'new profile' page after logging in until completing their profile.
+I will implement a basic text interface for updating user profiles. Users will be prompted to create a profile upon creating their account. Users who have not created a profile will only be able to view the 'new profile' page after logging in until completing their profile. Create Backbone views for profiles.
 
 [Details][phase-two]
 
