@@ -16,7 +16,7 @@
 
 /*reset*/
 
-html, body, p, h1, a, form, input, button {
+html, body, p, h1, h2, h3, a, form, input, button {
   padding: 0;
   margin: 0;
   font-size: 100%;
@@ -48,6 +48,24 @@ h1 {
   font-size: 200%;
   color: red;
   outline: 1px solid red;
+}
+
+h2 {
+  font-size: 150%;
+  color: purple;
+  outline: 1px solid purple;
+}
+
+h3 {
+  font-size: 125%;
+  color: blue;
+  outline: 1px solid blue;
+}
+
+p {
+  font-size: 100%;
+  color: black;
+  outline: 1px solid black;
 }
 
 form {

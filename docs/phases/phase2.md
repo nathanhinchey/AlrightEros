@@ -1,10 +1,9 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 2: Profiles
 
 ## Rails
 ### Models
-* [ ] User
-* [ ] Profile
-* [ ] Session
+* [x] Profile
+* [ ] User (add profile verification)
 * [ ] Gender
 
 ### Controllers
