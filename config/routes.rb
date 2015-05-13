@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'profiles#index'
+  root to: "main#index"
   resources :users, only: [:new, :create, :destroy, :index]
   resource :session, only: [:new, :create, :destroy]
   resources :profiles, only: [:new, :create, :edit, :show, :index]
