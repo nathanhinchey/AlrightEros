@@ -12,7 +12,7 @@ class Profile < ActiveRecord::Base
     age = Date.today.year - birthday.year
     age -= 1 if Date.today < birthday + age.years
     #for days before birthday
-    age.years
+    age
   end
 
   private
@@ -25,7 +25,7 @@ class Profile < ActiveRecord::Base
     def must_be_adult
       if birthday.class != Date
         errors.add(:birthday, "must be specified")
-      elsif age < 18.years
+      elsif age < 18
         errors.add(:age, "must be 18 or over")
       end
     end
