@@ -16,9 +16,15 @@
 
 ## Backbone
 ### Models
+* [ ] User
+* [ ] Profile
 
 ### Collections
+* [ ] Profiles
 
 ### Views
+* [ ] Profile show
+* [ ] Profile new
+* [ ] Profile index
 
 ## Gems/Libraries
