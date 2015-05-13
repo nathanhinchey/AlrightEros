@@ -1,4 +1,4 @@
-# OkCupid Clone
+# AlrightEros
 
 <!-- [Heroku link][heroku] -->
 

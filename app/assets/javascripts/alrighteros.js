@@ -1,12 +1,13 @@
-window.Okcupidclone = {
+window.AlrightEros = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
+
   }
 };
 
 $(document).ready(function(){
-  Okcupidclone.initialize();
+  AlrightEros.initialize();
 });

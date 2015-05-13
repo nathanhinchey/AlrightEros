@@ -1,5 +1,5 @@
 <a id="title"></a>
-#Project: OkCupid Clone
+#Project: AlrightEros
 
 ###MVP Proposal:
 * Users can sign up and sign in
