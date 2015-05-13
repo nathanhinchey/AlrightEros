@@ -11,7 +11,13 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
 
 ###MVP Proposal:
 - [ ] **Create accounts**
+  * [x] *Models*
+  * [x] *Controllers*
+  * [ ] *Views*
 - [ ] **Create sessions (log in)**
+  * [x] *Models*
+  * [x] *Controllers*
+  * [ ] *Views*
 - [ ] **Edit profile**
   * [ ] *use "summary" text area*
   * [ ] *use "looking for" drop down*

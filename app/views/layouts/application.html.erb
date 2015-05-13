@@ -8,7 +8,9 @@
 </head>
 <body>
 <header>
-  Hello, <%= current_user.email %>!
+  <% if current_user %>
+    Hello, <%= current_user.email %>!
+  <% end %>
   <form class="logout" action="<%= session_url %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <%= authentic_form %>
