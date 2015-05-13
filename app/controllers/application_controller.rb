@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
       device = Session.find_by(session_token: session[:session_token])
       return nil if device.nil?
     end
+    
     @current_user ||= User.find(device.user_id)
   end
 end

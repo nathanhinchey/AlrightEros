@@ -10,9 +10,9 @@
 * [ ] ProfilesController (create, edit, show)
 
 ### Views
-* [ ] profile/new.html.erb
+* [x] profile/new.html.erb
 * [ ] profile/edit.html.erb
-* [ ] profile/show.html.erb
+* [x] profile/show.html.erb
 
 ## Backbone
 ### Models

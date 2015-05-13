@@ -7,11 +7,12 @@ class Profile < ActiveRecord::Base
 
   has_many :profile_genders, dependent: :destroy
   has_many :genders, through: :profile_genders, source: :genders
-  
+
   def age
     age = Date.today.year - birthday.year
     age -= 1 if Date.today < birthday + age.years
     #for days before birthday
+    age.years
   end
 
   private

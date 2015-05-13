@@ -1,4 +1,13 @@
 class ProfilesController < ApplicationController
+  def index
+    unless current_user && current_user.profile
+      redirect_to new_user_url
+    else
+      @profiles = Profile.all
+      render :index
+    end
+  end
+
   def new
     @profile = Profile.new
     render :new
