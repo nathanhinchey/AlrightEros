@@ -4,6 +4,7 @@
 ### Models
 * User
 * Profile
+* Session
 
 ### Controllers
 * UsersController (create, new)
