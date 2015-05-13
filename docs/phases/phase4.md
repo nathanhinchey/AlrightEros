@@ -1,4 +1,4 @@
-# Phase 3: Shifting Features to Front End
+# Phase 4: Shifting Features to Front End
 
 ## Rails
 ### Models
@@ -6,20 +6,20 @@
 ### Controllers
 
 ### Views
-* API::QuestionAnswers
-* API::Profiles
+* [ ] API::QuestionAnswers
+* [ ] API::Profiles
 
 ## Backbone
 ### Models
-* Profile
-* QuestionAnswer
+* [ ] Profile
+* [ ] QuestionAnswer
 
 ### Collections
-* Profiles
-* QuestionAnswers
+* [ ] Profiles
+* [ ] QuestionAnswers
 
 ### Views
-* QuestionForm
-* Profile
+* [ ] QuestionForm
+* [ ] Profile
 
 ## Gems/Libraries

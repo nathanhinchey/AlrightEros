@@ -2,17 +2,16 @@
 
 ## Rails
 ### Models
-* User
-* Session
-* Gender
+* [x] User
+* [x] Session
 
 ### Controllers
-* UsersController (create, new)
-* SessionsController (create, new, destroy)
+* [x] UsersController (create, new)
+* [x] SessionsController (create, new, destroy)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
+* [x] users/new.html.erb
+* [x] session/new.html.erb
 
 ## Backbone
 ### Models

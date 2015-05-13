@@ -2,17 +2,18 @@
 
 ## Rails
 ### Models
-* User
-* Profile
-* Session
+* [ ] User
+* [ ] Profile
+* [ ] Session
+* [ ] Gender
 
 ### Controllers
-* ProfilesController (create, edit, show)
+* [ ] ProfilesController (create, edit, show)
 
 ### Views
-* profile/new.html.erb
-* profile/edit.html.erb
-* profile/show.html.erb
+* [ ] profile/new.html.erb
+* [ ] profile/edit.html.erb
+* [ ] profile/show.html.erb
 
 ## Backbone
 ### Models

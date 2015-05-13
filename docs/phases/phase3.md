@@ -1,12 +1,12 @@
-# Phase 2: Answering Questions
+# Phase 3: Answering Questions
 
 ## Rails
 ### Models
-* Question
-* QuestionAnswer
+* [ ] Question
+* [ ] QuestionAnswer
 
 ### Controllers
-* QuestionAnswersController (show, create, edit)
+* [ ] QuestionAnswersController (show, create, edit)
 
 ### Views
 
@@ -16,10 +16,10 @@
 ### Collections
 
 ### Views
-<!-- * BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow -->
+<!-- * [ ] BlogForm
+* [ ] BlogShow (composite view, contains PostsIndex subview)
+* [ ] PostsIndex (composite view, contains PostsIndexItem subviews)
+* [ ] PostsIndexItem
+* [ ] PostShow -->
 
 ## Gems/Libraries

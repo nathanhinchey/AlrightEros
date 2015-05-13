@@ -1,4 +1,4 @@
-# Phase 4: User Feeds
+# Phase 5: User Feeds
 
 ## Rails
 ### Models
@@ -15,6 +15,6 @@ Api::UsersController (search)
 ### Collections
 
 ### Views
-* SearchResultsShow (composite view, contains Profile subview)
+* [ ] SearchResultsShow (composite view, contains Profile subview)
 
 ## Gems/Libraries

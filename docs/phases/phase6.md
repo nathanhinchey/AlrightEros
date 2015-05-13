@@ -1,4 +1,4 @@
-# Phase 5: Searching for Blogs and Posts
+# Phase 6: Searching for Blogs and Posts
 
 ## Rails
 ### Models
