@@ -10,12 +10,12 @@
 <header>
   <% if current_user %>
     Hello, <%= current_user.email %>!
+    <form class="logout" action="<%= session_url %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <%= authentic_form %>
+      <button>Log Out</button>
+    </form>
   <% end %>
-  <form class="logout" action="<%= session_url %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <%= authentic_form %>
-    <button>Log Out</button>
-  </form>
 </header>
 <%= yield %>
 
