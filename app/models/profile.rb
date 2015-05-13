@@ -16,5 +16,6 @@ class Profile < ActiveRecord::Base
     def must_be_adult
       if birthday - Date.today < 18
         errors.add(:age, "must be 18 or over")
+      end
     end
 end
