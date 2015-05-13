@@ -22,10 +22,10 @@ column name         | data type | details
 id                  | integer   | not null, primary key
 user_id             | integer   | not null, foreign key
 username            | string    | not null, unique
-orientation         | integer   | not null, foreign key
+<!-- orientation         | integer   | not null, foreign key -->
 birthday            | date      | not null
 self_summary        | text      |
-relationship_status | integer   | foreign key
+<!-- relationship_status | integer   | foreign key -->
 
 ##relationship_statuses
 column name     | data type | details
