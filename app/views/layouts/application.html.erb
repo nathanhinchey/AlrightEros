@@ -16,6 +16,9 @@
       <%= authentic_form %>
       <button>Log Out</button>
     </form>
+  <% else %>
+    <a href="/session/new">Log In</a>
+    <a href="/users/new">Sign Up</a>
   <% end %>
 </header>
 <%= yield %>
