@@ -19,10 +19,10 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
   * [x] *Controllers*
   * [ ] *Views*
 - [ ] **Edit profile**
-  * [ ] *use "summary" text area*
+  * [x] *use "summary" text area*
   * [ ] *use "looking for" drop down*
   * [ ] *use "gender" drop down*
-  * [ ] *use "birthday" calendar field*
+  * [x] *use "birthday" calendar field*
   * [ ] *upload photo*
 - [ ] **View profiles**
 - [ ] **Answer questions**

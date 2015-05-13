@@ -1,12 +1,18 @@
 class Profile < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
-  validates :birthday, presence: true
+  validates :user_id, presence: true, uniqueness: true
 
-  validate :must_have_at_least_one_gender
+  # validate :must_have_at_least_one_gender #TODO: include this
   validate :must_be_adult
 
   has_many :profile_genders, dependent: :destroy
   has_many :genders, through: :profile_genders, source: :genders
+  
+  def age
+    age = Date.today.year - birthday.year
+    age -= 1 if Date.today < birthday + age.years
+    #for days before birthday
+  end
 
   private
     def must_have_at_least_one_gender
@@ -16,7 +22,9 @@ class Profile < ActiveRecord::Base
     end
 
     def must_be_adult
-      if birthday - Date.today < 18
+      if birthday.class != Date
+        errors.add(:birthday, "must be specified")
+      elsif age < 18.years
         errors.add(:age, "must be 18 or over")
       end
     end

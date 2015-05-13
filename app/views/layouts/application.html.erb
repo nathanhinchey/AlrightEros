@@ -21,6 +21,11 @@
     <a href="/users/new">Sign Up</a>
   <% end %>
 </header>
+<% if flash[:errors] %>
+  <script>
+    alert("<%= flash[:errors][0] %>")
+  </script>
+<% end %>
 <%= yield %>
 
 </body>
