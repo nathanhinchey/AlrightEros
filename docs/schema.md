@@ -24,7 +24,7 @@ user_id             | integer   | not null, foreign key
 username            | string    | not null, unique
 orientation         | integer   | not null, foreign key
 birthday            | date      | not null
-self-summary        | text      |
+self_summary        | text      |
 relationship_status | integer   | foreign key
 
 ##relationship_statuses
