@@ -1,8 +1,8 @@
 # AlrightEros
 
-<!-- [Heroku link][heroku] -->
+[Heroku link][heroku]
 
-<!-- [heroku]: http:// MY URL WILL GO HERE  .herokuapp.com -->
+[heroku]: http://alrighteros.herokuapp.com
 
 ## Minimum Viable Product
 This site will be a clone of OkCupid built on Rails and using Backbone.
