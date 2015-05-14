@@ -3,28 +3,34 @@
 ## Rails
 ### Models
 * [x] Profile
-* [ ] User (add profile verification)
 * [ ] Gender
 
 ### Controllers
-* [ ] ProfilesController (create, edit, show)
+* [ ] Api::ProfilesController
+  - [ ] create
+  - [ ] edit
+  - [x] show
+  - [ ] index
 
 ### Views
-* [x] profile/new.html.erb
-* [ ] profile/edit.html.erb
-* [x] profile/show.html.erb
+<!-- * [x] profile/show.html.erb -->
+<!-- * [x] profile/index.html.erb -->
+<!--  -->
+* [x] api/profiles/show.json.jbuilder
+* [x] api/profiles/index.json.jbuilder
+
 
 ## Backbone
 ### Models
 * [ ] User
-* [ ] Profile
+* [x] Profile
 
 ### Collections
-* [ ] Profiles
+* [x] Profiles
 
 ### Views
 * [x] Profile show
-* [ ] Profile new
+* [x] Profile new
 * [ ] Profile edit
 * [x] Profile index
 

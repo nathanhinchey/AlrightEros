@@ -2,18 +2,18 @@ class Api::ProfilesController < ApplicationController
 
   def index
     unless current_user && current_user.profile
-      redirect_to new_user_url
+      head :forbidden
     else
       @profiles = Profile.all
       render :index
     end
   end
 
-  def new
-    @profile = Profile.new
-    render :new
-    #find current user by session token?
-  end
+  # def new
+  #   @profile = Profile.new
+  #   render :new
+  #   #find current user by session token?
+  # end
 
   def create
     user_id = Session
@@ -34,8 +34,12 @@ class Api::ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-    render :show
+    unless current_user && current_user.profile
+      head :forbidden
+    else
+      @profile = Profile.find(params[:id])
+      render :show
+    end
   end
 
   private
