@@ -9,11 +9,14 @@ class Api::ProfilesController < ApplicationController
     end
   end
 
-  # def new
-  #   @profile = Profile.new
-  #   render :new
-  #   #find current user by session token?
-  # end
+  def show
+    unless current_user && current_user.profile
+      head :forbidden
+    else
+      @profile = Profile.find(params[:id])
+      render :show
+    end
+  end
 
   def create
     user_id = Session
@@ -23,22 +26,9 @@ class Api::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = user_id
     if @profile.save
-      redirect_to root_url
+      render json: @profile #TODO make a template
     else
-      flash.now[:errors] = @profile.errors.full_messages
-      render :new
-    end
-  end
-
-  def edit
-  end
-
-  def show
-    unless current_user && current_user.profile
-      head :forbidden
-    else
-      @profile = Profile.find(params[:id])
-      render :show
+      render json: @profile.errors.full_messages, status: 422
     end
   end
 

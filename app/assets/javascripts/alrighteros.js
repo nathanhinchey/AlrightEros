@@ -5,7 +5,7 @@ window.AlrightEros = {
   Routers: {},
   initialize: function() {
     new AlrightEros.Routers.Router({
-      $rootEl: $("#main-view")
+      $rootEl: $(".main-view")
     })
     Backbone.history.start();
   }
