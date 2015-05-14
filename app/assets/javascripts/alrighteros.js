@@ -5,9 +5,19 @@ window.AlrightEros = {
   Routers: {},
   initialize: function() {
     new AlrightEros.Routers.Router({
-      $rootEl: $(".main-view")
+      $rootEl: $("#main-view")
     })
-    Backbone.history.start();
+      this.currentUser = new AlrightEros.Models.CurrentUser();
+      this.currentUser.fetch();
+
+      this.header = new AlrightEros.Views.Header({
+        el: "#top-header"
+      });
+      this.router = new AlrightEros.Routers.Router({
+        $rootEl: $("#main-view")
+      });
+
+      Backbone.history.start();
   }
 };
 
