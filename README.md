@@ -2,12 +2,14 @@
 
 [Heroku link][heroku]
 
+## TODO for tomorrow (W8D4):
+* Make Backbone show views for profile
+* Make Api view for profiles
+
 [heroku]: http://alrighteros.herokuapp.com
 
 ## Minimum Viable Product
 This site will be a clone of OkCupid built on Rails and using Backbone.
-
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
 ###MVP Proposal:
 - [ ] **Create accounts**
