@@ -1,5 +1,9 @@
 # OkCupid Clone
 
+## TODO for tomorrow (W8D4):
+* Make Backbone show views for profile
+* Make Api view for profiles
+
 <!-- [Heroku link][heroku] -->
 
 <!-- [heroku]: http:// MY URL WILL GO HERE  .herokuapp.com -->
