@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create, :edit, :show, :index]
   namespace :api, defaults: {format: :json} do
     resources :profiles
+    resource :session
   end
 end

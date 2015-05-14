@@ -4,7 +4,7 @@
 
 ## TODO for tomorrow (W8D4):
 * Make Backbone show views for profile
-* Make Api view for profiles
+* Make Api show view for profiles
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial
@@ -15,14 +15,12 @@
 This site will be a clone of OkCupid built on Rails and using Backbone.
 
 ###MVP Proposal:
-- [ ] **Create accounts**
+- [x] **Create accounts**
   * [x] *Models*
   * [x] *Controllers*
-  * [ ] *Views*
-- [ ] **Create sessions (log in)**
+- [x] **Create sessions (log in)**
   * [x] *Models*
   * [x] *Controllers*
-  * [ ] *Views*
 - [ ] **Edit profile**
   * [x] *use "summary" text area*
   * [ ] *use "looking for" drop down*

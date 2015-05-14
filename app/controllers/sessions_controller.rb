@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_filter :require_not_signed_in, only: :new
-  
+
   def create
     user = User.find_by_credentials(
       params[:user][:email],
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def new
-    @url = session_url
+    @postUrl = session_url
   end
 
   def destroy

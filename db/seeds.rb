@@ -31,3 +31,17 @@ tomatoprofile = Profile.create!({
   birthday: Date.today - 48.years
 
   })
+
+100.times do
+  temp = User.create!({
+    email: Faker::Internet.email,
+    password: 'password'
+    })
+
+  Profile.create! ({
+    user_id: temp.id,
+    username: Faker::Internet.domain_word + "_" + SecureRandom.urlsafe_base64(2),
+    summary: Faker::Lorem.paragraph,
+    birthday: Faker::Date.between(18.years.ago, 99.years.ago)
+    })
+end

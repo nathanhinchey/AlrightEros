@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_filter :require_not_signed_in, only: :new
-  
+
   def new
     @user = User.new
-    @url = users_url
+    @postUrl = users_url
     render :new
   end
 

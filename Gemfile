@@ -14,6 +14,7 @@ gem 'backbone-on-rails'
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
+  gem 'faker'
   gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
