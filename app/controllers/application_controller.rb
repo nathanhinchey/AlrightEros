@@ -24,4 +24,12 @@ class ApplicationController < ActionController::Base
     return false unless @current_user
     !!@current_user.profile
   end
+
+  def require_signed_in
+    redirect_to new_user_url unless current_user
+  end
+
+  def require_not_signed_in
+    redirect_to root_url unless !current_user
+  end
 end

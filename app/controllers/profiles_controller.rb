@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :require_signed_in
   def index
     unless current_user && current_user.profile
       redirect_to new_user_url

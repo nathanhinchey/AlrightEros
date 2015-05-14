@@ -5,8 +5,4 @@ class MainController < ApplicationController
     render :index
   end
 
-  private
-    def require_signed_in
-      redirect_to new_user_url unless current_user
-    end
 end
