@@ -1,20 +1,30 @@
 AlrightEros.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-    this.profiles = new AlrightEros.Collections.Profiles();
-    this.profiles.fetch();
+    AlrightEros.profiles = new AlrightEros.Collections.Profiles();
   },
 
   routes: {
-    "": "profilesIndex"
+    "": "profilesIndex",
+    "profiles/:id": "profileShow"
   },
 
   profilesIndex: function () {
+    AlrightEros.profiles.fetch();
     var indexView = new AlrightEros.Views.ProfilesIndex ({
-      collection: this.profiles
-    })
+      collection: AlrightEros.profiles
+    });
 
-    this._swapViews(indexView)
+    this._swapViews(indexView);
+  },
+
+  profileShow: function (id) {
+    var profile = AlrightEros.profiles.getOrFetch(id);
+    var showView = new AlrightEros.Views.ProfileShow ({
+      model: profile
+    });
+
+    this._swapViews(showView);
   },
 
   _swapViews: function (newView) {

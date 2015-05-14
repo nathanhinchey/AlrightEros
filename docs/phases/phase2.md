@@ -25,6 +25,6 @@
 ### Views
 * [ ] Profile show
 * [ ] Profile new
-* [ ] Profile index
+* [x] Profile index
 
 ## Gems/Libraries

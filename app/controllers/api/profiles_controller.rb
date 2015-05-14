@@ -1,7 +1,4 @@
 class Api::ProfilesController < ApplicationController
-  def landing
-    render :landing, format: :html
-  end
 
   def index
     unless current_user && current_user.profile

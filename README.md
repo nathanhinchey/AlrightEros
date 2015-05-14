@@ -6,6 +6,9 @@
 * Make Backbone show views for profile
 * Make Api view for profiles
 
+##General TODOs (most refactoring):
+* Break profile overview (username, gender, age) into a partial
+
 [heroku]: http://alrighteros.herokuapp.com
 
 ## Minimum Viable Product
