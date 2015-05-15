@@ -36,7 +36,7 @@ AlrightEros.Views.SignIn = Backbone.View.extend({
     });
   },
 
-  signInCalback: function (event) {
+  signInCallback: function (event) {
     if (this.callback) {
       this.callback();
     }

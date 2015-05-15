@@ -15,7 +15,7 @@ AlrightEros.Views.Header = Backbone.View.extend({
 
   template: JST['shared/header'],
 
-  render: funtion () {
+  render: function () {
     var content = this.template({
       currentUser: AlrightEros.currentUser
     });

@@ -2,7 +2,7 @@ class Api::ProfilesController < ApplicationController
 
   def index
     unless current_user && current_user.profile
-      head :forbidden
+      render json: {}
     else
       @profiles = Profile.all
       render :index

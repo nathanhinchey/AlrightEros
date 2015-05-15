@@ -4,7 +4,7 @@ window.AlrightEros = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new AlrightEros.Routers.Router({
+    new AlrightEros.Routers.Profiles({
       $rootEl: $("#main-view")
     })
       this.currentUser = new AlrightEros.Models.CurrentUser();
@@ -13,7 +13,7 @@ window.AlrightEros = {
       this.header = new AlrightEros.Views.Header({
         el: "#top-header"
       });
-      this.router = new AlrightEros.Routers.Router({
+      this.router = new AlrightEros.Routers.Profiles({
         $rootEl: $("#main-view")
       });
 

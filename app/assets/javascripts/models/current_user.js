@@ -5,15 +5,20 @@ AlrightEros.Models.CurrentUser = Backbone.Model.extend({
     this.listenTo(this, "change", this.fireSessionEvent);
   },
 
+  // toJSON: function(){
+  //   var json = { user: _.clone(this.attributes) };
+  //   return json;
+  // },
+
   isSignedIn: function (options) {
     return !this.isNew();
   },
 
   signIn: function (options) {
     var model = this;
-    var credentials - {
+    var credentials = {
       "user[email]": options.email,
-      "user[password]": options.pasword
+      "user[password]": options.password
     };
 
     $.ajax({

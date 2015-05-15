@@ -1,15 +1,17 @@
-AlrightEros.Routers.Router = Backbone.Router.extend({
+AlrightEros.Routers.Profiles = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
   },
 
   routes: {
-    "": "profilesIndex",
-    "profiles/:id": "profileShow"
+    "": "index",
+    "profiles/:id": "show"
   },
 
-  profilesIndex: function () {
+  index: function () {
+    if (!this._requireSignedIn()) { return; }
+
     AlrightEros.profiles.fetch();
     var indexView = new AlrightEros.Views.ProfilesIndex ({
       collection: AlrightEros.profiles
@@ -18,7 +20,9 @@ AlrightEros.Routers.Router = Backbone.Router.extend({
     this._swapViews(indexView);
   },
 
-  profileShow: function (id) {
+  show: function (id) {
+    if (!this._requireSignedIn()) { return; }
+
     var profile = AlrightEros.profiles.getOrFetch(id);
     var showView = new AlrightEros.Views.ProfileShow ({
       model: profile

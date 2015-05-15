@@ -15,7 +15,7 @@ class Api::SessionsController < ApplicationController
     if user.nil?
       head :unprocessable_entity
     else
-      sign_in!(user)
+      login!(user)
       render :show
     end
   end
@@ -25,7 +25,7 @@ class Api::SessionsController < ApplicationController
       session_token: session[:session_token]
     )
     @session.destroy()
-    
+
     render json: {}
   end
 end
