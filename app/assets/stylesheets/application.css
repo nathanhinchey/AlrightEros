@@ -28,26 +28,12 @@ html, body, p, h1, h2, h3, a, form, input, button {
 }
 
 body {
-  font-family: sans-serif;
-  background: #15a;
-}
-
-button {
-  border: 1px solid purple;
-  background-color: lightgreen;
-  color: purple;
-  cursor: pointer;
-}
-
-input {
-  border: 1px dotted green;
-  background: yellow;
+  font-family: "Verdana", sans-serif;
+  background: #049;
 }
 
 h1 {
-  font-size: 200%;
-  color: red;
-  outline: 1px solid red;
+
 }
 
 h2 {
@@ -68,12 +54,61 @@ p {
   outline: 1px solid black;
 }
 
+#top-header {
+  height: 30px;
+  background: #aaa;
+  border-bottom: 2px solid #008;
+}
+
+/*   FORM   */
+
 form {
-  outline: 1px solid darkblue;
+  font-size: 24px;
+  background: #15a;
+  display: block;
+  color: darkblue;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  text-align: center;
+  width: 800px;
+  padding: 30px;
+  /* border: 1px solid darkblue; */
+  border-radius: 5px;
+  box-shadow: 0 0 7px darkblue;
+}
+
+form > h1 {
+  font-size: 48px;
+  margin-bottom: 70px;
+}
+
+button {
+  display: block;
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  cursor: pointer;
+  padding: 3px;
+  box-shadow:  0 0 7px lightblue;
+
+  border-radius: 2px;
+  /* background-color: darkblue; */
   color: darkblue;
 }
 
-#top-header {
+input {
+  font-size: 20px;
+  border-radius: 2px;
+  background: #ADD8E6;
+  margin-left: 10px;
+  margin-right: 10px;
   height: 30px;
-  background: #88b;
+  width: 250px;
+  box-shadow: 0 0 7px darkblue;
+  padding: 0px;
+}
+
+label {
 }
