@@ -29,7 +29,7 @@ html, body, p, h1, h2, h3, a, form, input, button {
 
 body {
   font-family: sans-serif;
-  background: lightpink;
+  background: #15a;
 }
 
 button {
@@ -71,4 +71,8 @@ p {
 form {
   outline: 1px solid darkblue;
   color: darkblue;
+}
+
+#top-header {
+  height: 30px;
 }
