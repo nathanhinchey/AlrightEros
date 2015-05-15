@@ -25,7 +25,6 @@ window.AlrightEros = {
   }
 };
 
-
 $(document).ready(function(){
   AlrightEros.initialize();
 });
