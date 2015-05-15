@@ -28,7 +28,7 @@ AlrightEros.Views.Header = Backbone.View.extend({
     event.preventDefault();
     AlrightEros.currentUser.signOut({
       success: function () {
-        Backbone.history.navigate("session/new", {trigger: true})
+        Backbone.history.navigate("", {trigger: true})
       }
     });
   }

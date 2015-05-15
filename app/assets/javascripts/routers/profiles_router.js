@@ -6,11 +6,13 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
 
   routes: {
     "": "index",
+    "profiles/new": "new",
     "profiles/:id": "show"
   },
 
   index: function () {
     if (!this._requireSignedIn()) { return; }
+    if (!this._requireHasProfile()) { return; }
 
     AlrightEros.profiles.fetch();
     var indexView = new AlrightEros.Views.ProfilesIndex ({
@@ -22,6 +24,7 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
 
   show: function (id) {
     if (!this._requireSignedIn()) { return; }
+    if (!this._requireHasProfile()) { return; }
 
     var profile = AlrightEros.profiles.getOrFetch(id);
     var showView = new AlrightEros.Views.ProfileShow ({
