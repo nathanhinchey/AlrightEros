@@ -33,9 +33,12 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
   logout: function () {
     if (!this._requireSignedOut()) { return; }
 
-    Backbone.history.navigate("");
+    Backbone.history.navigate("goodbye");
     var logOutView = new AlrightEros.Views.LogOut({});
 
     this._swapViews(logOutView);
+    setTimeout(function () {
+      Backbone.history.navigate("", {trigger: true})
+    }, 10000);
   }
 })
