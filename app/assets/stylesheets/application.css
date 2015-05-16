@@ -59,7 +59,9 @@ p {
   color: black;
   outline: 1px solid black;
 }
+
 /*    MAIN    */
+
 #main-view {
   width: 900px;
   padding: 50px;
@@ -100,7 +102,6 @@ form {
   margin-right: auto;
   margin-top: 200px;
   text-align: center;
-  /* width: 800px; */
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 7px darkblue;
