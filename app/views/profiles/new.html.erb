@@ -1,0 +1,18 @@
+<h1>Create your profile!</h1>
+<form class="profile" action="<%= profiles_url %>" method="post">
+  <%= authentic_form %>
+  <label for="profile-username">Username</label>
+  <input type="text" name="profile[username]" id="profile-username">
+
+  <label for="profile-summary">Self Summary</label>
+  <textarea
+    name="profile[summary]"
+    id="profile-summary">
+  </textarea>
+
+  <label for="profile-birthday">Birthday</label>
+  <input type="date" name="profile[birthday]" id="profile-birthday">
+
+  <button>Save!</button>
+
+</form>

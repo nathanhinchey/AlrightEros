@@ -1,0 +1,10 @@
+<h1>All the users!</h1>
+<ul>
+<% @profiles.each do |profile| %>
+  <li>
+    <a href="<%= profiles_url + "/" + profile.id.to_s %>">
+      <%= profile.username %>
+    </a>
+  </li>
+<% end %>
+</ul>
