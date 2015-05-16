@@ -59,12 +59,12 @@ I will implement a basic text interface for updating user profiles. Users will b
 [Details][phase-two]
 
 ### Phase 3: Answering Questions (~1 day)
-I will implement a question answer form in Rails that displays a simple text version of questions and there corresponding answer choices, and lets logged in users create new QuestionAnswers. Also allows users to edit their existing QuestionAnswers.
+I will implement a question answer form that displays a questions and their corresponding answer choices, and lets logged in users create new QuestionAnswers. Also allows users to edit their existing QuestionAnswers.
 
 [Details][phase-three]
 
 ### Phase 4: Editing and User Profiles and Questions (~2 days)
-I'll build all the connections for questions and profiles between Rails and Backbone. Users can view question answers and other users' profiles in a mostly single page JavaScript application. User login and signup will still be directly connected to the backend, but all other functions pushed to the front end.
+I'll build all the connections for questions and profiles between Rails and Backbone. Users can view question answers and other users' profiles in a mostly single page JavaScript application.
 
 [Details][phase-four]
 
@@ -73,7 +73,7 @@ I'll integrate a search function that allows users to search for other users by 
 
 [Details][phase-five]
 
-### Phase 6: Uploading Images (~2 days)
+### Phase 6: Uploading Images (~1 day)
 I'll allow users to upload images. I don't know how to do that yet. I'll figure it out and implement it. I assume that there are libraries for that.
 
 [Details][phase-six]
