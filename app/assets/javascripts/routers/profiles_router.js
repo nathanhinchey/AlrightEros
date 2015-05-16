@@ -37,7 +37,10 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
   },
 
   new: function () {
+    console.log("entered Profiles#new");
     if (!this._requireSignedIn()) { return; }
+    console.log("still in Profiles#new");
+
 
     var profile = new AlrightEros.Models.Profile();
 
