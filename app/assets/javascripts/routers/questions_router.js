@@ -1,4 +1,4 @@
-AlrightEros.Routers.Profiles = Backbone.Router.extend({
+AlrightEros.Routers.Questions = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
