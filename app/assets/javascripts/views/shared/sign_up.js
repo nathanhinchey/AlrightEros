@@ -21,20 +21,12 @@ AlrightEros.Views.SignUp = Backbone.View.extend({
     event.preventDefault();
 
     var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON();
-    // this.model.set(formData);
-    debugger
-    this.model.save(formData, {
-      success: function (response) {
-        console.log("success");
-        debugger
-        AlrightEros.currentUser.fetch(response);
-        Backbone.history.navigate("", {trigger: true})
-      },
-      error: function (response) {
-        alert(response);
-      }
-    })
+    var formData = $form.serializeJSON().user;
+    formData.success = function () {
+      Backbone.history.navigate("", {trigger: true})
+    };
+
+    this.model.signUp(formData);
   },
 
   signInCallback: function (event) {

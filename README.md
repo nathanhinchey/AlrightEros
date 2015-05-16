@@ -8,7 +8,6 @@
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial
-* Figure out which of views/api/sessions and views/api/session is actually being used
 
 [heroku]: http://alrighteros.herokuapp.com
 
