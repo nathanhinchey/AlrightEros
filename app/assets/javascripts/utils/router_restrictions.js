@@ -33,7 +33,7 @@ Backbone.Router.prototype._requireSignedOut = function(callback){
 };
 
 Backbone.Router.prototype._requireHasProfile = function(callback){
-  if (AlrightEros.currentUser.escape(has_profile) === "false") {
+  if (AlrightEros.currentUser.escape("has_profile") === "false") {
     callback = callback || this._go.bind(this, "/profiles/new");
     callback();
     return false;
@@ -49,3 +49,9 @@ Backbone.Router.prototype._goHome = function(){
 Backbone.Router.prototype._go = function(route){
   Backbone.history.navigate(route, { trigger: true });
 };
+
+Backbone.Router.prototype._swapViews = function (newView) {
+  this._currentView && this._currentView.remove();
+  this._view = newView;
+  this.$rootEl.html(newView.render().$el);
+}

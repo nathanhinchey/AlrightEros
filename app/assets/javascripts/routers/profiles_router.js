@@ -32,11 +32,5 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     });
 
     this._swapViews(showView);
-  },
-
-  _swapViews: function (newView) {
-    this._currentView && this._currentView.remove();
-    this._view = newView;
-    this.$rootEl.html(newView.render().$el);
   }
 })

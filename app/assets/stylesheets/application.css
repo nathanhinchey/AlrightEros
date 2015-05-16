@@ -16,24 +16,30 @@
 
 /*reset*/
 
-html, body, p, h1, h2, h3, a, form, input, button {
+html, body, p, h1, h2, h3, a, form, input, button, ul {
   padding: 0;
   margin: 0;
   font-size: 100%;
   font: inherit;
+  color: inherit;
   text-decoration: inherit;
   border: none;
 
   background: transparent;
 }
 
+ul {
+  list-style: none;
+}
+
 body {
   font-family: "Verdana", sans-serif;
   background: #049;
+  color: darkblue;
 }
 
 h1 {
-
+  font-size: 36px;
 }
 
 h2 {
@@ -53,27 +59,49 @@ p {
   color: black;
   outline: 1px solid black;
 }
+/*    MAIN    */
+#main-view {
+  width: 900px;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+/*    HEADER    */
 
 #top-header {
   height: 30px;
   background: #aaa;
   border-bottom: 2px solid #008;
+  padding: 2px;
+  padding-top: 4px;
 }
 
-/*   FORM   */
+#top-header li {
+  display: block;
+  float: left;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+#sign-out-link {
+  display: block;
+  float: left;
+  border-radius: 2px;
+  box-shadow: 0 0 3px darkblue;
+}
+
+/*    FORM    */
 
 form {
   font-size: 24px;
   background: #15a;
   display: block;
-  color: darkblue;
   margin-left: auto;
   margin-right: auto;
   margin-top: 200px;
   text-align: center;
-  width: 800px;
+  /* width: 800px; */
   padding: 30px;
-  /* border: 1px solid darkblue; */
   border-radius: 5px;
   box-shadow: 0 0 7px darkblue;
 }
@@ -83,19 +111,17 @@ form > h1 {
   margin-bottom: 70px;
 }
 
-button {
+.submit {
   display: block;
-  font-size: 24px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
   cursor: pointer;
   padding: 3px;
   box-shadow:  0 0 7px lightblue;
+  width: 120px;
 
   border-radius: 2px;
-  /* background-color: darkblue; */
-  color: darkblue;
 }
 
 input {
@@ -112,3 +138,13 @@ input {
 
 label {
 }
+
+/*    LOGOUT    */
+h1.logout {
+  font-size: 48px;
+  display: block;
+  margin-top: 200px;
+  text-align: center;
+}
+
+/*    PROFILE    */

@@ -2,11 +2,13 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
+    this.listenTo(AlrightEros.currentUser, 'signOut', this.logout)
   },
 
   routes: {
     "signup": "signup",
-    "login": "login"
+    "login": "login",
+    "logout": "logout"
   },
 
   login: function () {
@@ -25,9 +27,12 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
     this._swapViews(signInView);
   },
 
-  _swapViews: function (newView) {
-    this._currentView && this._currentView.remove();
-    this._view = newView;
-    this.$rootEl.html(newView.render().$el);
+  logout: function () {
+    if (!this._requireSignedOut()) { return; }
+
+    Backbone.history.navigate("");
+    var logOutView = new AlrightEros.Views.LogOut({});
+
+    this._swapViews(logOutView);
   }
 })
