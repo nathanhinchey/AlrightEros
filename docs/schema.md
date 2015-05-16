@@ -2,21 +2,21 @@
 
 *Note: I may rework the gender/orientation system*
 
-## users
+## users (created)
 column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
 email               | string    | not null, unique
 password_digest     | string    | not null
 
-## sessions
+## sessions (created)
 column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
 session_token       | string    | not null, unique
 user_id             | string    | not null, foreign key
 
-## profiles
+## profiles (created)
 column name         | data type | details
 --------------------|-----------|-----------------------
 id                  | integer   | not null, primary key
@@ -26,6 +26,30 @@ username            | string    | not null, unique
 birthday            | date      | not null
 self_summary        | text      |
 <!-- relationship_status | integer   | foreign key -->
+
+## questions
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+question_body   | string    | not null, unique
+
+## answers
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+question_id     | integer   | not null, foreign key
+answer_text     | string    | not null
+
+## user_answer_choices
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+user_id            | integer   | not null, foreign key
+answer_id          | integer   | not null, foreign key
+user_choice        | integer   | not null
+acceptable_choices | integer[] | not null  (not sure how best to handle this)
+user_comment       | string    |
+importance         | integer   | not null
 
 ##relationship_statuses
 column name     | data type | details
@@ -59,32 +83,12 @@ column name     | data type | details
 id              | integer   | not null, primary key
 name            | string    | not null, unique
 
-## questions
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-question_body   | string    | not null
-option_1        | string    | not null
-option_2        | string    | not null
-option_3        | string    |
-option_4        | string    |
-
 ## photos
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key
 caption         | string    |
-
-## question_answers
-column name     | data type | details
-----------------|-----------|-----------------------
-id              | integer   | not null, primary key
-user_id         | integer   | not null, foreign key
-question_id     | integer   | not null, foreign key
-user_choice     | integer   | not null
-match_choices   | integer[] | not null  (not sure how best to handle this)
-user_comment    | string    |
 
 ## likes
 column name | data type | details

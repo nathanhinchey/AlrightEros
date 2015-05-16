@@ -32,6 +32,8 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     });
 
     this._swapViews(showView);
+
+    // header stuff
   },
 
   new: function () {
