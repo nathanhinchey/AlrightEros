@@ -3,11 +3,6 @@ AlrightEros.Views.SignUp = Backbone.View.extend({
   initialize: function (options) {
     console.log("I'm initializing");
     this.callback = options.callback;
-    this.listenTo(
-      AlrightEros.currentUser,
-      "signIn",
-      this.signInCallback
-    );
   },
 
   events: {
@@ -26,15 +21,20 @@ AlrightEros.Views.SignUp = Backbone.View.extend({
     event.preventDefault();
 
     var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON().user;
-
-    AlrightEros.currentUser.signIn({
-      email: formData.email,
-      password: formData.password,
-      error: function (){
-        alert("Invalid username or password.")
+    var formData = $form.serializeJSON();
+    this.model.set(formData);
+    debugger
+    this.model.save({}, {
+      success: function (response) {
+        console.log("success");
+        debugger
+        AlrightEros.currentUser.fetch(response);
+        Backbone.history.navigate("", {trigger: true})
+      },
+      error: function (response) {
+        alert(response);
       }
-    });
+    })
   },
 
   signInCallback: function (event) {
@@ -46,3 +46,6 @@ AlrightEros.Views.SignUp = Backbone.View.extend({
     }
   }
 });
+
+// function () {      var base =        _.result(this, 'urlRoot') ||        _.result(this.collection, 'url') ||        urlError();      if (this.isNew()) return base;      return base.replace(/([^//])$/, '$1/') + encodeURIComponent(this.id);    }
+//WTF???????

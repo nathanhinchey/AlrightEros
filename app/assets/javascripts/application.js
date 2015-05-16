@@ -15,7 +15,7 @@
 //= require underscore
 //= require backbone
 //= require jquery.serializejson
-//= require AlrightEros
+//= require alrighteros
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

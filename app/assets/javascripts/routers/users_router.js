@@ -22,9 +22,12 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
   signup: function () {
     if (!this._requireSignedOut()) { return; }
 
-    var signInView = new AlrightEros.Views.SignUp({});
+    var newUser = new AlrightEros.Models.User();
+    var signUpView = new AlrightEros.Views.SignUp({
+      model: newUser
+    });
 
-    this._swapViews(signInView);
+    this._swapViews(signUpView);
   },
 
   logout: function () {
