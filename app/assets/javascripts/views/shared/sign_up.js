@@ -22,9 +22,9 @@ AlrightEros.Views.SignUp = Backbone.View.extend({
 
     var $form = $(event.currentTarget);
     var formData = $form.serializeJSON();
-    this.model.set(formData);
+    // this.model.set(formData);
     debugger
-    this.model.save({}, {
+    this.model.save(formData, {
       success: function (response) {
         console.log("success");
         debugger

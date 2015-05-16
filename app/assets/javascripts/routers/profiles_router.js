@@ -32,5 +32,18 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     });
 
     this._swapViews(showView);
+  },
+
+  new: function () {
+    if (!this._requireSignedIn()) { return; }
+
+    var profile = new AlrightEros.Models.Profile();
+
+    var newView = new AlrightEros.Views.ProfileNew ({
+      model: profile
+    });
+
+    this._swapViews(newView);
+
   }
 })

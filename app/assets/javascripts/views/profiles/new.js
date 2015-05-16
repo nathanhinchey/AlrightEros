@@ -27,6 +27,7 @@ AlrightEros.Views.ProfileNew = Backbone.View.extend({
 
     profile.save({},{
       success: function () {
+        console.log('success');
         AlrightEros.profiles.add(profile);
         Backbone.history.navigate("", {trigger: true});
       }
