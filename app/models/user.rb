@@ -4,12 +4,17 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   #TODO: validate :unique_username
 
+
   attr_reader :password
+
 
   has_many :sessions,
     dependent: :destroy
 
   has_one :profile
+
+  has_many :user_answers, dependent: :destroy
+
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

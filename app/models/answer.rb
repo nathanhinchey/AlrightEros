@@ -4,6 +4,8 @@ class Answer < ActiveRecord::Base
 
   belongs_to :question, inverse_of: :answers
 
+  has_many :user_anwers, dependent: :destroy
+
 
 
 end

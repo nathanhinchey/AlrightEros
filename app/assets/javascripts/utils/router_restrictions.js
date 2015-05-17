@@ -51,7 +51,7 @@ Backbone.Router.prototype._go = function(route){
 };
 
 Backbone.Router.prototype._swapViews = function (newView) {
-  this._currentView && this._currentView.remove();
-  this._view = newView;
+  AlrightEros._currentView && AlrightEros._currentView.remove();
+  AlrightEros._currentView = newView;
   this.$rootEl.html(newView.render().$el);
 }

@@ -31,4 +31,6 @@ AlrightEros.Models.Question = Backbone.Model.extend({
       }
     })
   },
+
+  
 })

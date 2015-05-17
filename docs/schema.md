@@ -40,7 +40,7 @@ id              | integer   | not null, primary key
 question_id     | integer   | not null, foreign key
 answer_text     | string    | not null
 
-## user_answer_choices
+## user_answers
 column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key

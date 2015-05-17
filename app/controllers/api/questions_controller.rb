@@ -13,6 +13,11 @@ class Api::QuestionsController < ApplicationController
     end
   end
 
+  def show
+    @question = Question.find(params[:id])
+    render :show
+  end
+
   private
     def question_params
       params
