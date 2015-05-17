@@ -2,9 +2,10 @@
 
 [Heroku link][heroku]
 
-## TODO for tomorrow (W8D4):
-* Make Backbone show views for profile
-* Make Api show view for profiles
+## TODOs for W8D7:
+* make question answer loop:
+  - question view, renders next q
+* make matching algorithm work
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial
