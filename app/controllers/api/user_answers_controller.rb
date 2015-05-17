@@ -1,6 +1,7 @@
-class UserAnswersController < ApplicationController
+class Api::UserAnswersController < ApplicationController
   def create
-    @user_answer = UserAnser.new(user_answer_params)
+    @user_answer = UserAnswer.new(user_answer_params)
+    @user_answer.user_id = 1 #HACK TODO FIXME (this is just for testing)
     if @user_answer.save
       render json: @user_answer
     else
@@ -9,6 +10,8 @@ class UserAnswersController < ApplicationController
   end
 
   def index
+    @user_answers = User.find(params[:user_id]).user_answers
+    render :index
   end
 
   private
