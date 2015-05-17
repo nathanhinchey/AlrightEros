@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_one :profile
 
   has_many :user_answers, dependent: :destroy
+  has_many :questions, through: :user_answers, source: :question
 
 
   def self.find_by_credentials(email, password)

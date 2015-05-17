@@ -1,0 +1,21 @@
+<h1>Answer Questions</h1>
+<p>
+  <%= question.escape("question_body") %>
+</p>
+
+<% console.log("question.get('answers') = ");%>
+<% console.log(question.get("answers")); %>
+<% console.log(question.escape("id")) %>
+<% question.get("answers") && question.get("answers").forEach(function(answer){ %>
+  <label
+    for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+    <%= _.escape(answer.answer_text) %>
+  </label>
+  <input
+    type="radio"
+    name="user_answer[answer_id]"
+    value="<%= _.escape(answer.id) %>"
+    id="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+<% }); %>
+
+<button>Save Answer</button>

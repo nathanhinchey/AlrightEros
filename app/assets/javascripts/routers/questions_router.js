@@ -5,7 +5,8 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
   },
 
   routes: {
-    "questions/new": "new"
+    "questions/new": "new",
+    "questions/:id/answer": "answer"
   },
 
   new: function () {
@@ -21,5 +22,15 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
 
     this._swapViews(newView);
 
+  },
+
+  answer: function(id) {
+    var question = new AlrightEros.Models.Question({id: id})
+    question.fetch();
+    var answerView = new AlrightEros.Views.QuestionAnswerForm({
+      model: question
+    })
+
+    this._swapViews(answerView)
   }
 })
