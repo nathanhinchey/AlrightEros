@@ -2,7 +2,10 @@ class Api::UserAnswersController < ApplicationController
   def create
     @user_answer = UserAnswer.new(user_answer_params)
     @user_answer.user_id = current_user.id
-    if @user_answer.save
+
+    if params[:user_id].to_i != current_user.id
+      head status: :forbidden
+    elsif @user_answer.save
       render json: @user_answer
     else
       render json: @user_answer.errors.full_messages

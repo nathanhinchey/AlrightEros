@@ -1,5 +1,5 @@
 AlrightEros.Models.Question = Backbone.Model.extend({
-  url: 'api/questions/',
+  urlRoot: 'api/questions/',
 
   createQuestion: function (options) {
     // var model = this;
@@ -9,7 +9,7 @@ AlrightEros.Models.Question = Backbone.Model.extend({
     // };
 
     $.ajax({
-      url: this.url,
+      url: this.url(),
       type: "POST",
       data: options,
       dataType: "json",

@@ -1,26 +1,26 @@
-AlrightEros.Models.Answer = Backbone.Model.extend({
+AlrightEros.Models.UserAnswer = Backbone.Model.extend({
 
   initialize: function (options) {
     this.question_id = options.question_id
   },
 
   url: function(){
-    var _url = "/api/users/" + AlrightEros.currentUser.id + "/answers"
+    return "/api/users/" + AlrightEros.currentUser.id + "/user_answers"
   },
 
-  createUserAnswer: function (options) {
+  submitUserAnswer: function (options) {
 
     $.ajax({
-      url: this.url,
+      url: this.url(),
       type: "POST",
       data: options,
       dataType: "json",
       success: function (responseData) {
-        console.log("");
-        console.log(responseData);
+        //the options here are the options passed in to createUserAnswer
+        options.success && options.success();
       },
       error: function () {
-        //the options here are the options passed in to signIn
+        //the options here are the options passed in to createUserAnswer
         options.error && options.error();
       }
     })
