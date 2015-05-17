@@ -6,12 +6,14 @@
 * [ ] make question answer loop:
   - [x] See question
   - [ ] When you click "submit", it verifies
+  - [x] Answer gets stored in DB
   - [ ] If there are no errors, display the next question
 
 * [ ] Front end for users
   - [ ] Make user partial for index
   - [ ] Improve user show view
 
+Stretch goals:
 * [ ] add "acceptable answers" to question answers
   - [ ] figure out how best to store them
   - [ ] add them to answer form
@@ -19,6 +21,12 @@
 * [ ] make matching algorithm work
   - [ ] *back end*: compare answers to each other
   - [ ] *front end*: display match percentages
+
+## TODOs for W9D1:
+* [ ] Image upload
+Stretch goals:
+* [ ] Pagination
+* [ ] Search
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial
@@ -42,10 +50,11 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
   * [x] *use "birthday" calendar field*
   * [ ] *upload photo*
 - [ ] **View profiles**
+  * [ ] *nice looking show view*
+  * [ ] *partials for index view*
 - [ ] **Answer questions**
-- [ ] **See other users**
-  * [ ] *See summary text*
-  * [ ] *See question answers*
+  * [x] *Ability to write own answers to questions*
+  * [ ] *Ability to view other users' answers to questions*
 - [ ] **Search Users**
   * [ ] *by gender*
   * [ ] *by age*

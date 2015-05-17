@@ -159,3 +159,13 @@ h1.logout {
 }
 
 /*    PROFILE    */
+.profiles-list > .profile-snapshot {
+  display: block;
+  border: 1px solid darkblue;
+  margin: 5px;
+  width: 200px;
+}
+
+.profiles-list h1 {
+  font-size: 16px;
+}
