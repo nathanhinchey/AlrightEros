@@ -3,9 +3,22 @@
 [Heroku link][heroku]
 
 ## TODOs for W8D7:
-* make question answer loop:
-  - question view, renders next q
-* make matching algorithm work
+* [ ] make question answer loop:
+  - [ ] See question
+  - [ ] When you click "submit", it verifies
+  - [ ] If there are no errors, display the next question
+
+* [ ] Front end for users
+  - [ ] Make user partial for index
+  - [ ] Improve user show view
+
+* [ ] add "acceptable answers" to question answers
+  - [ ] figure out how best to store them
+  - [ ] add them to answer form
+
+* [ ] make matching algorithm work
+  - [ ] *back end*: compare answers to each other
+  - [ ] *front end*: display match percentages
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial
