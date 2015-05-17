@@ -8,8 +8,8 @@ AlrightEros.Views.QuestionAnswerForm = Backbone.View.extend({
   },
 
   events: {
-    "submit form" = "submit"
-  }
+    "submit form": "submit"
+  },
 
   render: function() {
     var content = this.template({
@@ -25,6 +25,6 @@ AlrightEros.Views.QuestionAnswerForm = Backbone.View.extend({
 
     var formData = this.$el.serializeJSON();
 
-    
+
   }
 });

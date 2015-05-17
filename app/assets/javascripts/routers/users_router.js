@@ -38,7 +38,9 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
 
     this._swapViews(logOutView);
     setTimeout(function () {
-      Backbone.history.navigate("", {trigger: true})
+      if (Backbone.history.location.hash == "#/goodbye"){
+        Backbone.history.navigate("", {trigger: true})
+      }
     }, 10000);
   }
 })
