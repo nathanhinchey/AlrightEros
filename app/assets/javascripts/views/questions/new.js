@@ -1,6 +1,6 @@
 AlrightEros.Views.QuestionNew = Backbone.View.extend({
   initialize: function (options){
-    this.listenTo(this.model, 'sync', this.render)
+    // this.listenTo(this.model, 'sync', this.render)
   },
 
   tagName: "form",
@@ -8,7 +8,7 @@ AlrightEros.Views.QuestionNew = Backbone.View.extend({
   template: JST['questions/new'],
 
   events: {
-    'click submit': 'submit'
+    'click button': 'submit'
   },
 
   render: function () {
@@ -20,5 +20,10 @@ AlrightEros.Views.QuestionNew = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
+
+    questionData = this.$el.serializeJSON();
+    this.model.createQuestion(questionData)
   }
+
+
 });

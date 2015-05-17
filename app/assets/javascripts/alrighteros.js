@@ -20,6 +20,9 @@ window.AlrightEros = {
     this.router = new AlrightEros.Routers.Users({
       $rootEl: $("#main-view")
     });
+    this.router = new AlrightEros.Routers.Questions({
+      $rootEl: $("#main-view")
+    });
 
     Backbone.history.start();
   }

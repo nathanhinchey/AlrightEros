@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :profiles
     resource :session
     resources :users, only: [:create]
+    resources :questions, only: [:create]
   end
 
   # resources :users, only: [:new, :create, :destroy, :index]

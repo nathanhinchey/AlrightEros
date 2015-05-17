@@ -9,7 +9,9 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
   },
 
   new: function () {
-    if (!this._requireSignedIn()) { return; }
+    console.log("top of Questions#new (router)");
+    // if (!this._requireSignedIn()) { return; }
+    // console.log("Questions#new (router) after requireSignedIn");
 
     var question = new AlrightEros.Models.Question();
 
