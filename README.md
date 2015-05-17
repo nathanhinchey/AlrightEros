@@ -4,7 +4,7 @@
 
 ## TODOs for W8D7:
 * [ ] make question answer loop:
-  - [ ] See question
+  - [x] See question
   - [ ] When you click "submit", it verifies
   - [ ] If there are no errors, display the next question
 
