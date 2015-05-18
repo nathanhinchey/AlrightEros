@@ -26,6 +26,7 @@ Stretch goals:
 ## TODOs for W9D1:
 * [ ] Ask questions:
   - [ ] How should I store "acceptable answers"? ANOTHER join table?
+  - [ ] Why would I use `_.clone(this.attribtues)` not `this.attributes`?
 * [x] Resolve issues:
   - [x] Why does sign-in flash?
   - [x] Why can't I navigate directly to #/profiles/:id ?
