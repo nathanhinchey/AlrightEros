@@ -26,9 +26,9 @@ Stretch goals:
 ## TODOs for W9D1:
 * [ ] Ask questions:
   - [ ] How should I store "acceptable answers"? ANOTHER join table?
-* [ ] Resolve issues:
-  - [ ] Why does sign-in flash?
-  - [ ] Why can't I navigate directly to #/profiles/:id ?
+* [x] Resolve issues:
+  - [x] Why does sign-in flash?
+  - [x] Why can't I navigate directly to #/profiles/:id ?
 * [ ] Image upload
 
 Stretch goals:
@@ -61,8 +61,9 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
   * [ ] *nice looking show view*
   * [ ] *partials for index view*
 - [ ] **Answer questions**
-  * [x] *Ability to write own answers to questions*
-  * [ ] *Ability to view other users' answers to questions*
+  * [x] *Users can write questions*
+  * [x] *Users can give answers to questions*
+  * [ ] *Users can view other users' answers to questions*
 - [ ] **Search Users**
   * [ ] *by gender*
   * [ ] *by age*

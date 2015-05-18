@@ -1,0 +1,74 @@
+
+/*    FORM    */
+fieldset.text-input {
+  margin: 0 auto;
+  width: 500px;
+  display: block;
+  padding: 20px;
+  text-align: right;
+}
+
+fieldset > input {
+  display: block;
+  float: right;
+}
+
+fieldset > label {
+  padding-right: 20px;
+}
+
+form {
+  font-size: 24px;
+  background: #15a;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px darkblue;
+}
+
+form > h1 {
+  font-size: 48px;
+  margin-bottom: 70px;
+}
+
+h1.logo {
+  display: block;
+  text-align: center;
+}
+
+.welcome-message {
+  display: block;
+  text-align: center;
+}
+
+.submit {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  cursor: pointer;
+  padding: 3px;
+  box-shadow:  0 0 7px lightblue;
+  width: 120px;
+
+  border-radius: 2px;
+}
+
+input {
+  font-size: 20px;
+  border-radius: 2px;
+  background: #ADD8E6;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 30px;
+  width: 250px;
+  box-shadow: 0 0 7px darkblue;
+  padding: 0px;
+}
+
+label {
+}

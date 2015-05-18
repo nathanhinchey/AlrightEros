@@ -7,15 +7,17 @@
 <% console.log(question.get("answers")); %>
 <% console.log(question.escape("id")) %>
 <% question.get("answers") && question.get("answers").forEach(function(answer){ %>
-  <label
-    for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
-    <%= _.escape(answer.answer_text) %>
-  </label>
-  <input
-    type="radio"
-    name="user_answer[answer_id]"
-    value="<%= _.escape(answer.id) %>"
-    id="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+  <fieldset class="input group">
+    <label
+      for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+      <%= _.escape(answer.answer_text) %>
+    </label>
+    <input
+      type="radio"
+      name="user_answer[answer_id]"
+      value="<%= _.escape(answer.id) %>"
+      id="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+    </fieldset>
 <% }); %>
 
 <button>Save Answer</button>

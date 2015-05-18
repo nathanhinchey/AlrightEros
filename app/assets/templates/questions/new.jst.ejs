@@ -1,12 +1,25 @@
 <h1>Write a question</h1>
 
-<label for="question-question-body">Question body</label>
-<input type="text" name="question[question_body]" id="question-question-body">
+<fieldset class="textarea group">
+  <label for="question-question-body">Question body</label>
+  <textarea name="question[question_body]" id="question-question-body">
+  </textarea>
+</fieldset>
 
-<label for="answer-answer-text">Answer 1</label>
-<input type="text" name="question[answers][1][answer_text]" id="answer-answer-text">
+<fieldset class="text-input group">
+  <label for="answer-answer-text">Answer 1</label>
+  <input
+    type="text"
+    name="question[answers][1][answer_text]"
+    id="answer-answer-text">
+</fieldset>
 
-<label for="answer-answer-text">Answer 2</label>
-<input type="text" name="question[answers][2][answer_text]" id="answer-answer-text">
+<fieldset class="text-input group">
+  <label for="answer-answer-text">Answer 2</label>
+  <input
+    type="text"
+    name="question[answers][2][answer_text]"
+    id="answer-answer-text">
+</fieldset>
 
 <button>Submit</button>

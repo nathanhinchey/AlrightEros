@@ -14,7 +14,7 @@ Backbone.Router.protoype = _.extend(Backbone.Router.prototype, {
       // console.log("not signed in");
       // callback = callback || this._go.bind(this, "/signup");
       // this.signIn(callback);
-      Backbone.history.navigate("/login", {trigger: true})
+      Backbone.history.navigate("/signup", {trigger: true})
       return false;
     }
     // console.log("already signed in");

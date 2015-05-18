@@ -1,0 +1,33 @@
+
+/*    HEADER    */
+
+#top-header {
+  height: 30px;
+  background: #aaa;
+  border-bottom: 2px solid #008;
+  padding: 2px;
+  padding-top: 4px;
+}
+
+#top-header li {
+  display: block;
+  float: left;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+#sign-out-link {
+  display: block;
+  float: left;
+  border-radius: 2px;
+  box-shadow: 0 0 3px darkblue;
+}
+
+.nav-list {
+  float: right;
+}
+
+.nav-list > li {
+  float: left;
+  margin-left: 10px;
+}

@@ -1,0 +1,122 @@
+/* PROFILE INDEX */
+.profiles-index {
+  margin: 0 auto;
+  display: block;
+  width: 530px;
+  text-align: center;
+}
+
+/*    PROFILE SNAPSHOT    */
+.profile-snapshot {
+  display: block;
+  border: 1px solid darkblue;
+  margin: 5px;
+  width: 500px;
+  border-radius: 5px;
+  background: #15a;
+  overflow: hidden;
+}
+
+.profile-snapshot > a {
+  padding: 10px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-snapshot > a:hover{
+  background: lightblue;
+}
+
+.profile-snapshot ul {
+  display: block;
+  float: left;
+}
+
+.profiles-list h2 {
+  font-size: 18px;
+  display: block;
+  float: left;
+  width: 300px;
+  margin-left: 10px;
+}
+
+.snapshot-thumb {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 50px;
+  border: 1px solid darkblue;
+  overflow: hidden;
+  border-radius: 50%;
+
+            /*for silly placeholder images*/
+            background-image: url(http://upload.wikimedia.org/wikipedia/commons/c/ca/Larix_decidua_Aletschwald.jpg);
+            text-align: center;
+            background-size: 100%;
+}
+
+            .snapshot-thumb::after {
+              content: "☃";
+              font-size: 48px;
+            }
+
+            .profile-snapshot:nth-child(3n+0) .snapshot-thumb::after {
+              font-size: 36px;
+              color: magenta;
+              font-family: cursive;
+            }
+
+            .profile-snapshot:nth-child(3n+1) .snapshot-thumb::after {
+              color: red;
+              font-family: "Arial Unicode MS";
+            }
+
+            .profile-snapshot:nth-child(3n+2) .snapshot-thumb::after {
+              color: yellow;
+              font-family: "Menlo";
+            }
+
+/*   PROFILE SHOW   */
+.profile-attributes {
+  display: block;
+  float: left;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px;
+  background: #15A;
+  width: 400px;
+}
+
+.profile-picture {
+  display: block;
+  width: 200px;
+  height: 200px;
+  float: left;
+  border-radius: 5px;
+  border: 1px solid darkblue;
+  margin: 5px;
+  overflow: hidden;
+                /*for silly placeholder images*/
+                background-image: url(http://upload.wikimedia.org/wikipedia/commons/c/ca/Larix_decidua_Aletschwald.jpg);
+                text-align: center;
+                background-size: 100%;
+}
+
+                .profile-picture::after {
+                  content: "☃";
+                  font-size: 200px;
+                }
+.essay > h3 {
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.essay {
+  display: block;
+  border-radius: 5px;
+  background: #15A;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
