@@ -24,7 +24,9 @@ Stretch goals:
   - [ ] *front end*: display match percentages
 
 ## TODOs for W9D1:
-* [ ] Resolve issues
+* [ ] Ask questions:
+  - [ ] How should I store "acceptable answers"? ANOTHER join table?
+* [ ] Resolve issues:
   - [ ] Why does sign-in flash?
   - [ ] Why can't I navigate directly to #/profiles/:id ?
 * [ ] Image upload
