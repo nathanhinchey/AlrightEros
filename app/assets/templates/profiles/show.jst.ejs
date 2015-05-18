@@ -1,5 +1,14 @@
-<h1><%= profile.escape("username") %></h1>
-<ul>
+<header class="group profile-header">
+<figure class="profile-picture"></figure>
+<h1 class="username"><%= profile.escape("username") %></h1>
+<ul class="profile-attributes">
+  <li>Supervillain</li>
   <li><%= profile.escape("age") %></li>
+  <li>Evil</li>
 </ul>
-<p><%= profile.escape("summary") %></p>
+</header>
+
+<section class="summary essay">
+  <h3>Summary:</h3>
+  <p><%= profile.escape("summary") %></p>
+</section>

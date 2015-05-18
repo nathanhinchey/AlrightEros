@@ -1,4 +1,13 @@
-<h1 class="username"><%= profile.escape("username") %></h1>
-<ul>
-  <li><%= profile.escape("age") %></li>
-</ul>
+<a href="#/profiles/<%= profile.escape('id') %>" class="group">
+  <figure class="snapshot-thumb">
+    <!-- <img src="http://placekitten.com/100/100"> -->
+  </figure>
+  <h2 class="username">
+    <%= profile.escape("username") %>
+  </h2>
+  <ul>
+    <li>Supervillain</li>
+    <li><%= profile.escape("age") %></li>
+    <li>Evil</li>
+  </ul>
+</a>

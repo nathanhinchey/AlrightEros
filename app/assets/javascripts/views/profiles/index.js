@@ -8,6 +8,8 @@ AlrightEros.Views.ProfilesIndex = Backbone.CompositeView.extend({
 
   template: JST['profiles'],
 
+  className: 'profiles-index',
+
   render: function () {
     var content = this.template();
     this.$el.html(content);

@@ -9,9 +9,9 @@
   - [x] Answer gets stored in DB
   - [ ] If there are no errors, display the next question
 
-* [ ] Front end for users
-  - [ ] Make user partial for index
-  - [ ] Improve user show view
+* [ ] Front end for profiles
+  - [x] Make profile subview for index
+  - [ ] Improve profile show view
 
 Stretch goals:
 * [ ] add "acceptable answers" to question answers
