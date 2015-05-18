@@ -5,7 +5,7 @@
 ## TODOs for W8D7:
 * [ ] make question answer loop:
   - [x] See question
-  - [ ] Make question index for now
+  - [x] Make question index for now
   - [ ] When you click "submit", it verifies
   - [x] Answer gets stored in DB
   - [ ] If there are no errors, display the next question
@@ -32,6 +32,7 @@ Stretch goals:
 Stretch goals:
 * [ ] Pagination
 * [ ] Search
+* [ ] Question answer loop
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial

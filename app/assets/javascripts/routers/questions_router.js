@@ -5,8 +5,9 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
   },
 
   routes: {
+    "questions": "index",
     "questions/new": "new",
-    "questions/:id/answer": "answer"
+    "questions/:id": "answer"
   },
 
   new: function () {
@@ -32,5 +33,15 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
     })
 
     this._swapViews(answerView)
+  },
+
+  index: function () {
+    var questions = new AlrightEros.Collections.Questions();
+    console.log("Routers.Questions#index");
+    questions.fetch();
+    var indexView = new AlrightEros.Views.QuestionsIndex({
+      collection: questions
+    });
+    this._swapViews(indexView)
   }
 })
