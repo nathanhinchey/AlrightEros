@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# USERS AND PROFILES
 potato = User.create!({
   email: 'potato@potato.potato',
   password: 'potato'
@@ -45,3 +46,5 @@ tomatoprofile = Profile.create!({
     birthday: Faker::Date.between(18.years.ago, 99.years.ago)
     })
 end
+
+# QUESTIONS

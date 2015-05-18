@@ -1,23 +1,25 @@
 <h1>Write a question</h1>
 
-<fieldset class="textarea group">
+<fieldset class="form-fieldset textarea-fieldset group">
   <label for="question-question-body">Question body</label>
   <textarea name="question[question_body]" id="question-question-body">
   </textarea>
 </fieldset>
 
-<fieldset class="text-input group">
+<fieldset class="form-fieldset text-input-fieldset group">
   <label for="answer-answer-text">Answer 1</label>
   <input
     type="text"
+    class="text-input"
     name="question[answers][1][answer_text]"
     id="answer-answer-text">
 </fieldset>
 
-<fieldset class="text-input group">
+<fieldset class="form-fieldset text-input-fieldset group">
   <label for="answer-answer-text">Answer 2</label>
   <input
     type="text"
+    class="text-input"
     name="question[answers][2][answer_text]"
     id="answer-answer-text">
 </fieldset>

@@ -1,5 +1,5 @@
 <h1>Answer Questions</h1>
-<p>
+<p class="question-body">
   <%= question.escape("question_body") %>
 </p>
 
@@ -7,17 +7,17 @@
 <% console.log(question.get("answers")); %>
 <% console.log(question.escape("id")) %>
 <% question.get("answers") && question.get("answers").forEach(function(answer){ %>
-  <fieldset class="input group">
     <label
+      class="radio-input-label form-fieldset group"
       for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
       <%= _.escape(answer.answer_text) %>
-    </label>
     <input
       type="radio"
+      class="radio-input form-fieldset"
       name="user_answer[answer_id]"
       value="<%= _.escape(answer.id) %>"
       id="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
-    </fieldset>
+    </label>
 <% }); %>
 
-<button>Save Answer</button>
+<button class="submit">Save Answer</button>

@@ -1,11 +1,37 @@
 
 /*    FORM    */
-fieldset.text-input {
+.text-input-fieldset {
   margin: 0 auto;
   width: 500px;
   display: block;
   padding: 20px;
+}
+
+.textarea-fieldset {
+
+}
+
+.radio-input-label {
+  display: block;
+  border-radius: 3px;
+  background: lightblue;
+  cursor: pointer;
+}
+
+.question-body {
+  font-size: 24px;
+  display: block;
+  padding-bottom: 20px;
+}
+
+.form-fieldset {
   text-align: right;
+  padding: 5px 0;
+  margin: 10px 0;
+}
+
+.radio-input {
+  margin: 10px;
 }
 
 fieldset > input {
@@ -32,7 +58,7 @@ form {
 
 form > h1 {
   font-size: 48px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 }
 
 h1.logo {
@@ -58,7 +84,7 @@ h1.logo {
   border-radius: 2px;
 }
 
-input {
+.text-input {
   font-size: 20px;
   border-radius: 2px;
   background: #ADD8E6;

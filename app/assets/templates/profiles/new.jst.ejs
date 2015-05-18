@@ -1,12 +1,16 @@
 <h1>Create your profile!</h1>
 <form class="profile">
 
-  <fieldset class="text-input group">
+  <fieldset class="form-fieldset text-input-fieldset group">
     <label for="profile-username">Username</label>
-    <input type="text" name="profile[username]" id="profile-username">
+    <input
+      type="text"
+      class="text-input"
+      name="profile[username]"
+      id="profile-username">
   </fieldset>
 
-  <fieldset class="textarea group">
+  <fieldset class="form-fieldset textarea-fieldset group">
     <label for="profile-summary">Self Summary</label>
     <textarea
       name="profile[summary]"
@@ -14,7 +18,7 @@
     </textarea>
   </fieldset>
 
-  <fieldset class="date-input group">
+  <fieldset class="form-fieldset date-input group">
     <label for="profile-birthday">Birthday</label>
     <input type="date" name="profile[birthday]" id="profile-birthday">
   </fieldset>

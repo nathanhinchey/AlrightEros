@@ -19,7 +19,7 @@
 a, html, body, button,
 fieldset, figure, form,
 h1, h2, h3,input, li,
-p, ul{
+p, ul {
   padding: 0;
   margin: 0;
   font-size: 100%;
