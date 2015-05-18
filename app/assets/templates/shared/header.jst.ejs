@@ -7,3 +7,9 @@
     <li><a href="#/signup">Sign Up</a></li>
   <% } %>
 </ul>
+<% if (AlrightEros.currentUser.isSignedIn()){ %>
+  <ul class="nav-list group">
+    <li><a href="#">Profiles</a></li>
+    <li><a href="#/questions">Questions</a></li>
+  </ul>
+<% } %>

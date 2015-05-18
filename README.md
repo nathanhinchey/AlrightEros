@@ -5,13 +5,14 @@
 ## TODOs for W8D7:
 * [ ] make question answer loop:
   - [x] See question
+  - [ ] Make question index for now
   - [ ] When you click "submit", it verifies
   - [x] Answer gets stored in DB
   - [ ] If there are no errors, display the next question
 
-* [ ] Front end for profiles
+* [x] Front end for profiles
   - [x] Make profile subview for index
-  - [ ] Improve profile show view
+  - [x] Improve profile show view
 
 Stretch goals:
 * [ ] add "acceptable answers" to question answers
@@ -23,7 +24,11 @@ Stretch goals:
   - [ ] *front end*: display match percentages
 
 ## TODOs for W9D1:
+* [ ] Resolve issues
+  - [ ] Why does sign-in flash?
+  - [ ] Why can't I navigate directly to #/profiles/:id ?
 * [ ] Image upload
+
 Stretch goals:
 * [ ] Pagination
 * [ ] Search
