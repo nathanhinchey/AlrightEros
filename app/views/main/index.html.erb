@@ -3,3 +3,10 @@
 </header>
 <nav id="left-nav"></nav>
 <main id="main-view"></main>
+<script>
+$(document).ready(function(){
+  <% x = current_user.id if current_user %>
+  AlrightEros.initialize(<%= x %>);
+
+});
+</script>

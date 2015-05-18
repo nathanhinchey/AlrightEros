@@ -3,13 +3,14 @@ window.AlrightEros = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
+  initialize: function(currentUserId) {
+      //instantiate the currentUser singleton
+    this.currentUser = new AlrightEros.Models.CurrentUser({id: currentUserId});
+    this.currentUser.fetch();
+
     new AlrightEros.Routers.Profiles({
       $rootEl: $("#main-view")
     })
-      //instantiate the currentUser singleton
-    this.currentUser = new AlrightEros.Models.CurrentUser();
-    this.currentUser.fetch();
 
     this.header = new AlrightEros.Views.Header({
       el: "#top-header"
@@ -27,7 +28,3 @@ window.AlrightEros = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  AlrightEros.initialize();
-});
