@@ -26,7 +26,6 @@ AlrightEros.Views.ProfileNew = Backbone.View.extend({
 
     profile.save(formData,{
       success: function () {
-        console.log('Profile saved');
         AlrightEros.profiles.add(profile);
         AlrightEros.currentUser.fetch({
           success: function(){
@@ -42,7 +41,6 @@ AlrightEros.Views.ProfileNew = Backbone.View.extend({
   },
 
   fileInputChange: function (event) {
-    console.log("entering fileInputChange");
     var view = this;
     var file = event.currentTarget.files[0];
     var reader = new FileReader();

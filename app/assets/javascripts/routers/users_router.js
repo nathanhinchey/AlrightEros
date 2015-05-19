@@ -38,7 +38,6 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
 
     this._swapViews(logOutView);
     setTimeout(function () {
-      console.log("function");
       if ($('.logout').html()){
         Backbone.history.loadUrl("")
       }

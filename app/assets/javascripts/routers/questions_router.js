@@ -11,9 +11,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
   },
 
   new: function () {
-    console.log("top of Questions#new (router)");
-    // if (!this._requireSignedIn()) { return; }
-    // console.log("Questions#new (router) after requireSignedIn");
+    if (!this._requireSignedIn()) { return; }
 
     var question = new AlrightEros.Models.Question();
 
@@ -37,7 +35,6 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
 
   index: function () {
     var questions = new AlrightEros.Collections.Questions();
-    console.log("Routers.Questions#index");
     questions.fetch();
     var indexView = new AlrightEros.Views.QuestionsIndex({
       collection: questions

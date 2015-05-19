@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-## TODOs for W8D7:
+## TODOs for W9D2
 * [ ] make question answer loop:
   - [x] See question
   - [x] Make question index for now
@@ -16,26 +16,16 @@
 
 Stretch goals:
 * [ ] add "acceptable answers" to question answers
-  - [ ] figure out how best to store them
+  - [ ] figure out how best to store them (join table?)
   - [ ] add them to answer form
 
 * [ ] make matching algorithm work
   - [ ] *back end*: compare answers to each other
   - [ ] *front end*: display match percentages
 
-## TODOs for W9D1:
-* [ ] Ask questions:
-  - [ ] How should I store "acceptable answers"? ANOTHER join table?
-  - [ ] Why would I use `_.clone(this.attribtues)` not `this.attributes`?
-* [x] Resolve issues:
-  - [x] Why does sign-in flash?
-  - [x] Why can't I navigate directly to #/profiles/:id ?
-* [ ] Image upload
-
-Stretch goals:
+W9D3
 * [ ] Pagination
 * [ ] Search
-* [ ] Question answer loop
 
 ##General TODOs (most refactoring):
 * Break profile overview (username, gender, age) into a partial

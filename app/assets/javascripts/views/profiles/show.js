@@ -8,7 +8,6 @@ AlrightEros.Views.ProfileShow = Backbone.View.extend({
   render: function () {
     var content = this.template({profile: this.model})
     this.$el.html(content);
-    console.log("ProfileShow#render");
 
     return this;
   }

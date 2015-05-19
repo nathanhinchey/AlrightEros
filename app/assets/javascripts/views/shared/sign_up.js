@@ -1,7 +1,6 @@
 AlrightEros.Views.SignUp = Backbone.View.extend({
 
   initialize: function (options) {
-    console.log("I'm initializing");
     this.callback = options.callback;
   },
 

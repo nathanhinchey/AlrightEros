@@ -8,7 +8,6 @@ AlrightEros.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function () {
-    console.log("QuestionsIndex#render");
     var content = this.template({questions: this.collection});
     this.$el.html(content);
 

@@ -18,7 +18,6 @@ AlrightEros.Models.User = Backbone.Model.extend({
         //the options here are the options passed in to signIn
         AlrightEros.currentUser.fetch({
           success: function() {
-            console.log("success callback on currentUser.fetch()");
             options.success && options.success();
           }
         });

@@ -3,9 +3,6 @@
   <%= question.escape("question_body") %>
 </p>
 
-<% console.log("question.get('answers') = ");%>
-<% console.log(question.get("answers")); %>
-<% console.log(question.escape("id")) %>
 <% question.get("answers") && question.get("answers").forEach(function(answer){ %>
     <label
       class="radio-input-label form-fieldset group"
