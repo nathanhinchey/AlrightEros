@@ -8,6 +8,13 @@ class Profile < ActiveRecord::Base
   has_many :profile_genders, dependent: :destroy
   has_many :genders, through: :profile_genders, source: :genders
 
+
+  has_attached_file :picture,
+    :styles => { :medium => "300x300>", :thumb => "100x100>" },
+    :default_url => "Eris_Antikensammlung_Berlin_F1775.jpg"
+
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
   def age
     age = Date.today.year - birthday.year
     age -= 1 if Date.today < birthday + age.years
@@ -30,3 +37,22 @@ class Profile < ActiveRecord::Base
       end
     end
 end
+
+# {
+#   "Version": "2012-10-17",
+#   "Statement": [
+#     {
+#       "Sid": "Stmt1420751757000",
+#       "Effect": "Allow",
+#       "Action": [
+#         "s3:*"
+#       ],
+#       "Resource": [
+#         "arn:aws:s3:::alrighteros-dev",
+#         "arn:aws:s3:::alrighteros-dev/*",
+#         "arn:aws:s3:::alrighteros-pro",
+#         "arn:aws:s3:::alrighteros-pro/*"
+#       ]
+#     }
+#   ]
+# }

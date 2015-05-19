@@ -1,4 +1,5 @@
 class Api::ProfilesController < ApplicationController
+  wrap_parameters false
 
   def index
     unless current_user && current_user.profile
@@ -36,6 +37,6 @@ class Api::ProfilesController < ApplicationController
     def profile_params
       params
         .require(:profile)
-        .permit(:username, :birthday, :summary)
+        .permit(:username, :birthday, :summary, :picture)
     end
 end

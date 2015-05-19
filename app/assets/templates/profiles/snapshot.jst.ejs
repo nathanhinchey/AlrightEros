@@ -1,13 +1,15 @@
 <a href="#/profiles/<%= profile.escape('id') %>" class="group">
   <figure class="snapshot-thumb">
-    <!-- <img src="http://placekitten.com/100/100"> -->
+    <img src="<%= profile.escape('picture_url') %>">
   </figure>
   <h2 class="username">
     <%= profile.escape("username") %>
   </h2>
   <ul>
     <li>Supervillain</li>
-    <li><%= profile.escape("age") %></li>
+    <li>
+      <%= profile.escape("age") %>
+    </li>
     <li>Evil</li>
   </ul>
 </a>

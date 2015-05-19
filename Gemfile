@@ -10,8 +10,12 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'backbone-on-rails'
-
 gem 'bcrypt', '~> 3.1.7'
+
+#file storage
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '~> 1.6'
+gem "figaro"
 
 group :development, :test do
   gem 'faker'
