@@ -5,6 +5,7 @@ AlrightEros.Views.QuestionAnswerForm = Backbone.View.extend({
 
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render)
+    AlrightEros.questions.fetch();
   },
 
   events: {
@@ -31,8 +32,11 @@ AlrightEros.Views.QuestionAnswerForm = Backbone.View.extend({
 
     userAnswer.submitUserAnswer(formData, {
       success: function() {
-        Backbone.history.navigate("#/questions", {trigger: true})
-      }
+        console.log("success submitUserAnswer");
+        AlrightEros.currentUser.attributes.answered_questions.push(this.model.id);
+        var next = AlrightEros.questions.nextNewQuestion(this.model.id);
+        Backbone.history.navigate("#/questions/" + next, {trigger: true});
+      }.bind(this)
     });
 
   }

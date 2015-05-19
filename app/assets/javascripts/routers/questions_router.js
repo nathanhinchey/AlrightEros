@@ -2,6 +2,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
+    AlrightEros.questions = new AlrightEros.Collections.Questions();
   },
 
   routes: {

@@ -8,12 +8,12 @@ AlrightEros.Models.UserAnswer = Backbone.Model.extend({
     return "/api/users/" + AlrightEros.currentUser.id + "/user_answers"
   },
 
-  submitUserAnswer: function (options) {
+  submitUserAnswer: function (data, options) {
 
     $.ajax({
       url: this.url(),
       type: "POST",
-      data: options,
+      data: data,
       dataType: "json",
       success: function (responseData) {
         //the options here are the options passed in to createUserAnswer

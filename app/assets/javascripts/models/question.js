@@ -1,4 +1,8 @@
 AlrightEros.Models.Question = Backbone.Model.extend({
-  urlRoot: 'api/questions/'
+  urlRoot: 'api/questions/',
+
+  comparator: function () {
+    return this.created_at;
+  }
 
 })
