@@ -2,19 +2,24 @@
 
 [Heroku link][heroku]
 
-## TODOs for W9D2
-* [ ] make question answer loop:
-  - [x] See question
-  - [x] Make question index for now
-  - [ ] When you click "submit", it verifies
-  - [x] Answer gets stored in DB
+##TODOs for W9D2
+###Make what I already have work more smoothly:
+
+####Questions:
+* [ ] Make a question loop:
+  - [ ] Add "new question" link to index
+  - [ ] Before you can click "submit", it verifies validity
   - [ ] If there are no errors, display the next question
 
-* [x] Front end for profiles
-  - [x] Make profile subview for index
-  - [x] Improve profile show view
+####Profiles:
+* [ ] Add answered questions view
+* [ ]
 
-Stretch goals:
+####Sign-up:
+* [ ] Make profile creation and sign-up more connected
+
+----
+###Stretch goals:
 * [ ] add "acceptable answers" to question answers
   - [ ] figure out how best to store them (join table?)
   - [ ] add them to answer form
@@ -23,15 +28,16 @@ Stretch goals:
   - [ ] *back end*: compare answers to each other
   - [ ] *front end*: display match percentages
 
-W9D3
+* [ ] begin name/theme change to OkEris
+----
+##TODOs for W9D3
 * [ ] Pagination
 * [ ] Search
 
-##General TODOs (most refactoring):
-* Break profile overview (username, gender, age) into a partial
 
 [heroku]: http://alrighteros.herokuapp.com
 
+----
 ## Minimum Viable Product
 This site will be a clone of OkCupid built on Rails and using Backbone.
 
