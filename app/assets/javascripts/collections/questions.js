@@ -8,19 +8,25 @@ AlrightEros.Collections.Questions = Backbone.Collection.extend({
 
     var answered_questions = AlrightEros.currentUser.attributes.answered_questions
     for (var modelIdx = startNum; modelIdx < this.models.length; modelIdx++){
-      if (_.indexOf(answered_questions, modelIdx) === -1 ){
-        return this.models[modelIdx].id;
+      var question_id = this.models[modelIdx].id;
+      if (_.indexOf(answered_questions, question_id) === -1 ){
+        return question_id;
       }
     }
 
     if (startNum !== 0) {
       for (var modelIdx = 0; modelIdx < startNum; modelIdx++){
-        if (_.indexOf(answered_questions, modelIdx) === -1 ){
-          return this.models[modelIdx].id;
+        var question_id = this.models[modelIdx].id;
+        if (_.indexOf(answered_questions, question_id) === -1 ){
+          return question_id;
         }
       }
     }
 
     return 'done';
+  },
+
+  idToIndex: function (ID) {
+    
   }
 });
