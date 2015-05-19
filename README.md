@@ -24,11 +24,14 @@
   - [ ] figure out how best to store them (join table?)
   - [ ] add them to answer form
 
+
 * [ ] make matching algorithm work
   - [ ] *back end*: compare answers to each other
   - [ ] *front end*: display match percentages
+  
 
 * [ ] begin name/theme change to OkEris
+
 ----
 ##TODOs for W9D3
 * [ ] Pagination
