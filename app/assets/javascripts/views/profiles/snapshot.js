@@ -1,4 +1,8 @@
 AlrightEros.Views.ProfileSnapshot = Backbone.View.extend({
+  initialize: function (options) {
+    // this.listenTo(this.model, "sync", this.render)
+  },
+
   template: JST['profiles/snapshot'],
 
   tagName: 'li',

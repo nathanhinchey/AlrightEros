@@ -1,0 +1,13 @@
+/* Questions */
+.button {
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 3px;
+  background: lightblue;
+  box-shadow:  0 0 7px darkblue;
+  font-size: 18px;
+  width: 140px;
+
+  border-radius: 2px;
+}

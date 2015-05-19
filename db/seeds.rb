@@ -33,7 +33,7 @@ tomatoprofile = Profile.create!({
 
   })
 
-100.times do
+1.times do
   temp = User.create!({
     email: Faker::Internet.email,
     password: 'password'

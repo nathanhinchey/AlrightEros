@@ -13,7 +13,6 @@
 
 ####Profiles:
 * [ ] Add answered questions view
-* [ ]
 
 ####Sign-up:
 * [ ] Make profile creation and sign-up more connected
@@ -28,7 +27,7 @@
 * [ ] make matching algorithm work
   - [ ] *back end*: compare answers to each other
   - [ ] *front end*: display match percentages
-  
+
 
 * [ ] begin name/theme change to OkEris
 

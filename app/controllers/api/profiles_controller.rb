@@ -27,7 +27,7 @@ class Api::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = user_id
     if @profile.save
-      render json: @profile #TODO make a template
+      render :show #TODO make a template
     else
       render json: @profile.errors.full_messages, status: 422
     end

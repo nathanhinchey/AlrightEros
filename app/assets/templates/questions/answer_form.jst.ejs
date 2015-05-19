@@ -4,17 +4,20 @@
 </p>
 
 <% question.get("answers") && question.get("answers").forEach(function(answer){ %>
-    <label
-      class="radio-input-label form-fieldset group"
-      for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
-      <%= _.escape(answer.answer_text) %>
+  <fieldset class="group">
     <input
       type="radio"
-      class="radio-input form-fieldset"
+      class="radio-input"
       name="user_answer[answer_id]"
       value="<%= _.escape(answer.id) %>"
       id="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+      
+    <label
+      class="radio-input-label form-fieldset"
+      for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
+      <%= _.escape(answer.answer_text) %>
     </label>
+  </fieldset class="form-fieldset group">
 <% }); %>
 
 <button class="submit">Save Answer</button>

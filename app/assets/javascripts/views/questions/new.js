@@ -22,7 +22,11 @@ AlrightEros.Views.QuestionNew = Backbone.View.extend({
     event.preventDefault();
 
     questionData = this.$el.serializeJSON();
-    this.model.createQuestion(questionData)
+    this.model.save(questionData, {
+      success: function () {
+        console.log("question saved");
+      }
+    })
   }
 
 

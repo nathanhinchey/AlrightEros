@@ -19,6 +19,7 @@ AlrightEros.Views.ProfilesIndex = Backbone.CompositeView.extend({
   },
 
   addProfileView: function(profile){
+    profile.fetch();
     var subview = new AlrightEros.Views.ProfileSnapshot({model: profile});
     this.addSubview(".profiles-list", subview);
   },

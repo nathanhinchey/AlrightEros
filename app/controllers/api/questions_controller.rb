@@ -7,7 +7,7 @@ class Api::QuestionsController < ApplicationController
       @question.answers.new(answer)
     end
     if @question.save
-      render json: @question
+      render :show
     else
       render json: @question.errors.full_messages
     end

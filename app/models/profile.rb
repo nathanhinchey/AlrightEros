@@ -5,7 +5,7 @@ class Profile < ActiveRecord::Base
   # validate :must_have_at_least_one_gender #TODO: include this
   validate :must_be_adult
 
-  has_many :profile_genders, dependent: :destroy
+  # has_many :profile_genders, dependent: :destroy
   has_many :genders, through: :profile_genders, source: :genders
 
 
