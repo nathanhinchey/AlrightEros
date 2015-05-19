@@ -2,7 +2,7 @@
 <a href="#/questions/new" class="button">Add a question</a>
 <ul class="questions-list">
   <% questions.each(function(question){ %>
-    <li>
+    <li class="question-li">
       <a href="#/questions/<%= question.escape("id") %>">
         <%= question.escape("question_body") %>
       </a>

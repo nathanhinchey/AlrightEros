@@ -38,10 +38,15 @@ ul {
   list-style: none;
 }
 
+li {
+  padding: 5px 0;
+}
+
 body {
   font-family: "Verdana", sans-serif;
   background: #049;
   color: darkblue;
+  font-size: 18px;
 }
 
 h1 {

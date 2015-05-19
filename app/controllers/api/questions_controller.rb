@@ -4,7 +4,7 @@ class Api::QuestionsController < ApplicationController
     answer_params = full_params.delete("answers")
     @question = Question.new(full_params)
     answer_params.each do |key, answer|
-      @question.answers.new(answer)
+      @question.answers.new(answer) if answer.length > 0;
     end
     if @question.save
       render :show
