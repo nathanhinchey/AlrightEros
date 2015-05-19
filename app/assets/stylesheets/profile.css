@@ -49,33 +49,14 @@
   border: 1px solid darkblue;
   overflow: hidden;
   border-radius: 50%;
-
-            /*for silly placeholder images*/
-            background-image: url(http://upload.wikimedia.org/wikipedia/commons/c/ca/Larix_decidua_Aletschwald.jpg);
-            text-align: center;
-            background-size: 100%;
 }
 
-            .snapshot-thumb::after {
-              content: "☃";
-              font-size: 48px;
-            }
+.snapshot-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-            .profile-snapshot:nth-child(3n+0) .snapshot-thumb::after {
-              font-size: 36px;
-              color: magenta;
-              font-family: cursive;
-            }
-
-            .profile-snapshot:nth-child(3n+1) .snapshot-thumb::after {
-              color: red;
-              font-family: "Arial Unicode MS";
-            }
-
-            .profile-snapshot:nth-child(3n+2) .snapshot-thumb::after {
-              color: yellow;
-              font-family: "Menlo";
-            }
 
 /*   PROFILE SHOW   */
 .profile-attributes {
@@ -97,16 +78,9 @@
   border: 1px solid darkblue;
   margin: 5px;
   overflow: hidden;
-                /*for silly placeholder images*/
-                background-image: url(http://upload.wikimedia.org/wikipedia/commons/c/ca/Larix_decidua_Aletschwald.jpg);
-                text-align: center;
-                background-size: 100%;
+
 }
 
-                .profile-picture::after {
-                  content: "☃";
-                  font-size: 200px;
-                }
 .essay > h3 {
   margin-bottom: 5px;
   margin-left: 10px;
