@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create] do
       resources :user_answers, only: [:create, :index]
     end
-    
+
   end
 
   # resources :users, only: [:new, :create, :destroy, :index]

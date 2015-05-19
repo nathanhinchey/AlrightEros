@@ -8,7 +8,7 @@ class Api::UserAnswersController < ApplicationController
     elsif @user_answer.save
       render json: @user_answer
     else
-      render json: @user_answer.errors.full_messages
+      render json: @user_answer.errors.full_messages, status: 422
     end
   end
 

@@ -7,6 +7,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
   routes: {
     "questions": "index",
     "questions/new": "new",
+    "questions/done": "answered_all",
     "questions/:id": "answer"
   },
 
@@ -19,7 +20,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
       model: question
     });
 
-    this._swapViews(newView);
+    this._swapMainView(newView);
 
   },
 
@@ -30,7 +31,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
       model: question
     })
 
-    this._swapViews(answerView)
+    this._swapMainView(answerView)
   },
 
   index: function () {
@@ -39,6 +40,12 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
     var indexView = new AlrightEros.Views.QuestionsIndex({
       collection: questions
     });
-    this._swapViews(indexView)
+    this._swapMainView(indexView)
+  },
+
+  answered_all: function () {
+    var allAnsweredView = new AlrightEros.Views.AnsweredAll();
+
+    this._swapMainView(allAnsweredView)
   }
 })

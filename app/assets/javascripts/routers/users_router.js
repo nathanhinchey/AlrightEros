@@ -16,7 +16,7 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
 
     var signInView = new AlrightEros.Views.SignIn({});
 
-    this._swapViews(signInView);
+    this._swapMainView(signInView);
   },
 
   signup: function () {
@@ -27,7 +27,7 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
       model: newUser
     });
 
-    this._swapViews(signUpView);
+    this._swapMainView(signUpView);
   },
 
   logout: function () {
@@ -36,7 +36,7 @@ AlrightEros.Routers.Users = Backbone.Router.extend({
     Backbone.history.navigate("");
     var logOutView = new AlrightEros.Views.LogOut({});
 
-    this._swapViews(logOutView);
+    this._swapMainView(logOutView);
     setTimeout(function () {
       if ($('.logout').html()){
         Backbone.history.loadUrl("")

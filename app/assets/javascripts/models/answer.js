@@ -17,10 +17,12 @@ AlrightEros.Models.UserAnswer = Backbone.Model.extend({
       dataType: "json",
       success: function (responseData) {
         //the options here are the options passed in to createUserAnswer
+        // console.log("Models.UserAnswer#submitUserAnswer: SUCCESS");
         options.success && options.success();
       },
       error: function () {
         //the options here are the options passed in to createUserAnswer
+        // console.log("Models.UserAnswer#submitUserAnswer: ERROR");
         options.error && options.error();
       }
     })

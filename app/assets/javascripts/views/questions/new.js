@@ -21,18 +21,17 @@ AlrightEros.Views.QuestionNew = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
 
+    var question = this.model;
+
     questionData = this.$el.serializeJSON();
     var answers = questionData.question.answers;
-    debugger;
     !answers[3].answer_text && delete answers[3];
     !answers[4].answer_text && delete answers[4];
-    debugger;
+
     this.model.save(questionData, {
       success: function () {
-        console.log("question saved");
+        Backbone.history.navigate("#/questions/" + question.escape("id"))
       }
     })
   }
-
-
 });

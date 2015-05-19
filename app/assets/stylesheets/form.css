@@ -43,6 +43,8 @@
 .radio-input-label {
   text-align: center;
   margin: 10px 100px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 fieldset > input {

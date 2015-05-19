@@ -46,7 +46,7 @@ body {
   font-family: "Verdana", sans-serif;
   background: #049;
   color: darkblue;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 h1 {
@@ -61,10 +61,6 @@ h2 {
 h3 {
   display:block;
   font-size: 20px;
-}
-
-p {
-  font-size: 18px;
 }
 
 img {

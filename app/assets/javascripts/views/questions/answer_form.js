@@ -29,7 +29,11 @@ AlrightEros.Views.QuestionAnswerForm = Backbone.View.extend({
       question_id: this.model.id
     });
 
-    userAnswer.submitUserAnswer(formData);
+    userAnswer.submitUserAnswer(formData, {
+      success: function() {
+        Backbone.history.navigate("#/questions", {trigger: true})
+      }
+    });
 
   }
 });

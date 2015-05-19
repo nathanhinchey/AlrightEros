@@ -19,7 +19,7 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
       collection: AlrightEros.profiles
     });
 
-    this._swapViews(indexView);
+    this._swapMainView(indexView);
   },
 
   show: function (id) {
@@ -31,7 +31,7 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
       model: profile
     });
 
-    this._swapViews(showView);
+    this._swapMainView(showView);
 
     // header stuff
   },
@@ -46,7 +46,7 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
       model: profile
     });
 
-    this._swapViews(newView);
+    this._swapMainView(newView);
 
   }
 })

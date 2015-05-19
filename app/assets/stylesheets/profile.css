@@ -9,32 +9,35 @@
 /*    PROFILE SNAPSHOT    */
 .profile-snapshot {
   display: block;
+  float: left;
   border: 1px solid darkblue;
   margin: 5px;
   width: 500px;
   border-radius: 5px;
   background: #15a;
   overflow: hidden;
+  text-align: center;
 }
 
 .profile-snapshot > a {
   padding: 10px;
   display: block;
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
 }
 
 .profile-snapshot > a:hover{
   background: lightblue;
 }
 
-.profile-snapshot ul {
+.snapshot-profile-attributes {
+  text-align: right;
   display: block;
-  float: left;
 }
 
 .profiles-list h2 {
-  font-size: 18px;
+  font-weight: bold;
+  font-size: 24px;
   display: block;
   float: left;
   width: 300px;
@@ -43,15 +46,16 @@
 
 .snapshot-thumb {
   display: block;
+  margin: auto 0;
   float: left;
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
   border: 1px solid darkblue;
   overflow: hidden;
   border-radius: 50%;
 }
 
-.snapshot-thumb img {
+.snapshot-thumb > img {
   display: block;
   width: 100%;
   height: auto;
@@ -93,4 +97,10 @@
   padding: 5px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.profile-picture > img {
+  display: block;
+  width: 100%;
+  height: auto;
 }

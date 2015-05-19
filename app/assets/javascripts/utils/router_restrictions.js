@@ -5,7 +5,7 @@ Backbone.Router.protoype = _.extend(Backbone.Router.prototype, {
     // var signInView = new AlrightEros.Views.SignIn({
     //   callback: callback
     // });
-    // this._swapViews(signInView);
+    // this._swapMainView(signInView);
     Backbone.history.navigate("/login", {trigger: true})
   },
 
@@ -47,7 +47,7 @@ Backbone.Router.protoype = _.extend(Backbone.Router.prototype, {
     Backbone.history.navigate(route, { trigger: true });
   },
 
-  _swapViews: function (newView) {
+  _swapMainView: function (newView) {
     AlrightEros._currentView && AlrightEros._currentView.remove();
     AlrightEros._currentView = newView;
     this.$rootEl.html(newView.render().$el);
