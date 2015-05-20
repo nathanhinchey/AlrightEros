@@ -12,7 +12,7 @@
   - [x] If there are no errors, display the next question
 
 ####Profiles:
-* [ ] Add answered questions view
+* [x] Add answered questions view
   - [ ] Paginate
 * [ ] Add more sections
 

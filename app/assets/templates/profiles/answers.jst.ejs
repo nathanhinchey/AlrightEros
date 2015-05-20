@@ -7,6 +7,7 @@
           <%= answer.escape('answer_text') %>
         <% } else { %>
           <button
+            class="answer-button"
             id="answer-question-<%= answer.escape('question_id') %>">
             Answer this question to see <%= username %>'s answer.
           </button>

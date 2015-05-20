@@ -24,24 +24,16 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
   },
 
   show: function (id) {
-    if (!this._requireSignedIn()) { return; }
-    if (!this._requireHasProfile()) { return; }
-
-    var profile = AlrightEros.profiles.getOrFetch(id);
-    var showView = new AlrightEros.Views.ProfileShow ({
-      model: profile
-    });
-
-    this._swapContentHeaderView(showView);
-
+    var profile = this._profileHeader(id);
     var answers = new AlrightEros.Collections.UserAnswers({
       userId: id
     });
 
     answers.fetch();
+    debugger;
     var answerView = new AlrightEros.Views.ProfileAnswers({
       collection: answers,
-      username: profile.escape("username")
+      model: profile
     })
 
     this._swapContentBodyView(answerView);
@@ -59,5 +51,19 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
 
     this._swapContentBodyView(newView);
 
+  },
+
+  _profileHeader: function (id) {
+    if (!this._requireSignedIn()) { return; }
+    if (!this._requireHasProfile()) { return; }
+
+    var profile = AlrightEros.profiles.getOrFetch(id);
+    var showView = new AlrightEros.Views.ProfileShow ({
+      model: profile
+    });
+
+    this._swapContentHeaderView(showView);
+
+    return profile;
   }
 })

@@ -1,6 +1,6 @@
 AlrightEros.Views.ProfileAnswers = Backbone.View.extend({
   initialize: function (options) {
-    this.username = options.username,
+    this.listenTo(this.model, "sync", this.render)
     this.listenTo(this.collection, "add", this.render)
   },
 
@@ -11,7 +11,7 @@ AlrightEros.Views.ProfileAnswers = Backbone.View.extend({
   render: function () {
     var content = this.template({
       answers: this.collection,
-      username: this.username
+      username: this.model.escape("username")
     });
 
     this.$el.html(content);
