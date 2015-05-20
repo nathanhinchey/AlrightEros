@@ -1,6 +1,6 @@
 AlrightEros.Routers.Profiles = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = options.$rootEl;
+    this.$bodyEl = options.$bodyEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
   },
 

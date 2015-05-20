@@ -8,22 +8,18 @@ window.AlrightEros = {
     this.currentUser = new AlrightEros.Models.CurrentUser({id: currentUserId});
     this.currentUser.fetch();
 
-    new AlrightEros.Routers.Profiles({
-      $rootEl: $("#main-view")
-    })
-
-    this.header = new AlrightEros.Views.Header({
+    new AlrightEros.Views.Header({
       el: "#top-header"
     });
-    this.router = new AlrightEros.Routers.Profiles({
-      $rootEl: $("#main-view")
-    });
-    this.router = new AlrightEros.Routers.Users({
-      $rootEl: $("#main-view")
-    });
-    this.router = new AlrightEros.Routers.Questions({
-      $rootEl: $("#main-view")
-    });
+
+    var mainEls = {
+      $bodyEl: $("#content-body"),
+      $headerEl: $("#content-header")
+    }
+
+    new AlrightEros.Routers.Profiles(mainEls);
+    new AlrightEros.Routers.Users(mainEls);
+    new AlrightEros.Routers.Questions(mainEls);
 
     Backbone.history.start();
   }

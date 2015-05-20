@@ -50,7 +50,7 @@ Backbone.Router.protoype = _.extend(Backbone.Router.prototype, {
   _swapMainView: function (newView) {
     AlrightEros._currentView && AlrightEros._currentView.remove();
     AlrightEros._currentView = newView;
-    this.$rootEl.html(newView.render().$el);
+    this.$bodyEl.html(newView.render().$el);
   }
 
 })
