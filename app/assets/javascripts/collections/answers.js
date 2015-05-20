@@ -1,7 +1,14 @@
-AlrightEros.Collections.Answers = Backbone.Collection.extend({
+AlrightEros.Collections.UserAnswers = Backbone.Collection.extend({
   initialize: function (options) {
     this.userId = options.userId;
-  }
+  },
+
+  url: function () {
+    return "/api/users/" + this.userId + "/user_answers"
+  },
+
+  model: AlrightEros.Models.UserAnswer,
+
 });
 
 

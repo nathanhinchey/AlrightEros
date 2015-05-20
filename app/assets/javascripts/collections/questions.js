@@ -3,10 +3,16 @@ AlrightEros.Collections.Questions = Backbone.Collection.extend({
 
   model: AlrightEros.Models.Question,
 
-  nextNewQuestion: function (startNum) {
+  nextNewQuestion: function (startingQuestionId) {
+    console.log(this);
+    var startNum = this.idToIndex(startingQuestionId);
     (startNum += 1) || (startNum = 0);
 
-    var answered_questions = AlrightEros.currentUser.attributes.answered_questions
+    var answered_questions = AlrightEros
+                              .currentUser
+                              .attributes
+                              .answered_questions
+
     for (var modelIdx = startNum; modelIdx < this.models.length; modelIdx++){
       var question_id = this.models[modelIdx].id;
       if (_.indexOf(answered_questions, question_id) === -1 ){
@@ -27,6 +33,13 @@ AlrightEros.Collections.Questions = Backbone.Collection.extend({
   },
 
   idToIndex: function (ID) {
-    
+    if (!this._idIdxHash) {
+      this._idIdxHash = {};
+      this.models.forEach(function(model, idx){
+        this._idIdxHash[model.id] = idx;
+      }.bind(this));
+    };
+
+    return this._idIdxHash[ID];
   }
 });

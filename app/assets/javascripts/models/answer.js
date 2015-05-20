@@ -4,6 +4,10 @@ AlrightEros.Models.UserAnswer = Backbone.Model.extend({
     this.question_id = options.question_id
   },
 
+  url: function (){
+    return this.postUrl() + "/" + this.attributes.id;
+  },
+
   postUrl: function(){
     return "/api/users/" + AlrightEros.currentUser.id + "/user_answers"
   },
