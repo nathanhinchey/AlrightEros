@@ -104,3 +104,10 @@
   width: 100%;
   height: auto;
 }
+
+.answer-summary {
+  background: #15A;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 0;
+}

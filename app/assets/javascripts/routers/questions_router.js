@@ -1,6 +1,7 @@
 AlrightEros.Routers.Questions = Backbone.Router.extend({
   initialize: function (options) {
     this.$bodyEl = options.$bodyEl;
+    this.$headerEl = options.$headerEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
     AlrightEros.questions = new AlrightEros.Collections.Questions();
   },

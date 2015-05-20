@@ -21,7 +21,7 @@
 
 a, html, body, button,
 fieldset, figure, form,
-h1, h2, h3,input, li,
+h1, h2, h3, h4, input, li,
 p, ul {
   padding: 0;
   margin: 0;
@@ -61,6 +61,12 @@ h2 {
 h3 {
   display:block;
   font-size: 20px;
+}
+
+h4 {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 img {

@@ -1,6 +1,7 @@
 AlrightEros.Routers.Users = Backbone.Router.extend({
   initialize: function (options) {
     this.$bodyEl = options.$bodyEl;
+    this.$headerEl = options.$headerEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
     this.listenTo(AlrightEros.currentUser, 'signOut', this.logout)
   },

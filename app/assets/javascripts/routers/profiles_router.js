@@ -1,6 +1,7 @@
 AlrightEros.Routers.Profiles = Backbone.Router.extend({
   initialize: function (options) {
     this.$bodyEl = options.$bodyEl;
+    this.$headerEl = options.$headerEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
   },
 
@@ -31,9 +32,19 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
       model: profile
     });
 
-    this._swapContentBodyView(showView);
+    this._swapContentHeaderView(showView);
 
-    // header stuff
+    var answers = new AlrightEros.Collections.UserAnswers({
+      userId: id
+    });
+
+    answers.fetch();
+    var answerView = new AlrightEros.Views.ProfileAnswers({
+      collection: answers,
+      username: profile.escape("username")
+    })
+
+    this._swapContentBodyView(answerView);
   },
 
   new: function () {

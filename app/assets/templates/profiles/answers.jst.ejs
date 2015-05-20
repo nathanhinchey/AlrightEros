@@ -1,0 +1,20 @@
+<% if (answers.models.length > 0) { %>
+  <% answers.models.forEach(function(answer){ %>
+    <li class="answer-summary">
+      <h4><%= answer.escape('question_body') %></h4>
+      <p>
+        <% if (answer.escape('answer_text')){ %>
+          <%= answer.escape('answer_text') %>
+        <% } else { %>
+          <button
+            id="answer-question-<%= answer.escape('question_id') %>">
+            Answer this question to see <%= username %>'s answer.
+          </button>
+        <% } %>
+      </p>
+      <p></p>
+    </li>
+  <% }); %>
+<% } else { %>
+  <h4><%= username %> hasn't answered any questions yet.</h4>
+<% } %>

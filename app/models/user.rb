@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_one :profile
 
   has_many :user_answers, dependent: :destroy
+  has_many :answers, through: :user_answers, source: :answer
   has_many :questions, through: :user_answers, source: :question
 
 
