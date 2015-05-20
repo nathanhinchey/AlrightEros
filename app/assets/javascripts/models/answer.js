@@ -4,14 +4,14 @@ AlrightEros.Models.UserAnswer = Backbone.Model.extend({
     this.question_id = options.question_id
   },
 
-  url: function(){
+  postUrl: function(){
     return "/api/users/" + AlrightEros.currentUser.id + "/user_answers"
   },
 
   submitUserAnswer: function (data, options) {
 
     $.ajax({
-      url: this.url(),
+      url: this.postUrl(),
       type: "POST",
       data: data,
       dataType: "json",

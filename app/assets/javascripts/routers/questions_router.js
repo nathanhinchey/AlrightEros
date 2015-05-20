@@ -21,7 +21,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
       model: question
     });
 
-    this._swapMainView(newView);
+    this._swapContentBodyView(newView);
 
   },
 
@@ -32,7 +32,7 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
       model: question
     })
 
-    this._swapMainView(answerView)
+    this._swapContentBodyView(answerView)
   },
 
   index: function () {
@@ -41,12 +41,12 @@ AlrightEros.Routers.Questions = Backbone.Router.extend({
     var indexView = new AlrightEros.Views.QuestionsIndex({
       collection: questions
     });
-    this._swapMainView(indexView)
+    this._swapContentBodyView(indexView)
   },
 
   answered_all: function () {
     var allAnsweredView = new AlrightEros.Views.AnsweredAll();
 
-    this._swapMainView(allAnsweredView)
+    this._swapContentBodyView(allAnsweredView)
   }
 })
