@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
   validates :question_body,
     presence: true,
     uniqueness: true,
-    length: { minimum: 12 }
+    length: { minimum: 6 }
 
   validate :two_to_four_answers
 

@@ -2,20 +2,26 @@
 
 [Heroku link][heroku]
 
-##TODOs for W9D2
+##TODOs for W9D3
 ###Make what I already have work more smoothly:
 
 ####Questions:
 * [ ] Make a question loop:
-  - [ ] Add "new question" link to index
+  - [x] Add "new question" link to index
   - [ ] Before you can click "submit", it verifies validity
-  - [ ] If there are no errors, display the next question
+  - [x] If there are no errors, display the next question
 
 ####Profiles:
 * [ ] Add answered questions view
+* [ ] Add more sections
 
 ####Sign-up:
 * [ ] Make profile creation and sign-up more connected
+* [ ] OAuth
+
+####Add edit views
+* [ ] Profiles
+* [ ] Question answers
 
 ----
 ###Stretch goals:
@@ -31,11 +37,8 @@
 
 * [ ] begin name/theme change to OkEris
 
-----
-##TODOs for W9D3
-* [ ] Pagination
 * [ ] Search
-
+* [ ] Pagination
 
 [heroku]: http://alrighteros.herokuapp.com
 
