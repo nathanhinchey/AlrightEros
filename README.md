@@ -13,6 +13,7 @@
 
 ####Profiles:
 * [ ] Add answered questions view
+  - [ ] Paginate
 * [ ] Add more sections
 
 ####Sign-up:
@@ -38,7 +39,6 @@
 * [ ] begin name/theme change to OkEris
 
 * [ ] Search
-* [ ] Pagination
 
 [heroku]: http://alrighteros.herokuapp.com
 
