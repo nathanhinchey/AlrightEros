@@ -10,7 +10,7 @@
 
 		routes: {
 			"messages" : "index",
-			"messages/:username" : "show"
+			"messages/:userId" : "show"
 		},
 
 		index: function(){
@@ -22,7 +22,7 @@
 			this._swapContentBodyView(indexView);
 		},
 
-		show: function(username){
+		show: function(userId){
 			this._swapContentHeaderView();
 			window.messages;
 			var messageArray;
@@ -30,7 +30,7 @@
 			AlrightEros.messages.fetch({
 				success: function (){
 					messageArray = AlrightEros.messages.where({
-						other_user: username
+						other_user: Number(userId)
 					});
 					window.messages.set(messageArray);
 				}
@@ -43,7 +43,6 @@
 			})
 
 			this._swapContentBodyView(conversationView);
-
 
 		},
 	})
