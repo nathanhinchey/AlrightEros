@@ -2,14 +2,14 @@
 
 [Heroku link][heroku]
 
-##TODOs for W9D3
-###Make what I already have work more smoothly:
+##TODOs
 
 ####Questions:
 * [ ] Make a question loop:
   - [x] Add "new question" link to index
   - [ ] Before you can click "submit", it verifies validity
   - [x] If there are no errors, display the next question
+  - [ ] Modal view for answering on another's profile
 
 ####Profiles:
 * [x] Add answered questions view
@@ -24,6 +24,12 @@
 * [ ] Profiles
 * [ ] Question answers
 
+####Search
+* [ ] Make search function
+  - [ ] Filter by age
+  - [ ] Filter by looking-for
+  - [ ] Filter by some other category
+
 ----
 ###Stretch goals:
 * [ ] add "acceptable answers" to question answers
@@ -34,9 +40,6 @@
 * [ ] make matching algorithm work
   - [ ] *back end*: compare answers to each other
   - [ ] *front end*: display match percentages
-
-
-* [ ] begin name/theme change to OkEris
 
 * [ ] Search
 
@@ -53,19 +56,22 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
 - [x] **Create sessions (log in)**
   * [x] *Models*
   * [x] *Controllers*
-- [ ] **Edit profile**
+- [ ] **Profile form**
+  * [x] *create a new profiles*
+  * [ ] *edit an existing profile*
   * [x] *use "summary" text area*
   * [ ] *use "looking for" drop down*
   * [ ] *use "gender" drop down*
   * [x] *use "birthday" calendar field*
+    * [ ] *update to date dropdowns*
   * [ ] *upload photo*
 - [ ] **View profiles**
   * [ ] *nice looking show view*
-  * [ ] *partials for index view*
-- [ ] **Answer questions**
+  * [x] *partials for index view*
+- [x] **Answer questions**
   * [x] *Users can write questions*
   * [x] *Users can give answers to questions*
-  * [ ] *Users can view other users' answers to questions*
+  * [x] *Users can view other users' answers to questions*
 - [ ] **Search Users**
   * [ ] *by gender*
   * [ ] *by age*

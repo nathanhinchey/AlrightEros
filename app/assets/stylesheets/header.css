@@ -7,6 +7,9 @@
   border-bottom: 2px solid #008;
   padding: 2px;
   padding-top: 4px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 #top-header li {
