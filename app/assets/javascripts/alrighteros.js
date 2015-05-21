@@ -24,7 +24,7 @@
       new AlrightEros.Routers.Questions(mainEls);
 			new AlrightEros.Routers.Messages(mainEls);
 
-      Backbone.history.start();
+      Backbone.history.start({pushState: true});
     }
   };
 })();
