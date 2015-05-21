@@ -24,17 +24,26 @@
 
 		show: function(userId){
 			this._swapContentHeaderView();
-			var messages;
+			window.messages;
+			var messageArray;
 
 			AlrightEros.messages.fetch({
-				success: function(){
-					messages = AlrightEros.messages.where({
-						other_user: userId
+				success: function (){
+					messageArray = AlrightEros.messages.where({
+						other_user: Number(userId)
 					});
+					window.messages.set(messageArray);
 				}
 			})
 
-			
+			window.messages = new AlrightEros.Collections.Messages();
+
+			var conversationView = new AlrightEros.Views.MessagesIndex({
+				collection: window.messages
+			})
+
+			this._swapContentBodyView(conversationView);
+
 
 		},
 	})
