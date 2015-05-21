@@ -13,6 +13,14 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
+  has_many :sent_messages,
+    class_name: 'Message',
+    foreign_key: :sender_id
+
+  has_many :received_messages,
+    class_name: 'Message',
+    foreign_key: :receiver_id
+
   has_many :user_answers, dependent: :destroy
   has_many :answers, through: :user_answers, source: :answer
   has_many :questions, through: :user_answers, source: :question
@@ -23,6 +31,10 @@ class User < ActiveRecord::Base
     return nil unless user
 
     user.is_password?(password) ? user : nil
+  end
+
+  def messages
+    Message.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
   end
 
   def password=(password)

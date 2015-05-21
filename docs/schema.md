@@ -97,3 +97,13 @@ column name | data type | details
 id          | integer   | not null, primary key
 liker_id    | integer   | not null, foreign key (references users)
 liked_id    | integer   | not null, foreign key (references users)
+
+
+## messages
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+sender_id   | integer   | not null, foreign key (references users)
+receiver_id | integer   | not null, foreign key (references users)
+body				| text 			| not null
+is_read			| boolean		| not null, default: false
