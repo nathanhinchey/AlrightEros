@@ -1,0 +1,45 @@
+<% if (profile.isNew()){ %>
+  <h1>Create your profile!</h1>
+<% } else { %>
+  <h1>Edit your profile!</h1>
+<% } %>
+
+<fieldset class="form-fieldset text-input-fieldset group">
+  <label
+    for="profile-username">Username</label>
+  <input
+    type="text"
+    class="text-input"
+    name="profile[username]"
+    id="profile-username"
+    value="<%= profile.escape('username') %>"
+    required>
+</fieldset>
+
+<fieldset class="form-fieldset textarea-fieldset group">
+  <label
+    class="textarea-label"
+    for="profile-summary">Self Summary</label>
+  <textarea
+    class="textarea"
+    name="profile[summary]"
+    id="profile-summary"><%= profile.escape('summary') %></textarea>
+</fieldset>
+
+<fieldset class="form-fieldset date-input group">
+  <label for="profile-birthday">Birthday</label>
+  <input
+    type="date"
+    name="profile[birthday]"
+    id="profile-birthday"
+    required
+    value="<%= AlrightEros.currentUser.get("birthday") %>">
+</fieldset>
+
+<fieldset class="form-fieldset file-input group">
+  <label for="profile-picture">Upload a profile picture</label>
+  <input type="file" name="profile[picture]" id="input-profile-picture">
+  <img id="preview-profile-image" src>
+</fieldset>
+
+<button>Save!</button>

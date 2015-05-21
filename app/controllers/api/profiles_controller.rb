@@ -27,7 +27,21 @@ class Api::ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user_id = user_id
     if @profile.save
-      render :show #TODO make a template
+      render :show
+    else
+      render json: @profile.errors.full_messages, status: 422
+    end
+  end
+
+  def update
+    unless current_user.profile.id == params[:id].to_i
+      head :forbidden
+      return
+    end
+
+    @profile = Profile.find(params[:id])
+    if @profile.update(profile_params)
+      render :show
     else
       render json: @profile.errors.full_messages, status: 422
     end

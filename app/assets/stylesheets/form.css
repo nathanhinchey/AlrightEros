@@ -1,14 +1,11 @@
 
 /*    FORM    */
+.textarea-fieldset,
 .text-input-fieldset {
   margin: 0 auto;
   width: 500px;
   display: block;
   padding: 20px;
-}
-
-.textarea-fieldset {
-
 }
 
 .radio-input-label {
@@ -96,17 +93,32 @@ h1.logo {
   border-radius: 2px;
 }
 
+.textarea,
 .text-input {
   font-size: 20px;
   border-radius: 2px;
   background: #ADD8E6;
   margin-left: 10px;
   margin-right: 10px;
-  height: 30px;
   width: 250px;
   box-shadow: 0 0 7px darkblue;
   padding: 0px;
 }
+
+.text-input {
+  height: 30px;
+}
+
+.textarea {
+  height: 100px;
+}
+
+.textarea-label {
+  display: block;
+  float: none;
+  margin-bottom: 5px;
+}
+
 
 label {
 }

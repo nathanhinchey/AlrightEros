@@ -3,11 +3,13 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     this.$bodyEl = options.$bodyEl;
     this.$headerEl = options.$headerEl;
     AlrightEros.profiles = new AlrightEros.Collections.Profiles();
+    AlrightEros.currentUser.fetch();
   },
 
   routes: {
     "": "index",
     "profiles/new": "new",
+    "profiles/edit": "edit",
     "profiles/:id": "show"
   },
 
@@ -30,7 +32,6 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     });
 
     answers.fetch();
-    debugger;
     var answerView = new AlrightEros.Views.ProfileAnswers({
       collection: answers,
       model: profile
@@ -39,13 +40,32 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     this._swapContentBodyView(answerView);
   },
 
+  edit: function () {
+    if (!this._requireSignedIn()) { return; }
+    if (!this._requireHasProfile()) { return; }
+    var view = this;
+
+    AlrightEros.currentUser.fetch({
+      success: function () {
+        var id = AlrightEros.currentUser.get('profile_id');
+        var profile = AlrightEros.profiles.getOrFetch(id);
+
+        var editView = new AlrightEros.Views.ProfileForm ({
+          model: profile
+        });
+
+        view._swapContentBodyView(editView);
+      }
+    });
+  },
+
   new: function () {
     if (!this._requireSignedIn()) { return; }
 
 
     var profile = new AlrightEros.Models.Profile();
 
-    var newView = new AlrightEros.Views.ProfileNew ({
+    var newView = new AlrightEros.Views.ProfileForm ({
       model: profile
     });
 

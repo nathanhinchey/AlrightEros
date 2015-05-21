@@ -1,18 +1,25 @@
-AlrightEros.Views.ProfileNew = Backbone.View.extend({
+AlrightEros.Views.ProfileForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
   },
 
   events: {
-    'submit form': 'submit',
+    'submit': 'submit',
     'change #input-profile-picture': 'fileInputChange'
   },
 
-  template: JST['profiles/new'],
+  template: JST['profiles/form'],
+
+  tagName: 'form',
+
+  className: 'profile',
 
   render: function () {
-    this.$el.html(this.template());
+    var content = this.template({
+      profile: this.model
+    });
+    this.$el.html(content);
 
     return this;
   },
@@ -21,11 +28,16 @@ AlrightEros.Views.ProfileNew = Backbone.View.extend({
     event.preventDefault();
 
     var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON().profile;
+    var formData = this.$el.serializeJSON().profile;
     var profile = this.model;
+    profile.set(formData)
+    debugger
 
-    profile.save(formData,{
+
+    // FIXME success in a success?????
+    profile.save({}, {
       success: function () {
+        debugger
         AlrightEros.profiles.add(profile);
         AlrightEros.currentUser.fetch({
           success: function(){
