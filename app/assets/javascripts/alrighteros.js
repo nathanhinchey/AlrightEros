@@ -22,6 +22,7 @@
       new AlrightEros.Routers.Profiles(mainEls);
       new AlrightEros.Routers.Users(mainEls);
       new AlrightEros.Routers.Questions(mainEls);
+			new AlrightEros.Routers.Messages(mainEls);
 
       Backbone.history.start();
     }
