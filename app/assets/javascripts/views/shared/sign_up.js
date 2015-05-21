@@ -1,39 +1,42 @@
-AlrightEros.Views.SignUp = Backbone.View.extend({
+;(function(){
+	"use strict";
+  AlrightEros.Views.SignUp = Backbone.View.extend({
 
-  initialize: function (options) {
-    this.callback = options.callback;
-  },
+    initialize: function (options) {
+      this.callback = options.callback;
+    },
 
-  events: {
-    'submit form': 'submit'
-  },
+    events: {
+      'submit form': 'submit'
+    },
 
-  template: JST['shared/sign_up'],
+    template: JST['shared/sign_up'],
 
-  render: function () {
-    this.$el.html(this.template());
+    render: function () {
+      this.$el.html(this.template());
 
-    return this;
-  },
+      return this;
+    },
 
-  submit: function (event) {
-    event.preventDefault();
+    submit: function (event) {
+      event.preventDefault();
 
-    var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON().user;
-    formData.success = function () {
-      Backbone.history.navigate("", {trigger: true})
-    };
+      var $form = $(event.currentTarget);
+      var formData = $form.serializeJSON().user;
+      formData.success = function () {
+        Backbone.history.navigate("", {trigger: true})
+      };
 
-    this.model.signUp(formData);
-  },
+      this.model.signUp(formData);
+    },
 
-  signInCallback: function (event) {
-    if (this.callback) {
-      this.callback();
+    signInCallback: function (event) {
+      if (this.callback) {
+        this.callback();
+      }
+      else {
+        Backbone.history.navigate("", {trigger: true})
+      }
     }
-    else {
-      Backbone.history.navigate("", {trigger: true})
-    }
-  }
-});
+  });
+})();

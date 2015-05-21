@@ -1,47 +1,50 @@
-AlrightEros.Views.SignIn = Backbone.View.extend({
+;(function(){
+	"use strict";
+  AlrightEros.Views.SignIn = Backbone.View.extend({
 
-  initialize: function (options) {
-    this.callback = options.callback;
-    this.listenTo(
-      AlrightEros.currentUser,
-      "signIn",
-      this.signInCallback
-    );
-  },
+    initialize: function (options) {
+      this.callback = options.callback;
+      this.listenTo(
+        AlrightEros.currentUser,
+        "signIn",
+        this.signInCallback
+      );
+    },
 
-  events: {
-    'submit form': 'submit'
-  },
+    events: {
+      'submit form': 'submit'
+    },
 
-  template: JST['shared/sign_in'],
+    template: JST['shared/sign_in'],
 
-  render: function () {
-    this.$el.html(this.template());
+    render: function () {
+      this.$el.html(this.template());
 
-    return this;
-  },
+      return this;
+    },
 
-  submit: function (event) {
-    event.preventDefault();
+    submit: function (event) {
+      event.preventDefault();
 
-    var $form = $(event.currentTarget);
-    var formData = $form.serializeJSON().user;
+      var $form = $(event.currentTarget);
+      var formData = $form.serializeJSON().user;
 
-    AlrightEros.currentUser.signIn({
-      email: formData.email,
-      password: formData.password,
-      error: function (){
-        alert("Invalid username or password.")
+      AlrightEros.currentUser.signIn({
+        email: formData.email,
+        password: formData.password,
+        error: function (){
+          alert("Invalid username or password.")
+        }
+      });
+    },
+
+    signInCallback: function (event) {
+      if (this.callback) {
+        this.callback();
       }
-    });
-  },
-
-  signInCallback: function (event) {
-    if (this.callback) {
-      this.callback();
+      else {
+        Backbone.history.navigate("", {trigger: true})
+      }
     }
-    else {
-      Backbone.history.navigate("", {trigger: true})
-    }
-  }
-});
+  });
+})();

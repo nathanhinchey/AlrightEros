@@ -1,37 +1,40 @@
-AlrightEros.Views.QuestionNew = Backbone.View.extend({
-  initialize: function (options){
-    // this.listenTo(this.model, 'sync', this.render)
-  },
+;(function(){
+	"use strict";
+  AlrightEros.Views.QuestionNew = Backbone.View.extend({
+    initialize: function (options){
+      // this.listenTo(this.model, 'sync', this.render)
+    },
 
-  tagName: "form",
+    tagName: "form",
 
-  template: JST['questions/new'],
+    template: JST['questions/new'],
 
-  events: {
-    'click button': 'submit'
-  },
+    events: {
+      'click button': 'submit'
+    },
 
-  render: function () {
-    var content = this.template();
-    this.$el.html(content);
+    render: function () {
+      var content = this.template();
+      this.$el.html(content);
 
-    return this;
-  },
+      return this;
+    },
 
-  submit: function (event) {
-    event.preventDefault();
+    submit: function (event) {
+      event.preventDefault();
 
-    var question = this.model;
+      var question = this.model;
 
-    questionData = this.$el.serializeJSON();
-    var answers = questionData.question.answers;
-    !answers[3].answer_text && delete answers[3];
-    !answers[4].answer_text && delete answers[4];
+      questionData = this.$el.serializeJSON();
+      var answers = questionData.question.answers;
+      !answers[3].answer_text && delete answers[3];
+      !answers[4].answer_text && delete answers[4];
 
-    this.model.save(questionData, {
-      success: function () {
-        Backbone.history.navigate("#/questions/" + question.escape("id"))
-      }
-    })
-  }
-});
+      this.model.save(questionData, {
+        success: function () {
+          Backbone.history.navigate("#/questions/" + question.escape("id"))
+        }
+      })
+    }
+  });
+})();

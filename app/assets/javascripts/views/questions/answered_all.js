@@ -1,13 +1,16 @@
-AlrightEros.Views.AnsweredAll = Backbone.View.extend({
-  template: JST['questions/answered_all'],
+;(function(){
+	"use strict";
+  AlrightEros.Views.AnsweredAll = Backbone.View.extend({
+    template: JST['questions/answered_all'],
 
-  tagName: "form",
+    tagName: "form",
 
-  className: "all-answered",
+    className: "all-answered",
 
-  render: function () {
-    this.$el.html(this.template());
+    render: function () {
+      this.$el.html(this.template());
 
-    return this;
-  }
-})
+      return this;
+    }
+  })
+})();

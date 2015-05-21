@@ -1,63 +1,66 @@
-AlrightEros.Models.CurrentUser = Backbone.Model.extend({
-  url: '/api/session',
+;(function(){
+	"use strict";
+  AlrightEros.Models.CurrentUser = Backbone.Model.extend({
+    url: '/api/session',
 
-  initialize: function (options) {
-    this.listenTo(this, "change", this.fireSessionEvent);
-  },
+    initialize: function (options) {
+      this.listenTo(this, "change", this.fireSessionEvent);
+    },
 
-  // toJSON: function(){
-  //   var json = { user: _.clone(this.attributes) };
-  //   return json;
-  // },
+    // toJSON: function(){
+    //   var json = { user: _.clone(this.attributes) };
+    //   return json;
+    // },
 
-  isSignedIn: function (options) {
-    return !this.isNew();
-  },
+    isSignedIn: function (options) {
+      return !this.isNew();
+    },
 
-  signIn: function (options) {
-    var model = this;
-    var credentials = {
-      "user[email]": options.email,
-      "user[password]": options.password
-    };
+    signIn: function (options) {
+      var model = this;
+      var credentials = {
+        "user[email]": options.email,
+        "user[password]": options.password
+      };
 
-    $.ajax({
-      url: this.url,
-      type: "POST",
-      data: credentials,
-      dataType: "json",
-      success: function (responseData) {
-        model.set(responseData);
-        //the options here are the options passed in to signIn
-        options.success && options.success();
-      },
-      error: function () {
-        //the options here are the options passed in to signIn
-        options.error && options.error();
+      $.ajax({
+        url: this.url,
+        type: "POST",
+        data: credentials,
+        dataType: "json",
+        success: function (responseData) {
+          model.set(responseData);
+          //the options here are the options passed in to signIn
+          options.success && options.success();
+        },
+        error: function () {
+          //the options here are the options passed in to signIn
+          options.error && options.error();
+        }
+      })
+    },
+
+    signOut: function (options) {
+      var model = this;
+
+      $.ajax({
+        url: this.url,
+        type: "DELETE",
+        dataType: "json",
+        success: function (data) {
+          model.clear();
+          options.sucess && options.success();
+        }
+      })
+    },
+
+    fireSessionEvent: function () {
+      if(this.isSignedIn()){
+        this.trigger("signIn");
       }
-    })
-  },
-
-  signOut: function (options) {
-    var model = this;
-
-    $.ajax({
-      url: this.url,
-      type: "DELETE",
-      dataType: "json",
-      success: function (data) {
-        model.clear();
-        options.sucess && options.success();
+      else {
+        this.trigger("signOut");
       }
-    })
-  },
-
-  fireSessionEvent: function () {
-    if(this.isSignedIn()){
-      this.trigger("signIn");
     }
-    else {
-      this.trigger("signOut");
-    }
-  }
-})
+  })
+})();

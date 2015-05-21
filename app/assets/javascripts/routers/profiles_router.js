@@ -1,107 +1,110 @@
-AlrightEros.Routers.Profiles = Backbone.Router.extend({
-  initialize: function (options) {
-    this.$bodyEl = options.$bodyEl;
-    this.$headerEl = options.$headerEl;
-    AlrightEros.profiles = new AlrightEros.Collections.Profiles();
-    AlrightEros.currentUser.fetch();
-  },
+;(function(){
+	"use strict";
+  AlrightEros.Routers.Profiles = Backbone.Router.extend({
+    initialize: function (options) {
+      this.$bodyEl = options.$bodyEl;
+      this.$headerEl = options.$headerEl;
+      AlrightEros.profiles = new AlrightEros.Collections.Profiles();
+      AlrightEros.currentUser.fetch();
+    },
 
-  routes: {
-    "": "index",
-    "profiles/new": "new",
-    "profiles/edit": "edit",
-    "profiles/:id": "essayShow",
-    "profiles/:id": "essayShow",
-    "profiles/:id": "questionShow",
-  },
+    routes: {
+      "": "index",
+      "profiles/new": "new",
+      "profiles/edit": "edit",
+      "profiles/:id": "essayShow",
+      "profiles/:id/essays": "essayShow",
+      "profiles/:id/questions": "questionShow",
+    },
 
-  index: function () {
-    if (!this._requireSignedIn()) { return; }
-    if (!this._requireHasProfile()) { return; }
+    index: function () {
+      if (!this._requireSignedIn()) { return; }
+      if (!this._requireHasProfile()) { return; }
 
-    AlrightEros.profiles.fetch();
-    var indexView = new AlrightEros.Views.ProfilesIndex ({
-      collection: AlrightEros.profiles
-    });
+      AlrightEros.profiles.fetch();
+      var indexView = new AlrightEros.Views.ProfilesIndex ({
+        collection: AlrightEros.profiles
+      });
 
-    this._swapContentBodyView(indexView);
-  },
+      this._swapContentBodyView(indexView);
+    },
 
-  questionShow: function (id) {
-    var profile = this._profileHeader(id);
-    var answers = new AlrightEros.Collections.UserAnswers({
-      userId: id
-    });
+    questionShow: function (id) {
+      var profile = this._profileHeader(id);
+      var answers = new AlrightEros.Collections.UserAnswers({
+        userId: id
+      });
 
-    answers.fetch();
-    var answerView = new AlrightEros.Views.ProfileAnswers({
-      collection: answers,
-      model: profile
-    })
+      answers.fetch();
+      var answerView = new AlrightEros.Views.ProfileAnswers({
+        collection: answers,
+        model: profile
+      })
 
-    this._swapContentBodyView(answerView);
-  },
+      this._swapContentBodyView(answerView);
+    },
 
-  //TODO make essay view
+    //TODO make essay view
 
-  essayShow: function (id) {
-    var profile = this._profileHeader(id);
-    var answers = new AlrightEros.Collections.UserAnswers({
-      userId: id
-    });
+    essayShow: function (id) {
+      var profile = this._profileHeader(id);
+      var answers = new AlrightEros.Collections.UserAnswers({
+        userId: id
+      });
 
-    answers.fetch();
-    var essayView = new AlrightEros.Views.ProfileEssays({
-      model: profile
-    })
+      answers.fetch();
+      var essayView = new AlrightEros.Views.ProfileEssays({
+        model: profile
+      })
 
-    this._swapContentBodyView(answerView);
-  },
+      this._swapContentBodyView(essayView);
+    },
 
-  edit: function () {
-    if (!this._requireSignedIn()) { return; }
-    if (!this._requireHasProfile()) { return; }
-    var view = this;
+    edit: function () {
+      if (!this._requireSignedIn()) { return; }
+      if (!this._requireHasProfile()) { return; }
+      var view = this;
 
-    AlrightEros.currentUser.fetch({
-      success: function () {
-        var id = AlrightEros.currentUser.get('profile_id');
-        var profile = AlrightEros.profiles.getOrFetch(id);
+      AlrightEros.currentUser.fetch({
+        success: function () {
+          var id = AlrightEros.currentUser.get('profile_id');
+          var profile = AlrightEros.profiles.getOrFetch(id);
 
-        var editView = new AlrightEros.Views.ProfileForm ({
-          model: profile
-        });
+          var editView = new AlrightEros.Views.ProfileForm ({
+            model: profile
+          });
 
-        view._swapContentBodyView(editView);
-      }
-    });
-  },
+          view._swapContentBodyView(editView);
+        }
+      });
+    },
 
-  new: function () {
-    if (!this._requireSignedIn()) { return; }
+    new: function () {
+      if (!this._requireSignedIn()) { return; }
 
 
-    var profile = new AlrightEros.Models.Profile();
+      var profile = new AlrightEros.Models.Profile();
 
-    var newView = new AlrightEros.Views.ProfileForm ({
-      model: profile
-    });
+      var newView = new AlrightEros.Views.ProfileForm ({
+        model: profile
+      });
 
-    this._swapContentBodyView(newView);
+      this._swapContentBodyView(newView);
 
-  },
+    },
 
-  _profileHeader: function (id) {
-    if (!this._requireSignedIn()) { return; }
-    if (!this._requireHasProfile()) { return; }
+    _profileHeader: function (id) {
+      if (!this._requireSignedIn()) { return; }
+      if (!this._requireHasProfile()) { return; }
 
-    var profile = AlrightEros.profiles.getOrFetch(id);
-    var showView = new AlrightEros.Views.ProfileShow ({
-      model: profile
-    });
+      var profile = AlrightEros.profiles.getOrFetch(id);
+      var showView = new AlrightEros.Views.ProfileShow ({
+        model: profile
+      });
 
-    this._swapContentHeaderView(showView);
+      this._swapContentHeaderView(showView);
 
-    return profile;
-  }
-})
+      return profile;
+    }
+  })
+})();
