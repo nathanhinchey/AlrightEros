@@ -23,7 +23,6 @@
 		},
 
 		show: function(username){
-			debugger
 			this._swapContentHeaderView();
 			window.messages;
 			var messageArray;

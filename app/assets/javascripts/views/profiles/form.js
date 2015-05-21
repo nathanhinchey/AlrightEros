@@ -33,13 +33,11 @@
       var formData = this.$el.serializeJSON().profile;
       var profile = this.model;
       profile.set(formData)
-      debugger
 
 
       // FIXME success in a success?????
       profile.save({}, {
         success: function () {
-          debugger
           AlrightEros.profiles.add(profile);
           AlrightEros.currentUser.fetch({
             success: function(){

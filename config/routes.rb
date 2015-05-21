@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Note: for a real app, I'd do something to let it be indexed
   # Although for this particular app, that would be irrelevant, as
   # only the root is accessible without login.
-  get '*path' => "main#index"
+  # get '*path' => "main#index"
 
   # resources :users, only: [:new, :create, :destroy, :index]
   # resource :session, only: [:new, :create, :destroy]

@@ -12,7 +12,7 @@
   - [ ] Modal view for answering on another's profile
 
 ####Profiles:
-* [ ] Add essays view
+* [x] Add essays view
 * [x] Add answered questions view
   - [ ] Paginate
 * [ ] Add more sections
@@ -22,7 +22,7 @@
 * [ ] OAuth
 
 ####Add edit views
-* [ ] Profiles
+* [x] Profiles
 * [ ] Question answers
 
 ####Search
