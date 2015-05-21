@@ -18,6 +18,7 @@
     },
 
     index: function () {
+			this._swapContentHeaderView();
       if (!this._requireSignedIn()) { return; }
       if (!this._requireHasProfile()) { return; }
 
@@ -48,11 +49,7 @@
 
     essayShow: function (id) {
       var profile = this._profileHeader(id);
-      var answers = new AlrightEros.Collections.UserAnswers({
-        userId: id
-      });
 
-      answers.fetch();
       var essayView = new AlrightEros.Views.ProfileEssays({
         model: profile
       })

@@ -51,14 +51,18 @@
 
     _swapContentBodyView: function (newView) {
       AlrightEros._contentBodyView && AlrightEros._contentBodyView.remove();
-      AlrightEros._contentBodyView = newView;
-      this.$bodyEl.html(newView.render().$el);
+			if (newView){
+	      AlrightEros._contentBodyView = newView;
+	      this.$bodyEl.html(newView.render().$el);
+			}
     },
 
     _swapContentHeaderView: function (newView) {
       AlrightEros._contentHeaderView && AlrightEros._contentHeaderView.remove();
-      AlrightEros._contentHeaderView = newView;
-      this.$headerEl.html(newView.render().$el);
+			if (newView){
+	      AlrightEros._contentHeaderView = newView;
+	      this.$headerEl.html(newView.render().$el);
+			}
     }
 
   })

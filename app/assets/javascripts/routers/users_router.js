@@ -15,7 +15,9 @@
     },
 
     login: function () {
+			this._swapContentHeaderView();
       if (!this._requireSignedOut()) { return; }
+
 
       var signInView = new AlrightEros.Views.SignIn({});
 
@@ -23,6 +25,8 @@
     },
 
     signup: function () {
+			this._swapContentHeaderView();
+
       if (!this._requireSignedOut()) { return; }
 
       var newUser = new AlrightEros.Models.User();
@@ -34,6 +38,7 @@
     },
 
     logout: function () {
+			this._swapContentHeaderView();
       if (!this._requireSignedOut()) { return; }
 
       Backbone.history.navigate("");

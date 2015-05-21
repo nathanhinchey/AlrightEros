@@ -16,6 +16,7 @@
     },
 
     new: function () {
+			this._swapContentHeaderView();
       if (!this._requireSignedIn()) { return; }
 
       var question = new AlrightEros.Models.Question();
@@ -29,6 +30,7 @@
     },
 
     answer: function(id) {
+			this._swapContentHeaderView();
       var question = new AlrightEros.Models.Question({id: id})
       question.fetch();
       var answerView = new AlrightEros.Views.QuestionAnswerForm({
@@ -39,6 +41,8 @@
     },
 
     index: function () {
+			this._swapContentHeaderView();
+
       var questions = new AlrightEros.Collections.Questions();
       questions.fetch();
       var indexView = new AlrightEros.Views.QuestionsIndex({
@@ -48,6 +52,7 @@
     },
 
     answered_all: function () {
+			this._swapContentHeaderView();
       var allAnsweredView = new AlrightEros.Views.AnsweredAll();
 
       this._swapContentBodyView(allAnsweredView)
