@@ -1,4 +1,6 @@
+is_sender = @message.sender_id == current_user.id
+
 json.body @message.body
-json.sender_id @message.sender_id
-json.receiver_id @message.receiver_id
+json.is_sender is_sender
+json.other_user (is_sender ? @message.receiver_id : @message.sender_id)
 json.timestamp @message.created_at

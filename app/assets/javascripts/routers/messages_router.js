@@ -9,7 +9,8 @@
 		},
 
 		routes: {
-			"messages" : "index"
+			"messages" : "index",
+			"messages/:userId" : "show"
 		},
 
 		index: function(){
@@ -19,7 +20,22 @@
 				collection: AlrightEros.messages
 			});
 			this._swapContentBodyView(indexView);
+		},
 
-		}
+		show: function(userId){
+			this._swapContentHeaderView();
+			var messages;
+
+			AlrightEros.messages.fetch({
+				success: function(){
+					messages = AlrightEros.messages.where({
+						other_user: userId
+					});
+				}
+			})
+
+			
+
+		},
 	})
 })();
