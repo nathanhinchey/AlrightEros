@@ -12,6 +12,7 @@
   - [ ] Modal view for answering on another's profile
 
 ####Profiles:
+* [ ] Add essays view
 * [x] Add answered questions view
   - [ ] Paginate
 * [ ] Add more sections
@@ -50,6 +51,10 @@
 This site will be a clone of OkCupid built on Rails and using Backbone.
 
 ###MVP Proposal:
+- [ ] **Send and receive messages**
+  * [ ] *Send messages to other users*
+  * [ ] *View messages received from other users*
+  * [ ] *Use websockets to have live message updates*
 - [x] **Create accounts**
   * [x] *Models*
   * [x] *Controllers*

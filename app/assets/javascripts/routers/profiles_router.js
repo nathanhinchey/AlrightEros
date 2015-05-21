@@ -10,7 +10,9 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     "": "index",
     "profiles/new": "new",
     "profiles/edit": "edit",
-    "profiles/:id": "show"
+    "profiles/:id": "essayShow",
+    "profiles/:id": "essayShow",
+    "profiles/:id": "questionShow",
   },
 
   index: function () {
@@ -25,7 +27,7 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     this._swapContentBodyView(indexView);
   },
 
-  show: function (id) {
+  questionShow: function (id) {
     var profile = this._profileHeader(id);
     var answers = new AlrightEros.Collections.UserAnswers({
       userId: id
@@ -34,6 +36,22 @@ AlrightEros.Routers.Profiles = Backbone.Router.extend({
     answers.fetch();
     var answerView = new AlrightEros.Views.ProfileAnswers({
       collection: answers,
+      model: profile
+    })
+
+    this._swapContentBodyView(answerView);
+  },
+
+  //TODO make essay view
+
+  essayShow: function (id) {
+    var profile = this._profileHeader(id);
+    var answers = new AlrightEros.Collections.UserAnswers({
+      userId: id
+    });
+
+    answers.fetch();
+    var essayView = new AlrightEros.Views.ProfileEssays({
       model: profile
     })
 

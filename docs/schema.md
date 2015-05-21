@@ -25,6 +25,7 @@ username            | string    | not null, unique
 <!-- orientation         | integer   | not null, foreign key -->
 birthday            | date      | not null
 self_summary        | text      |
+picture_url         | string
 <!-- relationship_status | integer   | foreign key -->
 
 ## questions

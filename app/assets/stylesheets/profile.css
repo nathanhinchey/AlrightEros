@@ -117,3 +117,7 @@
   border-radius: 2px;
   background: lightblue;
 }
+
+.edit-profile {
+  float: left;
+}
