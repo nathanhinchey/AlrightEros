@@ -21,6 +21,19 @@
 
     },
 
+		index: function () {
+			this._swapContentHeaderView();
+			if (!this._requireSignedIn()) {return;}
+			if (!this._requireHasProfile()) {return;}
+
+			AlrightEros.profiles.fetch();
+			var indexView = new AlrightEros.Views.ProfilesIndex({
+				collection: AlrightEros.profiles
+			});
+
+			this._swapContentBodyView(indexView);
+		},
+
 		// HACK: FIXME: this relies on the assumption that
 		// user_id and profile_id will always be the same
 		messagesShow: function(id){

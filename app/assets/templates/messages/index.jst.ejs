@@ -9,7 +9,9 @@
 			class="textarea new-message-textarea"
 			id="new-message-text-area"></textarea>
 	</fieldset>
+	<button class="send-message submit hidden"></button>
 </form>
+
 <ul>
 	<% messages.forEach(function(message){ %>
 	<% var messageType = message.get('is_sender') ? 'sent' : 'received' %>
@@ -17,6 +19,6 @@
 			class="message <%= messageType %>">
 				<h3 class="sender"><%= message.escape("sender_username") %></h3>
 				<p><%= message.escape("body") %></p>
-			</li>
+		</li>
 	<% }) %>
 </ul>
