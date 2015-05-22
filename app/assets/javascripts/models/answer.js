@@ -7,6 +7,7 @@
     },
 
     url: function (){
+			debugger
       return this.postUrl() + "/" + this.attributes.id;
     },
 

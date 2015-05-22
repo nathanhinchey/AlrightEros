@@ -1,7 +1,7 @@
 ;(function(){
 	"use strict";
   AlrightEros.Collections.UserAnswers = Backbone.Collection.extend({
-    initialize: function (options) {
+    initialize: function (models, options) {
       this.userId = options.userId;
     },
 
