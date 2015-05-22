@@ -1,6 +1,11 @@
 <h1>Messages</h1>
 <ul>
 	<% messages.forEach(function(message){ %>
-		<li class="message"><%= message.escape("body") %></li>	
+	<% var messageType = message.get('is_sender') ? 'sent' : 'received' %>
+		<li
+			class="message <%= messageType %>">
+				<address class="sender"><%= message.escape("sender_username") %></address>
+				<p><%= message.escape("body") %></p>
+			</li>
 	<% }) %>
 </ul>

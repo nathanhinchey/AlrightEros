@@ -12,7 +12,7 @@
 				messages: this.collection
 			});
 			this.$el.html(content);
-
+			
 			return this;
 		},
 	});

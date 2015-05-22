@@ -9,6 +9,8 @@
 
 		tagName: 'article',
 
+		className: 'essays',
+
 		render: function () {
 			var content = this.template({
 				profile: this.model

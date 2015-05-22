@@ -139,3 +139,13 @@
   display: block;
   float: left;
 }
+
+.essays > h3 {
+  color: lightblue;
+}
+
+.essays > p {
+  padding: 5px;
+  border-radius: 5px;
+  background: #15A;
+}
