@@ -6,7 +6,7 @@
     template: JST['questions'],
 
     initialize: function (options) {
-      this.listenTo(this.collection, "add sync", this.render)
+      this.listenTo(this.collection, "add sync", this.render);
     },
 
     render: function () {
@@ -14,6 +14,6 @@
       this.$el.html(content);
 
       return this;
-    }
+    },
   });
 })();

@@ -53,7 +53,8 @@
 			window.messages = new AlrightEros.Collections.Messages();
 
 			var conversationView = new AlrightEros.Views.MessagesIndex({
-				collection: window.messages
+				collection: window.messages,
+				otherUserId: id
 			})
 
 			this._swapContentBodyView(conversationView);
