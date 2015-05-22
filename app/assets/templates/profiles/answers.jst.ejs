@@ -8,7 +8,8 @@
         <% } else { %>
           <button
             class="answer-button"
-            id="answer-question-<%= answer.escape('question_id') %>">
+            id="answer-question-<%= answer.escape('question_id') %>"
+            data-question-id="<%= answer.escape('question_id') %>">
             Answer this question to see <%= username %>'s answer.
           </button>
         <% } %>

@@ -22,10 +22,8 @@
 		},
 
 		enterKey: function(event){
-			console.log("keyup");
 			var code = event.keyCode || event.which;
 			if (code === 13){
-				console.log("enter up");
 				event.preventDefault();
 
 				this.submitForm(event);

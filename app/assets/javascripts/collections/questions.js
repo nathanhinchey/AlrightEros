@@ -6,7 +6,6 @@
     model: AlrightEros.Models.Question,
 
     nextNewQuestion: function (startingQuestionId) {
-      console.log(this);
       var startNum = this.idToIndex(startingQuestionId);
       (startNum += 1) || (startNum = 0);
 

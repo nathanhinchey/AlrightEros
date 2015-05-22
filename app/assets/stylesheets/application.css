@@ -19,12 +19,13 @@
  *= require message
  */
 
-/*reset*/
-
-/*  * {
- border: 1px solid magenta !important;
+/*
+* {
+  border: 1px solid magenta !important;
 }
 */
+
+/*reset*/
 
 a, address, html, body, button,
 fieldset, figure, form,
@@ -47,6 +48,10 @@ ul {
 
 li {
   padding: 5px 0;
+}
+
+button {
+  outline: none;
 }
 
 body {
