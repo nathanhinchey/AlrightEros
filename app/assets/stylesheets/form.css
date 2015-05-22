@@ -90,6 +90,7 @@ h1.logo {
   box-shadow:  0 0 7px lightblue;
   width: 120px;
 
+  border: 1px solid lightblue;
   border-radius: 2px;
 }
 
