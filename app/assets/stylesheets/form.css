@@ -15,6 +15,27 @@
   cursor: pointer;
 }
 
+.radio-input-label:hover {
+  background: #EEF;
+}
+
+button:hover {
+  background: #EEF;
+}
+
+#sign-out-link:hover {
+  background: #EEF;
+}
+
+.nav-list > li:hover {
+  background: lightblue;
+  box-shadow: 0 0 50px lightblue;
+}
+
+.button:hover {
+  background: #EEF;
+}
+
 .question-body {
   font-size: 24px;
   display: block;
