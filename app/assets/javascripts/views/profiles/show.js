@@ -8,6 +8,10 @@
 
     template: JST['profiles/show'],
 
+		tagName: 'header',
+
+		className: "group profile-header",
+
     render: function () {
       var content = this.template({profile: this.model})
       this.$el.html(content);

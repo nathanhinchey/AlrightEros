@@ -1,14 +1,29 @@
-<header class="group profile-header">
-<figure class="profile-picture">
-  <img src="<%= profile.escape("picture_url") %>" alt="" />
+<figure class="profile-picture-container">
+  <img src="<%= profile.escape("picture_url") %>" alt="" class="profile-picture" />
 </figure>
+
 <h1 class="username"><%= profile.escape("username") %></h1>
+
+<% if (profile.id == AlrightEros.currentUser.escape('profile_id')){ %>
+  <a href="#/profiles/edit" class="button edit-profile">Edit your profile</a>
+<% } else { %>
+  <a href="" class="button edit-profile">Send <%= profile.escape("username") %> a message</a>
+<% } %>
+
 <ul class="profile-attributes">
   <li>Supervillain</li>
   <li><%= profile.escape("age") %></li>
   <li>Evil</li>
 </ul>
-<% if (profile.id == AlrightEros.currentUser.escape('profile_id')){ %>
-  <a href="#/profiles/edit" class="button edit-profile">Edit your profile</a>
-<% } %>
-</header>
+
+
+<nav class="profile-nav group">
+  <ul class="button-list">
+    <li class="nav-li">
+      <a href="#/profiles/<%= profile.escape('id') %>/essays" class="button edit-profile">Essays</a>
+    </li>
+    <li>
+      <a href="#/profiles/<%= profile.escape('id') %>/questions" class="button edit-profile">Questions</a>
+    </li>
+  </ul>
+</nav>

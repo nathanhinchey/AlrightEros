@@ -17,6 +17,7 @@
   background: #15a;
   overflow: hidden;
   text-align: center;
+  padding: 0;
 }
 
 .profile-snapshot > a {
@@ -75,14 +76,17 @@
 
 .profile-picture {
   display: block;
+  float: top;
   width: 200px;
   height: 200px;
-  float: left;
   border-radius: 5px;
   border: 1px solid darkblue;
-  margin: 5px;
   overflow: hidden;
+}
 
+.profile-picture-container {
+  float: left;
+  padding: 5px;
 }
 
 .essay > h3 {
@@ -119,5 +123,19 @@
 }
 
 .edit-profile {
+  float: left;
+}
+
+.profile-nav {
+  display: block;
+  clear: both;
+}
+
+.button-list {
+  display: block;
+}
+
+.nav-li {
+  display: block;
   float: left;
 }
