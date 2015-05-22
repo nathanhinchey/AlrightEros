@@ -10,7 +10,8 @@
 
 		routes: {
 			"messages" : "index",
-			"messages/:userId" : "show"
+			"messages/:userId" : "show",
+			"messages/:userId/new" : "new"
 		},
 
 		index: function(){
@@ -45,5 +46,9 @@
 			this._swapContentBodyView(conversationView);
 
 		},
+
+		new: function(userId){
+			
+		}
 	})
 })();
