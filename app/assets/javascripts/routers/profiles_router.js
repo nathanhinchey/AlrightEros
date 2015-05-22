@@ -6,6 +6,8 @@
       this.$headerEl = options.$headerEl;
       AlrightEros.profiles = new AlrightEros.Collections.Profiles();
       AlrightEros.currentUser.fetch();
+			AlrightEros.messages = new AlrightEros.Collections.Messages();
+			AlrightEros.messages.fetch();
     },
 
     routes: {
@@ -15,24 +17,39 @@
       "profiles/:id": "essayShow",
       "profiles/:id/essays": "essayShow",
       "profiles/:id/questions": "questionShow",
+			"profiles/:id/messages": "messagesShow",
+
     },
 
-    index: function () {
-			this._swapContentHeaderView();
-      if (!this._requireSignedIn()) { return; }
-      if (!this._requireHasProfile()) { return; }
+		// HACK: FIXME: this relies on the assumption that
+		// user_id and profile_id will always be the same
+		messagesShow: function(id){
+      var profile = this._profileHeader(id);
+			window.messages;
+			var messageArray;
 
-      AlrightEros.profiles.fetch();
-      var indexView = new AlrightEros.Views.ProfilesIndex ({
-        collection: AlrightEros.profiles
-      });
+			AlrightEros.messages.fetch({
+				success: function (){
+					messageArray = AlrightEros.messages.where({
+						other_user: Number(id)
+					});
+					window.messages.set(messageArray);
+				}
+			})
 
-      this._swapContentBodyView(indexView);
-    },
+			window.messages = new AlrightEros.Collections.Messages();
+
+			var conversationView = new AlrightEros.Views.MessagesIndex({
+				collection: window.messages
+			})
+
+			this._swapContentBodyView(conversationView);
+
+		},
 
     questionShow: function (id) {
       var profile = this._profileHeader(id);
-      var answers = new AlrightEros.Collections.UserAnswers({
+      var answers = new AlrightEros.Collections.UserAnswers([], {
         userId: id
       });
 

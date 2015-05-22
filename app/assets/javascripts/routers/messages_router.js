@@ -48,7 +48,7 @@
 		},
 
 		new: function(userId){
-			
+
 		}
 	})
 })();

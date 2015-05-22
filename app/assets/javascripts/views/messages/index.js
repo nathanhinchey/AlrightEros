@@ -9,10 +9,10 @@
 
 		render: function () {
 			var content = this.template({
-				messages: this.collection
+				messages: this.collection.sort()
 			});
 			this.$el.html(content);
-			
+
 			return this;
 		},
 	});

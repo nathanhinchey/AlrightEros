@@ -6,9 +6,8 @@
 
 <% if (profile.id == AlrightEros.currentUser.escape('profile_id')){ %>
   <a href="#/profiles/edit" class="button edit-profile">Edit your profile</a>
-<% } else { %>
-  <a href="" class="button edit-profile">Send <%= profile.escape("username") %> a message</a>
 <% } %>
+
 
 <ul class="profile-attributes">
   <li>Supervillain</li>
@@ -22,8 +21,13 @@
     <li class="nav-li">
       <a href="#/profiles/<%= profile.escape('id') %>/essays" class="button edit-profile">Essays</a>
     </li>
-    <li>
+    <li class="nav-li">
       <a href="#/profiles/<%= profile.escape('id') %>/questions" class="button edit-profile">Questions</a>
+    </li>
+    <li class="nav-li">
+      <% if (profile.id != AlrightEros.currentUser.escape('profile_id')){ %>
+        <a href="#/profiles/<%= profile.escape('id') %>/messages" class="button edit-profile">Message!</a>
+    <% } %>
     </li>
   </ul>
 </nav>

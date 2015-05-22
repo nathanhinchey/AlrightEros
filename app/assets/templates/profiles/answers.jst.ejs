@@ -1,5 +1,5 @@
-<% if (answers.models.length > 0) { %>
-  <% answers.models.forEach(function(answer){ %>
+<% if (answers.length > 0) { %>
+  <% answers.each(function(answer){ %>
     <li class="answer-summary">
       <h4><%= answer.escape('question_body') %></h4>
       <p>

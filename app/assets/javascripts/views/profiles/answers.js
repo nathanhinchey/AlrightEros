@@ -3,7 +3,7 @@
   AlrightEros.Views.ProfileAnswers = Backbone.View.extend({
     initialize: function (options) {
       this.listenTo(this.model, "sync", this.render)
-      this.listenTo(this.collection, "add", this.render)
+      this.listenTo(this.collection, "sync", this.render)
     },
 
     tagName: 'ul',

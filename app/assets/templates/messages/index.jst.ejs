@@ -1,10 +1,21 @@
-<h1>Messages</h1>
+<form class="new-message">
+	<label
+		for="new-message-textarea"
+		class="textarea-label new-message-text-area-label">
+		Send a message:
+	</label>
+	<fieldset class="new-message-textarea-wrapper">
+		<textarea
+			class="textarea new-message-textarea"
+			id="new-message-text-area"></textarea>
+	</fieldset>
+</form>
 <ul>
 	<% messages.forEach(function(message){ %>
 	<% var messageType = message.get('is_sender') ? 'sent' : 'received' %>
 		<li
 			class="message <%= messageType %>">
-				<address class="sender"><%= message.escape("sender_username") %></address>
+				<h3 class="sender"><%= message.escape("sender_username") %></h3>
 				<p><%= message.escape("body") %></p>
 			</li>
 	<% }) %>
