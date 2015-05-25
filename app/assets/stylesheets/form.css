@@ -97,11 +97,11 @@ h1.logo {
   display: block;
   text-align: center;
   font-family: 'ABeeZee', sans-serif;
-  color: darkblue;
+  color: #15a;
   background: white;
   border-radius: 10px;
-  width: 140px;
-  margin: 0 auto;
+  width: 120px;
+  margin: 10px auto;
 }
 
 .logo > b {
@@ -109,6 +109,7 @@ h1.logo {
 }
 
 .welcome-message {
+  color: #fff;
   display: block;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
