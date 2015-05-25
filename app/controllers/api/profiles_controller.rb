@@ -5,7 +5,7 @@ class Api::ProfilesController < ApplicationController
     unless current_user && current_user.profile
       render json: {}
     else
-      @profiles = Profile.all
+      @profiles = Profile.all.page(params[:page]).per(5)
       render :index
     end
   end

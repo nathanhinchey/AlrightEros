@@ -92,13 +92,26 @@ form > h1 {
 }
 
 h1.logo {
+  font-weight: bold;
+  font-style: italic;
   display: block;
   text-align: center;
+  font-family: 'ABeeZee', sans-serif;
+  color: darkblue;
+  background: white;
+  border-radius: 10px;
+  width: 140px;
+  margin: 0 auto;
+}
+
+.logo > b {
+  color: lightblue;
 }
 
 .welcome-message {
   display: block;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .submit {

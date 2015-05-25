@@ -27,7 +27,7 @@
 
 /*reset*/
 
-a, address, html, body, button,
+a, address, b, html, body, button,
 fieldset, figure, form,
 h1, h2, h3, h4, input, li,
 p, ul {
@@ -55,7 +55,8 @@ button {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   background: #049;
   color: darkblue;
   font-size: 20px;

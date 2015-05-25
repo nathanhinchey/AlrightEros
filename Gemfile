@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'backbone-on-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
+gem 'kaminari'
 
 #file storage
 gem "paperclip", "~> 4.2"
