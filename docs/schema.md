@@ -43,9 +43,14 @@ column name        | data type | details
 id                 | integer   | not null, primary key
 user_id            | integer   | not null, foreign key
 answer_id          | integer   | not null, foreign key
-user_choice        | integer   | not null
 user_comment       | string    |
-importance         | integer   | not null
+
+##acceptable_answers
+column name        | data type | details
+-------------------|-----------|-----------------------
+id                 | integer   | not null, primary key
+user_answer_id     | integer   | not null, foreign key
+answer_id          | integer   | not null, foreign key
 
 ## messages (created)
 column name | data type | details

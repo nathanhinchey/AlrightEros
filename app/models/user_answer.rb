@@ -6,6 +6,9 @@ class UserAnswer < ActiveRecord::Base
   belongs_to :user
   belongs_to :answer
   has_one :question, through: :answer, source: :question
+  has_many :acceptable_answers,
+    dependent: :destroy,
+    inverse_of: :user_answer
 
   private
     def user_has_not_answered_this_question_before
