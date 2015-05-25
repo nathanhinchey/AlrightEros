@@ -4,9 +4,18 @@
     initialize: function (options) {
       // this.listenTo(this.collection, "sync change:username", this.render);
       this.listenTo(this.collection, "add", this.addProfileView);
-      this.listenTo(this.collection, "remove", this.removePhotoView);
-      this.collection.each(this.addProfileView.bind(this));
+      this.listenTo(this.collection, "remove", this.removeProfileView);
+			this.collection.page = 1;
+			this.collection.fetch({
+				data: {page: this.collection.page}
+			});
+			this.collection.each(this.addProfileView.bind(this));
     },
+
+		events: {
+			'click .next': 'next',
+			'click .previous': 'previous'
+		},
 
     template: JST['profiles'],
 
@@ -16,7 +25,6 @@
       var content = this.template();
       this.$el.html(content);
       this.attachSubviews();
-
       return this;
     },
 
@@ -28,7 +36,23 @@
 
     removeProfileView: function(profile) {
       this.removeModelSubview(".profiles-list", profile);
-    }
+    },
+
+		next: function (event) {
+			event.preventDefault();
+			this.collection.page++;
+			this.collection.fetch({
+				data: {page: this.collection.page}
+			});
+		},
+
+		previous: function (event) {
+			event.preventDefault();
+			this.collection.page--;
+			this.collection.fetch({
+				data: {page: this.collection.page}
+			});
+		}
 
   })
 })();

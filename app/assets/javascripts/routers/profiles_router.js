@@ -26,7 +26,6 @@
 			if (!this._requireSignedIn()) {return;}
 			if (!this._requireHasProfile()) {return;}
 
-			AlrightEros.profiles.fetch();
 			var indexView = new AlrightEros.Views.ProfilesIndex({
 				collection: AlrightEros.profiles
 			});
