@@ -14,7 +14,7 @@ class Api::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all.page(params[:page]).per(10)
+    @questions = Question.all
     render :index
   end
 
