@@ -45,7 +45,7 @@
             }
           })
         },
-        errors: function(resp){
+        error: function(resp){
           console.log('Profile save errors:');
           console.log(resp);
         }

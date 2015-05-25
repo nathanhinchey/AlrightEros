@@ -11,7 +11,7 @@
       name="user_answer[answer_id]"
       value="<%= _.escape(answer.id) %>"
       id="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
-      
+
     <label
       class="radio-input-label form-fieldset"
       for="answer-choice-<%= question.escape("id") %>-<%= _.escape(answer.id) %>">
@@ -21,3 +21,4 @@
 <% }); %>
 
 <button class="submit">Save Answer</button>
+<button type="button" class="skip submit">Skip</button>

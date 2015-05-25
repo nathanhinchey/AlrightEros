@@ -43,12 +43,16 @@
     index: function () {
 			this._swapContentHeaderView();
 
-      var questions = new AlrightEros.Collections.Questions();
-      questions.fetch();
-      var indexView = new AlrightEros.Views.QuestionsIndex({
-        collection: questions
-      });
-      this._swapContentBodyView(indexView)
+
+			var next = AlrightEros.questions.nextNewQuestion(1);
+			Backbone.history.navigate("#/questions/" + next, {trigger: true});
+			//
+      // var questions = new AlrightEros.Collections.Questions();
+      // questions.fetch();
+      // var indexView = new AlrightEros.Views.QuestionsIndex({
+      //   collection: questions
+      // });
+      // this._swapContentBodyView(indexView)
     },
 
     answered_all: function () {

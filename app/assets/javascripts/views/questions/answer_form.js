@@ -13,7 +13,8 @@
     },
 
     events: {
-      "submit": "submit"
+      "submit": "submit",
+			"click .skip": "skip"
     },
 
     render: function() {
@@ -48,9 +49,19 @@
 					}
           var next = AlrightEros.questions.nextNewQuestion(this.model.id);
           Backbone.history.navigate("#/questions/" + next, {trigger: true});
-        }.bind(this)
+        }.bind(this),
+				error: function(response){
+					console.log(response);
+					alert(response)
+				}.bind(this)
       });
 
-    }
+    },
+
+		skip: function(event) {
+			event.preventDefault();
+			var next = AlrightEros.questions.nextNewQuestion(this.model.id);
+			Backbone.history.navigate("#/questions/" + next, {trigger: true});
+		}
   });
 })();

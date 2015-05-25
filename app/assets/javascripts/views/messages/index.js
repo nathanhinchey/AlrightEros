@@ -37,6 +37,9 @@
 			message.save({},{
 				success: function () {
 					this.collection.add(message);
+				}.bind(this),
+				error: function(response){
+					alert(response)
 				}.bind(this)
 			})
 		}

@@ -33,7 +33,10 @@
       this.model.save(questionData, {
         success: function () {
           Backbone.history.navigate("#/questions/" + question.escape("id"))
-        }
+        },
+				error: function(response){
+					alert(response)
+				}.bind(this)
       })
     }
   });
