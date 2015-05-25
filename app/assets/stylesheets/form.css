@@ -147,6 +147,7 @@ h1.logo {
 
 .textarea {
   height: 100px;
+  resize: none;
 }
 
 .textarea-label {
