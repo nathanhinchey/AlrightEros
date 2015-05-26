@@ -28,7 +28,7 @@
 /*reset*/
 
 a, address, b, html, body, button,
-fieldset, figure, form,
+fieldset, figure, form, textarea,
 h1, h2, h3, h4, input, li,
 p, ul {
   padding: 0;
