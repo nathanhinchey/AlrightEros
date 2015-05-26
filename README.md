@@ -5,19 +5,24 @@
 ##TODOs
 
 ###Must be done
-* [ ] Make demo user and form auto-filler
-* [ ] Make profile creation and sign-up more connected
-* [ ] OAuth
+* [ ] Make demo user
+* [ ] Form auto-filler
 * [ ] Flash messages for success/failure
+* [ ] Control pagination
 
 ----
-###Stretch goals:
+###Really should be done
+* [ ] OAuth
 * [ ] notifications for messages
+* [ ] Make profile creation and sign-up more connected
+* [ ] Search
+
+----
+###Stretch goals
 * [ ] Edit Question answers
 * [ ] add "acceptable answers" to answer form
-* [ ] add more profile essay categories
 * [ ] build matching algorithm
-* [ ] Search
+* [ ] add more profile essay categories
 
 [heroku]: http://alrighteros.herokuapp.com
 
