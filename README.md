@@ -4,44 +4,19 @@
 
 ##TODOs
 
-####Questions:
-* [ ] Make a question loop:
-  - [x] Add "new question" link to index
-  - [ ] Before you can click "submit", it verifies validity
-  - [x] If there are no errors, display the next question
-  - [ ] Modal view for answering on another's profile
-
-####Profiles:
-* [x] Add essays view
-* [x] Add answered questions view
-  - [ ] Paginate
-* [ ] Add more sections
-
-####Sign-up:
+###Must be done
+* [ ] Make demo user and form auto-filler
 * [ ] Make profile creation and sign-up more connected
 * [ ] OAuth
-
-####Add edit views
-* [x] Profiles
-* [ ] Question answers
-
-####Search
-* [ ] Make search function
-  - [ ] Filter by age
-  - [ ] Filter by looking-for
-  - [ ] Filter by some other category
+* [ ] Flash messages for success/failure
 
 ----
 ###Stretch goals:
-* [ ] add "acceptable answers" to question answers
-  - [ ] figure out how best to store them (join table?)
-  - [ ] add them to answer form
-
-
-* [ ] make matching algorithm work
-  - [ ] *back end*: compare answers to each other
-  - [ ] *front end*: display match percentages
-
+* [ ] notifications for messages
+* [ ] Edit Question answers
+* [ ] add "acceptable answers" to answer form
+* [ ] add more profile essay categories
+* [ ] build matching algorithm
 * [ ] Search
 
 [heroku]: http://alrighteros.herokuapp.com
@@ -52,24 +27,24 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
 
 ###MVP Proposal:
 - [ ] **Send and receive messages**
-  * [ ] *Send messages to other users*
-  * [ ] *View messages received from other users*
-  * [ ] *Use websockets to have live message updates*
-- [x] **Create accounts**
+  * [x] *Send messages to other users*
+  * [x] *View messages received from other users*
+  * [ ] *Notifications for messages received*
+- [ ] **Create accounts**
   * [x] *Models*
   * [x] *Controllers*
-- [x] **Create sessions (log in)**
+  * [ ] *Use OAuth to sign up*
+- [ ] **Create sessions (log in)**
   * [x] *Models*
   * [x] *Controllers*
-- [ ] **Profile form**
+  * [ ] *Use OAuth to log in*
+  * [ ] *Demo account*
+- [x] **Profile form**
   * [x] *create a new profiles*
-  * [ ] *edit an existing profile*
+  * [x] *edit an existing profile*
   * [x] *use "summary" text area*
-  * [ ] *use "looking for" drop down*
-  * [ ] *use "gender" drop down*
   * [x] *use "birthday" calendar field*
-    * [ ] *update to date dropdowns*
-  * [ ] *upload photo*
+  * [x] *upload photo*
 - [ ] **View profiles**
   * [ ] *nice looking show view*
   * [x] *partials for index view*
@@ -78,10 +53,6 @@ This site will be a clone of OkCupid built on Rails and using Backbone.
   * [x] *Users can give answers to questions*
   * [x] *Users can view other users' answers to questions*
 - [ ] **Search Users**
-  * [ ] *by gender*
-  * [ ] *by age*
-  * [ ] *orientation*
-  * [ ] *all three in combination*
 
 
 ## Design Docs
@@ -128,6 +99,10 @@ I'll allow users to upload images. I don't know how to do that yet. I'll figure 
 - [ ] Like feature for liking profiles
 - [ ] Facebook Login option
 - [ ] User feed
+- [ ] Use "looking for" drop downs
+- [ ] Update calendar field to drop downs
+- [ ] Email notifications
+- [ ] Use websockets to have live message updates
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
