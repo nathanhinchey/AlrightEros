@@ -16,7 +16,7 @@
         profile: this.model
       });
       this.$el.html(content);
-
+			setTimeout(AlrightEros.markImagesWideOrTall, 200); 
       return this;
     }
   });
