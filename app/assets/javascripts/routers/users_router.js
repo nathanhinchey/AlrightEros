@@ -49,7 +49,7 @@
         if ($('.logout').html()){
           Backbone.history.loadUrl("")
         }
-      }, 5000);
+      }, 1000);
     }
   })
 })();
