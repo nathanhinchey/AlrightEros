@@ -6,22 +6,22 @@
 
 ###Must be done
 * [ ] Make demo user
-* [ ] Form auto-filler
-* [ ] Flash messages for success/failure
 * [ ] Control pagination
+* [ ] Search
+* [ ] build matching algorithm
 
 ----
 ###Really should be done
+* [ ] Flash messages for success/failure
+* [ ] Form auto-filler
 * [ ] OAuth
 * [ ] notifications for messages
 * [ ] Make profile creation and sign-up more connected
-* [ ] Search
 
 ----
 ###Stretch goals
 * [ ] Edit Question answers
 * [ ] add "acceptable answers" to answer form
-* [ ] build matching algorithm
 * [ ] add more profile essay categories
 
 [heroku]: http://alrighteros.herokuapp.com
