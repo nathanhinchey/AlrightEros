@@ -6,6 +6,7 @@
       this.listenTo(this.collection, "add", this.addProfileView);
       this.listenTo(this.collection, "remove", this.removeProfileView);
 			this.collection.page = 1;
+			options.page && (this.collection.page = options.page);
 			this.collection.fetch({
 				data: {page: this.collection.page}
 			});
@@ -41,17 +42,19 @@
 		next: function (event) {
 			event.preventDefault();
 			this.collection.page++;
-			this.collection.fetch({
-				data: {page: this.collection.page}
-			});
+			Backbone.history.navigate(
+				"profileindex/" + (this.collection.page),
+				{trigger: true}
+			)
 		},
 
 		previous: function (event) {
 			event.preventDefault();
 			this.collection.page--;
-			this.collection.fetch({
-				data: {page: this.collection.page}
-			});
+			Backbone.history.navigate(
+				"profileindex/" + (this.collection.page),
+				{trigger: true}
+			)
 		}
 
   })

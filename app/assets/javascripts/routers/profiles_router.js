@@ -18,16 +18,19 @@
       "profiles/:id/essays": "essayShow",
       "profiles/:id/questions": "questionShow",
 			"profiles/:id/messages": "messagesShow",
+			"profileindex/:page": "index",
 
     },
 
-		index: function () {
+		index: function (page) {
+			var page = parseInt(page);
 			this._swapContentHeaderView();
 			if (!this._requireSignedIn()) {return;}
 			if (!this._requireHasProfile()) {return;}
 
 			var indexView = new AlrightEros.Views.ProfilesIndex({
-				collection: AlrightEros.profiles
+				collection: AlrightEros.profiles,
+				page: page
 			});
 
 			this._swapContentBodyView(indexView);
