@@ -6,6 +6,7 @@
       this.$headerEl = options.$headerEl;
       AlrightEros.profiles = new AlrightEros.Collections.Profiles();
       AlrightEros.questions = new AlrightEros.Collections.Questions();
+			AlrightEros.questions.fetch();
     },
 
     routes: {
