@@ -157,6 +157,14 @@ h1.logo {
   margin-bottom: 5px;
 }
 
+.demo {
+  background-color: #f44;
+  width: 200px;
+  float: right;
+}
 
-label {
+.two-buttons {
+  margin-left: 60px;
+  margin-right: 60px;
+  float: left;
 }
