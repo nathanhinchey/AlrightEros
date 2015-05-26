@@ -28,10 +28,8 @@
     },
 
 		markImagesWideOrTall: function () {
-			console.log("marking images");
 			var $images = $("img");
 			$.each($images, function(index, image){
-				console.log("in each function");
 				var img = new Image();
 				img.src = $(image).attr("src");
 

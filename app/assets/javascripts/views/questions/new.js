@@ -25,7 +25,7 @@
 
       var question = this.model;
 
-      questionData = this.$el.serializeJSON();
+      var questionData = this.$el.serializeJSON();
       var answers = questionData.question.answers;
       !answers[3].answer_text && delete answers[3];
       !answers[4].answer_text && delete answers[4];
