@@ -100,6 +100,7 @@ I'll allow users to upload images. I don't know how to do that yet. I'll figure 
 [Details][phase-six]
 
 ### Bonus Features (TBD)
+- [ ] Strongly couple profile and account creation
 - [ ] Matching algorithm to compare user question answers
 - [ ] Like feature for liking profiles
 - [ ] Facebook Login option
