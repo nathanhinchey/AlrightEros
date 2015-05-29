@@ -5,7 +5,7 @@
 ##TODOs
 
 ###Must be done
-* [ ] Make demo user
+* [x] Make demo user
 * [ ] Control pagination
 * [ ] Search
 * [ ] build matching algorithm
