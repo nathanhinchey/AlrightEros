@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "main#index"
 
   namespace :api, defaults: {format: :json} do
-    resources :profiles, only: [:create, :update, :show, :index]
+    resources :profiles, only: [:create, :update, :show, :index, :new]
     resource :session, only: [:create, :show, :destroy]
     resources :questions, only: [:create, :show, :index]
     resources :messages, only: [:create, :index, :show]

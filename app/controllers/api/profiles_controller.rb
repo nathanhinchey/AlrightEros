@@ -13,6 +13,14 @@ class Api::ProfilesController < ApplicationController
     end
   end
 
+  def new
+    @motivations = []
+    Motivation.all.each do |motivation|
+      @motivations << motivation.body
+    end
+    render :new
+  end
+
   def show
     unless current_user && current_user.profile
       head :forbidden
