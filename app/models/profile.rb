@@ -1,12 +1,11 @@
 class Profile < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :user_id, presence: true, uniqueness: true
+  validates :motivation, presence: true
 
-  # validate :must_have_at_least_one_gender #TODO: include this
   validate :must_be_adult
 
-  # has_many :profile_genders, dependent: :destroy
-  has_many :genders, through: :profile_genders, source: :genders
+  belongs_to :motivation
 
 
   has_attached_file :picture,

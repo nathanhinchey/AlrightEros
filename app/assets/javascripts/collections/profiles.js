@@ -6,5 +6,10 @@
 
     model: AlrightEros.Models.Profile,
 
+		parse: function (response){
+			this.last_page = response.last_page;
+			return response.profiles;
+		}
+
   });
 })();

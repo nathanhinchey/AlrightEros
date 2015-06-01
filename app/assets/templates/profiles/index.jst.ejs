@@ -1,11 +1,19 @@
 <h1>All users</h1>
 <nav class="page-buttons group">
-  <button class='button page-button previous'>Prev Page</button>
-  <button class='button page-button next'>Next Page</button>
+  <% if (moreBefore) { %>
+    <button class='button page-button previous'>Prev Page</button>
+  <% } %>
+  <% if (moreAfter) { %>
+    <button class='button page-button next'>Next Page</button>
+  <% } %>
 </nav>
 <ul class="profiles-list">
 </ul>
 <nav class="page-buttons group">
-  <button class='button page-button previous'>Prev Page</button>
-  <button class='button page-button next'>Next Page</button>
+  <% if (moreBefore) { %>
+    <button class='button page-button previous'>Prev Page</button>
+  <% } %>
+  <% if (moreAfter) { %>
+    <button class='button page-button next'>Next Page</button>
+  <% } %>
 </nav>

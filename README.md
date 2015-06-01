@@ -5,10 +5,10 @@
 ##TODOs
 
 ###Must be done
-* [x] Make demo user
-* [ ] Control pagination
+* [ ] Make #/messages
 * [ ] Search
 * [ ] build matching algorithm
+* [ ] Fix this README
 
 ----
 ###Really should be done

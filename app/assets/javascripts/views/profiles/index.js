@@ -5,6 +5,7 @@
       // this.listenTo(this.collection, "sync change:username", this.render);
       this.listenTo(this.collection, "add", this.addProfileView);
       this.listenTo(this.collection, "remove", this.removeProfileView);
+			this.listenTo(this.collection, "sync", this.render);
 			this.collection.page = 1;
 			options.page && (this.collection.page = options.page);
 			this.collection.fetch({
@@ -23,14 +24,16 @@
     className: 'profiles-index',
 
     render: function () {
-      var content = this.template();
+      var content = this.template({
+				moreAfter: this.collection.page < this.collection.last_page,
+				moreBefore: this.collection.page > 1
+			});
       this.$el.html(content);
       this.attachSubviews();
       return this;
     },
 
     addProfileView: function(profile){
-      profile.fetch();
       var subview = new AlrightEros.Views.ProfileSnapshot({model: profile});
       this.addSubview(".profiles-list", subview);
     },
