@@ -7,20 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # MOTIVATIONS
-evil = Motivation.create({
-  body: 'evil'
+# evil = Motivation.create({
+#   body: 'evil'
+#   })
+#
+# greed = Motivation.create({
+#   body: 'greed'
+#   })
+#
+# power = Motivation.create({
+#   body: 'power'
+#   })
+#
+# greater_good = Motivation.create({
+#   body: 'the greater good'
+#   })
+
+following_orders = Motivation.create({
+  body: 'following orders'
   })
 
-greed = Motivation.create({
-  body: 'greed'
-  })
-
-power = Motivation.create({
-  body: 'power'
-  })
-
-greater_good = Motivation.create({
-  body: 'the greater good'
+revenge = Motivation.create({
+  body: 'revenge'
   })
 
 # USERS AND PROFILES

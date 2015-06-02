@@ -27,13 +27,20 @@
   /* height: 100%; */
 }
 
-.profile-snapshot > a:hover{
-  background: lightblue;
+.username {
+  color: white;
 }
 
-.snapshot-profile-attributes {
+.profile-snapshot > a:hover{
+  background: lightblue;
+  color: white;
+}
+
+.snapshot-profile-attributes > li {
   text-align: right;
   display: block;
+  color: white;
+  font-weight: 300;
 }
 
 .profiles-list h2 {
