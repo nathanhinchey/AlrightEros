@@ -19,6 +19,10 @@
   background: #EEF;
 }
 
+button {
+  color: darkblue;
+}
+
 button:hover {
   background: #EEF;
 }
