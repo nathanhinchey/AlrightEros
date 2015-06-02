@@ -4,6 +4,9 @@
 
     initialize: function (options) {
       this.listenTo(this.model, "sync", this.render);
+			AlrightEros.motivations = new AlrightEros.Models.MotivationOptions();
+			this.listenTo(AlrightEros.motivations, "sync", this.render)
+			AlrightEros.motivations.fetch();
     },
 
     events: {
@@ -19,7 +22,8 @@
 
     render: function () {
       var content = this.template({
-        profile: this.model
+        profile: this.model,
+				motivations: AlrightEros.motivations.motivations
       });
       this.$el.html(content);
 
