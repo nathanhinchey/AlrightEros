@@ -30,7 +30,7 @@
 a, address, b, html, body, button,
 fieldset, figure, form, textarea,
 h1, h2, h3, h4, input, li,
-p, ul {
+p, ul, select {
   padding: 0;
   margin: 0;
   font-size: 100%;

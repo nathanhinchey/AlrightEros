@@ -26,10 +26,11 @@
     id="profile-summary"><%= profile.escape('summary') %></textarea>
 </fieldset>
 
-<fieldset class="form-fieldset group">
+<fieldset class="form-fieldset select-fieldset group">
   <label
+    class="select-label"
     for="profile-motivation">Motivation</label>
-  <select name="profile[motivation]" id="profile-motivation">
+  <select name="profile[motivation]" id="profile-motivation" class="select">
     <% if(motivations){ %>
       <% motivations.forEach(function(motivation){ %>
         <option
