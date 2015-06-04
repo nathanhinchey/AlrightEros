@@ -43,7 +43,7 @@ button:hover {
 .question-body {
   font-size: 24px;
   display: block;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .form-fieldset {
@@ -66,6 +66,7 @@ button:hover {
   margin: 10px 100px;
   padding-left: 10px;
   padding-right: 10px;
+  color: darkblue;
 }
 
 fieldset > input {
@@ -92,7 +93,7 @@ form {
 
 form > h1 {
   font-size: 48px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 h1.logo {
@@ -128,9 +129,14 @@ h1.logo {
   padding: 3px;
   box-shadow:  0 0 7px lightblue;
   width: 120px;
+  color: white;
 
   border: 1px solid lightblue;
   border-radius: 2px;
+}
+
+.submit:hover {
+  color: darkblue;
 }
 
 .textarea,
@@ -176,5 +182,5 @@ h1.logo {
 }
 
 .select {
-  
+
 }
