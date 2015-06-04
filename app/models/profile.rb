@@ -21,6 +21,13 @@ class Profile < ActiveRecord::Base
     age
   end
 
+  def match_percentage(other_user)
+    custom_query = <<-SQL
+
+
+    SQL
+  end
+
   private
     def must_have_at_least_one_gender
       if genders.length < 1
