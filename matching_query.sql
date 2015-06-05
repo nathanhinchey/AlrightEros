@@ -344,8 +344,8 @@ WHERE
 
 SELECT
   them.id AS other_user,
-  COUNT(their_questions) AS common_questions,
-  COUNT(their_answers) AS common_answers
+  your.question_id AS question_id,
+  their_answers.id AS their_answer
 FROM
   (SELECT
     your_questions.id AS question_id,
@@ -366,16 +366,14 @@ JOIN
   questions AS their_questions
   ON
   your.question_id = their_questions.id
-  LEFT OUTER JOIN
+  JOIN
   user_answers AS their_answers
   ON
   their_answers.answer_id = your.answer_id
   JOIN
   users AS them
   ON
-  their_answers.user_id = user_id
-GROUP BY
-  them.id;
+  their_answers.user_id = user_id;
 
 -- WRONG!!! It results in this table:
 /*
@@ -394,3 +392,41 @@ other_user | common_questions | common_answers
           9 |               14 |             14
           7 |               14 |             14
 */
+
+
+SELECT
+   COUNT(matches.answer_id) as numMatches, COUNT(*) as total
+FROM
+  user_answers as yours
+JOIN
+  answers
+ON
+  answers.id = yours.answer_id
+JOIN
+  (
+  SELECT
+    answers.question_id, them.answer_id
+  FROM
+    user_answers AS them
+  JOIN
+    answers
+  ON
+    answers.id = them.answer_id
+  ) AS theirs
+ON
+  theirs.question_id = answers.question_id
+LEFT OUTER JOIN
+  (
+    SELECT
+      *
+    FROM
+      user_answers
+    WHERE
+      user_id = 2
+  ) AS matches
+ON
+  matches.answer_id = yours.answer_id
+WHERE
+  yours.user_id = 1
+GROUP BY
+  theirs.user_id

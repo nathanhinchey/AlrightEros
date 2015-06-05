@@ -5,3 +5,4 @@ json.age @profile.age
 json.summary @profile.summary
 json.motivation @profile.motivation.body
 json.picture_url asset_path(@profile.picture.url(:medium))
+json.match_percentage @profile.user.match_percentage(current_user)
