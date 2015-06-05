@@ -7,6 +7,7 @@ class Api::ProfilesController < ApplicationController
     else
       @profiles = Profile
         .all
+        .includes(:user)
         .page(params[:page])
         .per(4)
       render :index

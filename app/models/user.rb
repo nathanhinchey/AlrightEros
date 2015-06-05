@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
       JOIN
       user_answers as yours
       ON
-      yours.user_id = you.id
+      yours.user_id = you.user_id
       JOIN
       answers as your_answers
       ON
@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
         JOIN
         user_answers as theirs
         ON
-        theirs.user_id = them.id
+        theirs.user_id = them.user_id
         JOIN
         answers as their_answers
         ON
@@ -71,11 +71,11 @@ class User < ActiveRecord::Base
       ON
         their_questions.id = your_questions.id
     WHERE
-      you.id = ? AND them.id = ?
+      you.id = ? AND them.id = ?;
     SQL
 
     results = ComplexQuery.query_by_sql(common_questions, [self.id, other_user.id])
-    common_answers = 0.0
+    common_answers = 0
     results.each do |hash|
       common_answers += 100 if hash['their_answers'] == hash['your_answers']
     end
