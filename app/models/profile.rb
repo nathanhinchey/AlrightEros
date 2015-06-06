@@ -35,6 +35,9 @@ class Profile < ActiveRecord::Base
   end
 
   def match_percentage(other_profile)
+    # since this is currently being executed for every profile,
+    # it's effectively an n+1 query. That's no good! I'm working
+    # on improving it.
     common_questions = <<-SQL
     --gets all the questions in common
     SELECT

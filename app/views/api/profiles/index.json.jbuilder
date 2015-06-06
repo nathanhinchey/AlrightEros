@@ -5,6 +5,6 @@ json.profiles (@profiles) do |profile|
   json.age profile.age
   json.motivation profile.motivation.body
   json.picture_url asset_path(profile.picture.url(:thumb))
-  json.match_percentage profile.match_percentage(current_user)
+  json.match_percentage profile.match_percentage(current_user.profile)
   json.user_id profile.user_id
 end
