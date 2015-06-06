@@ -1,118 +1,26 @@
-# AlrightEros
+# OkEris
+[OkEris](http://www.okeris.com) is a matchmaking app for supervillains.
 
-[Heroku link][heroku]
+##Similarity Algorithm
+The similarity algorithm uses a custom SQL query to compare the answers the current user has given to the answers other users have given. It checks all users, then sorts them in order by similarity. Since the database is thoroughly normalized, this invovles a large number of joins, as well as multiple self joins and two subqueries to select the desired columns and rows. In order to display profiles in a useful order, a custom pagination function that operates in 0(n) time organizes which profiles to display, only querying the database for those that it needs.
 
-##TODOs
+##Image Uploading
+The app allows users to upload their own images to an Amazon Web Services S3 bucket. These images are managed by the [Paperclip](https://github.com/thoughtbot/paperclip) gem.
 
-###Must be done
-* [ ] Make #/messages
-* [ ] Search
-* [ ] build matching algorithm
-* [ ] Fix this README
+##Questions
+Users can answer questions and create their own questions. At present, about 90% of questions on the site are user generated. When one user views another user's profile, they can only see answers to those questions which they have also answered. However they can also see the questions they have not answered, and if they click on it, a modal view for answering that question appears; upon answering, they can view the other user's answer as as well.
 
-----
-###Really should be done
-* [ ] Flash messages for success/failure
-* [ ] Form auto-filler
-* [ ] OAuth
-* [ ] notifications for messages
-* [ ] Make profile creation and sign-up more connected
-
-----
-###Stretch goals
-* [ ] Edit Question answers
-* [ ] add "acceptable answers" to answer form
-* [ ] add more profile essay categories
-
-[heroku]: http://alrighteros.herokuapp.com
-
-----
-## Minimum Viable Product
-This site will be a clone of OkCupid built on Rails and using Backbone.
-
-###MVP Proposal:
-- [ ] **Send and receive messages**
-  * [x] *Send messages to other users*
-  * [x] *View messages received from other users*
-  * [ ] *Notifications for messages received*
-- [ ] **Create accounts**
-  * [x] *Models*
-  * [x] *Controllers*
-  * [ ] *Use OAuth to sign up*
-- [ ] **Create sessions (log in)**
-  * [x] *Models*
-  * [x] *Controllers*
-  * [ ] *Use OAuth to log in*
-  * [ ] *Demo account*
-- [x] **Profile form**
-  * [x] *create a new profiles*
-  * [x] *edit an existing profile*
-  * [x] *use "summary" text area*
-  * [x] *use "birthday" calendar field*
-  * [x] *upload photo*
-- [ ] **View profiles**
-  * [ ] *nice looking show view*
-  * [x] *partials for index view*
-- [x] **Answer questions**
-  * [x] *Users can write questions*
-  * [x] *Users can give answers to questions*
-  * [x] *Users can view other users' answers to questions*
-- [ ] **Search Users**
+##Styling
+All of the site is styled with CSS. A custom jQuery operation is used to scale images based on their dimensions. The site is specifically designed to be easily legible to people with colorblindness, and all fields have proper labels for use with screen readers. The font sizes are large and clear, with an eye to accessibility.
 
 
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
-
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
-
-## Implementation Timeline
-
-### Phase 1: User Authentication (~1 day)
-I will implement user authentication in Rails based on the practices learned at App Academy. By the end of this phase, users will be able to create accounts and log in using a simple text form in a Rails view. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
-
-[Details][phase-one]
-
-### Phase 2: Create and view profiles (~1 day)
-I will implement a basic text interface for updating user profiles. Users will be prompted to create a profile upon creating their account. Users who have not created a profile will only be able to view the 'new profile' page after logging in until completing their profile. Create Backbone views for profiles.
-
-[Details][phase-two]
-
-### Phase 3: Answering Questions (~1 day)
-I will implement a question answer form that displays a questions and their corresponding answer choices, and lets logged in users create new QuestionAnswers. Also allows users to edit their existing QuestionAnswers.
-
-[Details][phase-three]
-
-### Phase 4: Editing and User Profiles and Questions (~2 days)
-I'll build all the connections for questions and profiles between Rails and Backbone. Users can view question answers and other users' profiles in a mostly single page JavaScript application.
-
-[Details][phase-four]
-
-### Phase 5: Searching for Users (~2 days)
-I'll integrate a search function that allows users to search for other users by age, gender, and orientation.
-
-[Details][phase-five]
-
-### Phase 6: Uploading Images (~1 day)
-I'll allow users to upload images. I don't know how to do that yet. I'll figure it out and implement it. I assume that there are libraries for that.
-
-[Details][phase-six]
-
-### Bonus Features (TBD)
-- [ ] Strongly couple profile and account creation
-- [ ] Matching algorithm to compare user question answers
-- [ ] Like feature for liking profiles
-- [ ] Facebook Login option
-- [ ] User feed
-- [ ] Use "looking for" drop downs
-- [ ] Update calendar field to drop downs
-- [ ] Email notifications
-- [ ] Use websockets to have live message updates
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
-[phase-six]: ./docs/phases/phase6.md
+## Next Steps
+- Strongly couple profile and account creation
+- Like feature for liking profiles
+- OAuth signup option
+- User feed
+- Use "looking for" drop downs
+- Update calendar field to drop downs
+- Email notifications
+- Use websockets to have live message updates
+- Further optimize SQL queries
