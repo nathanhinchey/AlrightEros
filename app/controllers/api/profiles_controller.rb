@@ -65,4 +65,49 @@ class Api::ProfilesController < ApplicationController
         .require(:profile)
         .permit(:username, :birthday, :summary, :picture)
     end
+
+    def paginated_profiles(options)
+      page = options[:page]
+      page ||= 1
+
+      per = options[:per]
+      per ||= 5
+
+      total = Profile.all.total_pages
+
+      matches = current_user.profile.match_percentages
+
+      #build query
+      start_idx = per * page - 1
+      arr = []
+      per.times do |i|
+        id = matches[start_idx + i]
+        break if id.nil?
+        arr << "id = #{id}" #using string interpolation is safe here
+      end
+
+      profiles = Profile.where(arr.join(" OR "))
+
+    end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# extra space

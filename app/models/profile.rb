@@ -79,7 +79,7 @@ class Profile < ActiveRecord::Base
           you.id = ?
         GROUP BY
           them.id) as common_questions
-      JOIN
+      LEFT OUTER JOIN
         (SELECT
           them.id AS id,
           COUNT(*) AS count
@@ -101,7 +101,7 @@ class Profile < ActiveRecord::Base
           questions as their_questions
         ON
           their_questions.id = your_questions.id
-        LEFT OUTER JOIN
+        JOIN
           answers as their_answers
         ON
           their_answers.id = your_answers.id
@@ -124,12 +124,12 @@ class Profile < ActiveRecord::Base
       match_percentages,
       [self.id, self.id]
     )
-    matches = {}
+    matches = []
     results.each do |hash|
-      matches[hash['profile_id'].to_i] = hash['match_percentage'].to_i
+      matches << [hash['profile_id'].to_i,hash['match_percentage'].to_i]
     end
 
-    matches
+    matches.sort {|el1, el2| el2[1] <=> el1[1]}
   end
 
   def match_percentage(other_profile)

@@ -612,28 +612,258 @@ ON
 
 
 
+  SELECT
+    them.id AS id,
+    COUNT(*) AS count
+  FROM
+    questions as your_questions
+  JOIN
+    answers as your_answers
+  ON
+    your_answers.question_id = your_questions.id
+  JOIN
+    user_answers as your_user_answers
+  ON
+    your_user_answers.answer_id = your_answers.id
+  JOIN
+    profiles as you
+  ON
+    you.id = your_user_answers.profile_id
+  JOIN
+    questions as their_questions
+  ON
+    their_questions.id = your_questions.id
+  JOIN
+    answers as their_answers
+  ON
+    their_answers.question_id = their_questions.id
+  JOIN
+    user_answers as their_user_answers
+  ON
+    their_user_answers.answer_id = their_answers.id
+  JOIN
+    profiles as them
+  ON
+    their_user_answers.profile_id = them.id
+  WHERE
+    you.id = 1
+  GROUP BY
+    them.id) as common_questions
 
 
 
 
 
 
+    SELECT
+      them.id AS id
+      -- COUNT(*) AS count
+    FROM
+      profiles as them
+    LEFT OUTER JOIN
+      user_answers as their_user_answers
+    ON
+      their_user_answers.profile_id = them.id
+    LEFT OUTER JOIN
+      answers AS their_answers
+    ON
+      their_user_answers.answer_id = their_answers.id
+    LEFT OUTER JOIN
+      questions as their_questions
+    ON
+      their_answers.question_id = their_questions.id
+    LEFT OUTER JOIN
+      questions AS your_questions
+    ON
+      your_questions.id = their_questions.id
+    LEFT OUTER JOIN
+      answers AS your_answers
+    ON
+      your_answers.question_id = your_questions.id
+    LEFT OUTER JOIN
+      user_answers AS your_user_answers
+    ON
+      your_user_answers.answer_id = your_answers.id
+    LEFT OUTER JOIN
+      profiles AS you
+    ON
+      you.id = your_user_answers.profile_id
+    WHERE
+      you.id = 1
+    GROUP BY
+      them.id
+
+
+
+  SELECT
+    them.id AS id,
+    COUNT(your_questions.id) AS common_questions,
+    -- COUNT(common_answers.id) AS common_answers,
+    COUNT(their_questions.id) AS their_questions
+  FROM
+    profiles as them
+  LEFT OUTER JOIN
+    user_answers as their_user_answers
+  ON
+    their_user_answers.profile_id = them.id
+  LEFT OUTER JOIN
+    answers AS their_answers
+  ON
+    their_user_answers.answer_id = their_answers.id
+  LEFT OUTER JOIN
+    questions as their_questions
+  ON
+    their_answers.question_id = their_questions.id
+  LEFT OUTER JOIN
+    questions AS your_questions
+  ON
+    your_questions.id = their_questions.id
+  LEFT OUTER JOIN
+    answers AS your_answers
+  ON
+    your_answers.question_id = your_questions.id
+  LEFT OUTER JOIN
+    user_answers AS your_user_answers
+  ON
+    your_user_answers.answer_id = your_answers.id
+  LEFT OUTER JOIN
+    profiles AS you
+  ON
+    you.id = your_user_answers.profile_id
+  -- LEFT OUTER JOIN
+  --   answers AS common_answers
+  -- ON
+  --   your_answers.id = their_answers.id
+  WHERE
+     you.id = 1
+  GROUP BY
+    them.id
+
+
+--GETS COUNT OF EVERYONE'S QUESTIONS
+  SELECT
+    them.id AS their_id,
+    COUNT(their_questions.id) AS their_questions
+  FROM
+    profiles as them
+  LEFT OUTER JOIN
+    user_answers as their_user_answers
+  ON
+    their_user_answers.profile_id = them.id
+  LEFT OUTER JOIN
+    answers AS their_answers
+  ON
+    their_user_answers.answer_id = their_answers.id
+  LEFT OUTER JOIN
+    questions as their_questions
+  ON
+    their_answers.question_id = their_questions.id
+  GROUP BY
+    them.id
+
+
+--GETS ALL YOUR QUESIONS
+  SELECT
+    your_questions.id
+  FROM
+    questions AS your_questions
+  LEFT OUTER JOIN
+    answers AS your_answers
+  ON
+    your_answers.question_id = your_questions.id
+  LEFT OUTER JOIN
+    user_answers AS your_user_answers
+  ON
+    your_user_answers.answer_id = your_answers.id
+  LEFT OUTER JOIN
+    profiles AS you
+  ON
+    you.id = your_user_answers.profile_id
+  -- LEFT OUTER JOIN
+  --   answers AS common_answers
+  -- ON
+  --   your_answers.id = their_answers.id
+  WHERE
+     you.id = 1
+
+
+ --GETS EVERYONE'S QUESTIONS
+   SELECT
+     them.id AS their_id,
+     their_questions.id AS question_id
+   FROM
+     profiles as them
+   LEFT OUTER JOIN
+     user_answers as their_user_answers
+   ON
+     their_user_answers.profile_id = them.id
+   LEFT OUTER JOIN
+     answers AS their_answers
+   ON
+     their_user_answers.answer_id = their_answers.id
+   LEFT OUTER JOIN
+     questions as their_questions
+   ON
+     their_answers.question_id = their_questions.id
+   ORDER BY
+     them.id
 
 
 
 
 
+--  GETS ALL COMMON QUESTIONS!!!!!!!!!!! :D
+    SELECT
+      their_questions.their_id,
+      COUNT(your_questions.id) AS common_questions
+    FROM
+     --GETS ALL YOUR QUESIONS
+       (SELECT
+         your_questions.id AS id
+       FROM
+         questions AS your_questions
+       LEFT OUTER JOIN
+         answers AS your_answers
+       ON
+         your_answers.question_id = your_questions.id
+       LEFT OUTER JOIN
+         user_answers AS your_user_answers
+       ON
+         your_user_answers.answer_id = your_answers.id
+       LEFT OUTER JOIN
+         profiles AS you
+       ON
+         you.id = your_user_answers.profile_id
+       -- LEFT OUTER JOIN
+       --   answers AS common_answers
+       -- ON
+       --   your_answers.id = their_answers.id
+       WHERE
+          you.id = 1) as your_questions
+    FULL OUTER JOIN
 
-
-
-
-
-
-
-
-
-
-
+      --GETS EVERYONE'S QUESTIONS
+        (SELECT
+          them.id AS their_id,
+          their_questions.id AS id
+        FROM
+          profiles as them
+        LEFT OUTER JOIN
+          user_answers as their_user_answers
+        ON
+          their_user_answers.profile_id = them.id
+        LEFT OUTER JOIN
+          answers AS their_answers
+        ON
+          their_user_answers.answer_id = their_answers.id
+        LEFT OUTER JOIN
+          questions as their_questions
+        ON
+          their_answers.question_id = their_questions.id) AS their_questions
+    ON
+      your_questions.id = their_questions.id
+    GROUP BY
+      their_questions.their_id
 
 
 
