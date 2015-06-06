@@ -1,7 +1,7 @@
 class UserAnswer < ActiveRecord::Base
   validates :answer_id, presence: true
   validates :profile_id, presence: true
-  validate :profile_has_not_answered_this_question_before
+  # validate :profile_has_not_answered_this_question_before
 
   belongs_to :profile
   belongs_to :answer

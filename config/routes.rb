@@ -19,3 +19,7 @@ Rails.application.routes.draw do
   # resources :profiles, only: [:new, :create, :edit, :show, :index]
 
 end
+
+# UserAnswer.all.each do |user_answer|
+#   user_answer.profile_id = User.find(user_answer.temp).id
+# end
