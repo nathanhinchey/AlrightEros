@@ -1,12 +1,11 @@
 class Api::UserAnswersController < ApplicationController
   def create
     @user_answer = UserAnswer.new(user_answer_params)
-    @user_answer.user_id = current_user.profile.id
+    @user_answer.profile_id = current_user.profile.id
     # TODO: add acceptable answers, and associated matching algorithm
     # params[:acceptable_answers].each |acceptable_answer| do
     #   @user_answer.acceptable_answers.new{answer_id: acceptable_answer}
     # end
-
     if params[:profile_id].to_i != current_user.profile.id
       head status: :forbidden
     elsif @user_answer.save

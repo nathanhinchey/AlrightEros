@@ -7,12 +7,11 @@
     },
 
     url: function (){
-			debugger
       return this.postUrl() + "/" + this.attributes.id;
     },
 
     postUrl: function(){
-      return "/api/profiles/" + AlrightEros.currentUser.profile_id + "/user_answers"
+      return "/api/profiles/" + AlrightEros.currentUser.escape('profile_id') + "/user_answers"
     },
 
     submitUserAnswer: function (data, options) {
