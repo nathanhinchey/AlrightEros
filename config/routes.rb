@@ -21,9 +21,6 @@ Rails.application.routes.draw do
 end
 
 # UserAnswer.all.each do |user_answer|
-#   begin
 #   user_answer.profile_id = User.find(user_answer.temp).profile.id
-#   user_answer.save!
-# rescue
-#   next
+#   user_answer.save
 # end
