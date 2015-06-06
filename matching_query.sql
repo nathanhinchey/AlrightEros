@@ -430,3 +430,216 @@ WHERE
   yours.profile_id = 1
 GROUP BY
   theirs.profile_id
+
+
+/*
+
+select all asnwers that are the same as mine, and join with profiles
+
+*/
+
+SELECT
+  them.username,
+  COUNT(*)
+FROM
+  questions as your_questions
+JOIN
+  answers as your_answers
+ON
+  your_answers.question_id = your_questions.id
+JOIN
+  user_answers as your_user_answers
+ON
+  your_user_answers.answer_id = your_answers.id
+JOIN
+  profiles as you
+ON
+  you.id = your_user_answers.profile_id
+JOIN
+  questions as their_questions
+ON
+  their_questions.id = your_questions.id
+LEFT OUTER JOIN
+  answers as their_answers
+ON
+  their_answers.id = your_answers.id
+JOIN
+  user_answers as their_user_answers
+ON
+  their_user_answers.answer_id = their_answers.id
+JOIN
+  profiles as them
+ON
+  their_user_answers.profile_id = them.id
+WHERE
+  you.id = 1
+GROUP BY
+  them.username;
+
+
+SELECT
+  them.username,
+  COUNT(*)
+FROM
+  questions as your_questions
+JOIN
+  answers as your_answers
+ON
+  your_answers.question_id = your_questions.id
+JOIN
+  user_answers as your_user_answers
+ON
+  your_user_answers.answer_id = your_answers.id
+JOIN
+  profiles as you
+ON
+  you.id = your_user_answers.profile_id
+JOIN
+  questions as their_questions
+ON
+  their_questions.id = your_questions.id
+JOIN
+  answers as their_answers
+ON
+  their_answers.question_id = their_questions.id
+JOIN
+  user_answers as their_user_answers
+ON
+  their_user_answers.answer_id = their_answers.id
+JOIN
+  profiles as them
+ON
+  their_user_answers.profile_id = them.id
+WHERE
+  you.id = 1
+GROUP BY
+  them.username;
+
+
+
+
+
+
+
+
+SELECT
+  common_questions.id AS profile_id,
+  ((common_answers.count * 100) / common_questions.count) AS match_percentage
+FROM
+  (SELECT
+    them.id AS id,
+    COUNT(*) AS count
+  FROM
+    questions as your_questions
+  JOIN
+    answers as your_answers
+  ON
+    your_answers.question_id = your_questions.id
+  JOIN
+    user_answers as your_user_answers
+  ON
+    your_user_answers.answer_id = your_answers.id
+  JOIN
+    profiles as you
+  ON
+    you.id = your_user_answers.profile_id
+  JOIN
+    questions as their_questions
+  ON
+    their_questions.id = your_questions.id
+  JOIN
+    answers as their_answers
+  ON
+    their_answers.question_id = their_questions.id
+  JOIN
+    user_answers as their_user_answers
+  ON
+    their_user_answers.answer_id = their_answers.id
+  JOIN
+    profiles as them
+  ON
+    their_user_answers.profile_id = them.id
+  WHERE
+    you.id = 1
+  GROUP BY
+    them.id) as common_questions
+JOIN
+  (SELECT
+    them.id AS id,
+    COUNT(*) AS count
+  FROM
+    questions as your_questions
+  JOIN
+    answers as your_answers
+  ON
+    your_answers.question_id = your_questions.id
+  JOIN
+    user_answers as your_user_answers
+  ON
+    your_user_answers.answer_id = your_answers.id
+  JOIN
+    profiles as you
+  ON
+    you.id = your_user_answers.profile_id
+  JOIN
+    questions as their_questions
+  ON
+    their_questions.id = your_questions.id
+  LEFT OUTER JOIN
+    answers as their_answers
+  ON
+    their_answers.id = your_answers.id
+  JOIN
+    user_answers as their_user_answers
+  ON
+    their_user_answers.answer_id = their_answers.id
+  JOIN
+    profiles as them
+  ON
+    their_user_answers.profile_id = them.id
+  WHERE
+    you.id = 1
+  GROUP BY
+    them.id) common_answers
+ON
+  common_answers.id = common_questions.id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- extra space

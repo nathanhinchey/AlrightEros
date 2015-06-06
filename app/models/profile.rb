@@ -34,10 +34,107 @@ class Profile < ActiveRecord::Base
     age
   end
 
+  def match_percentages
+    # This is two queries that can definitely be one.
+    # I'm working on improving it.
+    match_percentages = <<-SQL
+      SELECT
+        common_questions.id AS profile_id,
+        ((common_answers.count * 100) / common_questions.count) AS match_percentage
+      FROM
+        (SELECT
+          them.id AS id,
+          COUNT(*) AS count
+        FROM
+          questions as your_questions
+        JOIN
+          answers as your_answers
+        ON
+          your_answers.question_id = your_questions.id
+        JOIN
+          user_answers as your_user_answers
+        ON
+          your_user_answers.answer_id = your_answers.id
+        JOIN
+          profiles as you
+        ON
+          you.id = your_user_answers.profile_id
+        JOIN
+          questions as their_questions
+        ON
+          their_questions.id = your_questions.id
+        JOIN
+          answers as their_answers
+        ON
+          their_answers.question_id = their_questions.id
+        JOIN
+          user_answers as their_user_answers
+        ON
+          their_user_answers.answer_id = their_answers.id
+        JOIN
+          profiles as them
+        ON
+          their_user_answers.profile_id = them.id
+        WHERE
+          you.id = ?
+        GROUP BY
+          them.id) as common_questions
+      JOIN
+        (SELECT
+          them.id AS id,
+          COUNT(*) AS count
+        FROM
+          questions as your_questions
+        JOIN
+          answers as your_answers
+        ON
+          your_answers.question_id = your_questions.id
+        JOIN
+          user_answers as your_user_answers
+        ON
+          your_user_answers.answer_id = your_answers.id
+        JOIN
+          profiles as you
+        ON
+          you.id = your_user_answers.profile_id
+        JOIN
+          questions as their_questions
+        ON
+          their_questions.id = your_questions.id
+        LEFT OUTER JOIN
+          answers as their_answers
+        ON
+          their_answers.id = your_answers.id
+        JOIN
+          user_answers as their_user_answers
+        ON
+          their_user_answers.answer_id = their_answers.id
+        JOIN
+          profiles as them
+        ON
+          their_user_answers.profile_id = them.id
+        WHERE
+          you.id = ?
+        GROUP BY
+          them.id) common_answers
+      ON
+        common_answers.id = common_questions.id;
+    SQL
+    results = ComplexQuery.query_by_sql(
+      match_percentages,
+      [self.id, self.id]
+    )
+    matches = {}
+    results.each do |hash|
+      matches[hash['profile_id'].to_i] = hash['match_percentage'].to_i
+    end
+
+    matches
+  end
+
   def match_percentage(other_profile)
-    # since this is currently being executed for every profile,
-    # it's effectively an n+1 query. That's no good! I'm working
-    # on improving it.
+    # Do not use this on index! it calculates for just one other_profile
+    # profile, so it would be way too many queries if used on all users
     common_questions = <<-SQL
     --gets all the questions in common
     SELECT
