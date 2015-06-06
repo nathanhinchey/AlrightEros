@@ -1099,7 +1099,7 @@ GROUP BY
 
   --  GETS ALL MATCH PERCENTAGES
   SELECT
-    theirs.their_id,
+    theirs.their_id as id,
 
 
     CASE count(yours.question_id)
@@ -1129,7 +1129,7 @@ GROUP BY
      ON
        you.id = your_user_answers.profile_id
      WHERE
-        you.id = 1) AS yours
+        you.id = ?) AS yours
   FULL OUTER JOIN
 
     --GETS EVERYONE'S QUESTIONS
@@ -1173,14 +1173,14 @@ GROUP BY
     ON
       you.id = your_user_answers.profile_id
     WHERE
-       you.id = 1) AS your_answers
+       you.id = ?) AS your_answers
   ON
     your_answers.answer_id = theirs.answer_id
 
   GROUP BY
     theirs.their_id
   ORDER BY
-    match_percentage DESC
+    match_percentage DESC;
 
 
 

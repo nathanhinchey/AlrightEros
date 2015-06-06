@@ -35,90 +35,93 @@ class Profile < ActiveRecord::Base
   end
 
   def match_percentages
-    # This is two queries that can definitely be one.
+    # This is three queries that can probably be two.
     # I'm working on improving it.
     match_percentages = <<-SQL
-      SELECT
-        common_questions.id AS profile_id,
-        ((common_answers.count * 100) / common_questions.count) AS match_percentage
+    SELECT
+      theirs.their_id AS id,
+
+
+      CASE count(yours.question_id)
+        WHEN 0 THEN 0
+        ELSE ((COUNT(your_answers.answer_id) * 100) / COUNT(yours.question_id))
+      END AS match_percentage
+
+      -- ((COUNT(your_answers.answer_id) * 100) / COUNT(yours.question_id))
+      -- AS match_percentage
+    FROM
+     --GETS ALL YOUR QUESTIONS
+       (SELECT
+         your_questions.id AS question_id,
+         your_answers.id AS answer_id
+       FROM
+         questions AS your_questions
+       LEFT OUTER JOIN
+         answers AS your_answers
+       ON
+         your_answers.question_id = your_questions.id
+       LEFT OUTER JOIN
+         user_answers AS your_user_answers
+       ON
+         your_user_answers.answer_id = your_answers.id
+       LEFT OUTER JOIN
+         profiles AS you
+       ON
+         you.id = your_user_answers.profile_id
+       WHERE
+          you.id = ?) AS yours
+    FULL OUTER JOIN
+
+      --GETS EVERYONE'S QUESTIONS
+        (SELECT
+          them.id AS their_id,
+          their_questions.id AS question_id,
+          their_answers.id AS answer_id
+        FROM
+          profiles as them
+        LEFT OUTER JOIN
+          user_answers as their_user_answers
+        ON
+          their_user_answers.profile_id = them.id
+        LEFT OUTER JOIN
+          answers AS their_answers
+        ON
+          their_user_answers.answer_id = their_answers.id
+        LEFT OUTER JOIN
+          questions as their_questions
+        ON
+          their_answers.question_id = their_questions.id) AS theirs
+    ON
+      theirs.question_id = yours.question_id
+    FULL OUTER JOIN
+      --GET YOUR ANSWERS
+      (SELECT
+        your_questions.id AS question_id,
+        your_answers.id AS answer_id
       FROM
-        (SELECT
-          them.id AS id,
-          COUNT(*) AS count
-        FROM
-          questions as your_questions
-        JOIN
-          answers as your_answers
-        ON
-          your_answers.question_id = your_questions.id
-        JOIN
-          user_answers as your_user_answers
-        ON
-          your_user_answers.answer_id = your_answers.id
-        JOIN
-          profiles as you
-        ON
-          you.id = your_user_answers.profile_id
-        JOIN
-          questions as their_questions
-        ON
-          their_questions.id = your_questions.id
-        JOIN
-          answers as their_answers
-        ON
-          their_answers.question_id = their_questions.id
-        JOIN
-          user_answers as their_user_answers
-        ON
-          their_user_answers.answer_id = their_answers.id
-        JOIN
-          profiles as them
-        ON
-          their_user_answers.profile_id = them.id
-        WHERE
-          you.id = ?
-        GROUP BY
-          them.id) as common_questions
+        questions AS your_questions
       LEFT OUTER JOIN
-        (SELECT
-          them.id AS id,
-          COUNT(*) AS count
-        FROM
-          questions as your_questions
-        JOIN
-          answers as your_answers
-        ON
-          your_answers.question_id = your_questions.id
-        JOIN
-          user_answers as your_user_answers
-        ON
-          your_user_answers.answer_id = your_answers.id
-        JOIN
-          profiles as you
-        ON
-          you.id = your_user_answers.profile_id
-        JOIN
-          questions as their_questions
-        ON
-          their_questions.id = your_questions.id
-        JOIN
-          answers as their_answers
-        ON
-          their_answers.id = your_answers.id
-        JOIN
-          user_answers as their_user_answers
-        ON
-          their_user_answers.answer_id = their_answers.id
-        JOIN
-          profiles as them
-        ON
-          their_user_answers.profile_id = them.id
-        WHERE
-          you.id = ?
-        GROUP BY
-          them.id) common_answers
+        answers AS your_answers
       ON
-        common_answers.id = common_questions.id;
+        your_answers.question_id = your_questions.id
+      LEFT OUTER JOIN
+        user_answers AS your_user_answers
+      ON
+        your_user_answers.answer_id = your_answers.id
+      LEFT OUTER JOIN
+        profiles AS you
+      ON
+        you.id = your_user_answers.profile_id
+      WHERE
+         you.id = ?) AS your_answers
+    ON
+      your_answers.answer_id = theirs.answer_id
+
+    GROUP BY
+      theirs.their_id
+    ORDER BY
+      match_percentage DESC;
+
     SQL
     results = ComplexQuery.query_by_sql(
       match_percentages,
@@ -126,10 +129,10 @@ class Profile < ActiveRecord::Base
     )
     matches = []
     results.each do |hash|
-      matches << [hash['profile_id'].to_i,hash['match_percentage'].to_i]
+      matches << [hash['id'].to_i,hash['match_percentage'].to_i]
     end
 
-    matches.sort {|el1, el2| el2[1] <=> el1[1]}
+    matches
   end
 
   def match_percentage(other_profile)

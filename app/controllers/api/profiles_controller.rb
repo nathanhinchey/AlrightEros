@@ -5,12 +5,15 @@ class Api::ProfilesController < ApplicationController
     unless current_user && current_user.profile
       render json: {}
     else
-      @profiles = Profile
-        .all
-        .includes(:user)
-        .page(params[:page])
-        .per(4)
-      render :index
+      profiles_info = paginated_profiles({
+        page: params[:page].to_i,
+        per: 4
+        })
+      @percentages = profiles_info[:match_percentages]
+      @profiles = profiles_info[:profiles].sort {
+        |p1,p2| @percentages[p2.id] <=> @percentages[p1.id]
+      }
+      @total_pages = profiles_info[:total_pages]
     end
   end
 
@@ -73,21 +76,29 @@ class Api::ProfilesController < ApplicationController
       per = options[:per]
       per ||= 5
 
-      total = Profile.all.total_pages
 
       matches = current_user.profile.match_percentages
 
+      total = matches.count / per
       #build query
-      start_idx = per * page - 1
-      arr = []
+      start_idx = per * (page - 1)
+      match_ids = []
+      selected_matches = []
       per.times do |i|
-        id = matches[start_idx + i]
-        break if id.nil?
-        arr << "id = #{id}" #using string interpolation is safe here
+        match = matches[start_idx + i]
+        break if match.nil?
+        #using string interpolation is safe here, since this is
+        #all from back end values
+        match_ids << "id = #{match[0]}"
+        selected_matches << match
       end
 
-      profiles = Profile.where(arr.join(" OR "))
-
+      profiles = Profile.where(match_ids.join(" OR "))
+      {
+        profiles: profiles,
+        total_pages: total,
+        match_percentages: Hash[*selected_matches.flatten]
+      }
     end
 end
 
