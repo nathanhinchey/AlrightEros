@@ -41,7 +41,7 @@ answer_text     | string    | not null
 column name        | data type | details
 -------------------|-----------|-----------------------
 id                 | integer   | not null, primary key
-user_id            | integer   | not null, foreign key
+profile_id         | integer   | not null, foreign key
 answer_id          | integer   | not null, foreign key
 user_comment       | string    |
 

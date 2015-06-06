@@ -12,7 +12,7 @@
     },
 
     postUrl: function(){
-      return "/api/users/" + AlrightEros.currentUser.id + "/user_answers"
+      return "/api/profiles/" + AlrightEros.currentUser.profile_id + "/user_answers"
     },
 
     submitUserAnswer: function (data, options) {

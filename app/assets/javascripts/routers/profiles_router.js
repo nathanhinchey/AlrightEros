@@ -66,7 +66,7 @@
     questionShow: function (id) {
       var profile = this._profileHeader(id);
       var answers = new AlrightEros.Collections.UserAnswers([], {
-        userId: id
+        profileId: id
       });
 
       answers.fetch();

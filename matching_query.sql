@@ -9,7 +9,7 @@ FROM
   JOIN
   user_answers as yours
   ON
-  yours.user_id = you.id
+  yours.profile_id = you.id
   JOIN
   answers as your_answers
   ON
@@ -24,7 +24,7 @@ FROM
     JOIN
     user_answers as theirs
     ON
-    theirs.user_id = them.id
+    theirs.profile_id = them.id
     JOIN
     answers as their_answers
     ON
@@ -50,7 +50,7 @@ WHERE
       JOIN
       user_answers as yours
       ON
-      yours.user_id = you.id
+      yours.profile_id = you.id
       JOIN
       answers as your_answers
       ON
@@ -65,7 +65,7 @@ WHERE
       JOIN
       user_answers as theirs
       ON
-      theirs.user_id = them.id
+      theirs.profile_id = them.id
       JOIN
       answers as their_answers
       ON
@@ -91,7 +91,7 @@ WHERE
     JOIN
     user_answers as yours
     ON
-    yours.user_id = you.id
+    yours.profile_id = you.id
     JOIN
     answers as your_answers
     ON
@@ -106,7 +106,7 @@ WHERE
       JOIN
       user_answers as theirs
       ON
-      theirs.user_id = them.id
+      theirs.profile_id = them.id
       JOIN
       answers as their_answers
       ON
@@ -135,7 +135,7 @@ FROM
   JOIN
   user_answers as yours
   ON
-  yours.user_id = you.id
+  yours.profile_id = you.id
   JOIN
   answers as your_answers
   ON
@@ -150,7 +150,7 @@ FROM
     JOIN
     user_answers as theirs
     ON
-    theirs.user_id = them.id
+    theirs.profile_id = them.id
     JOIN
     answers as their_answers
     ON
@@ -178,7 +178,7 @@ FROM
     JOIN
     user_answers as yours
     ON
-    yours.user_id = you.id
+    yours.profile_id = you.id
     JOIN
     answers as your_answers
     ON
@@ -193,7 +193,7 @@ FROM
     JOIN
     user_answers as theirs
     ON
-    theirs.user_id = them.id
+    theirs.profile_id = them.id
     JOIN
     answers as their_answers
     ON
@@ -215,13 +215,13 @@ FROM
     JOIN
     user_answers AS yours
     ON
-    yours.user_id = you.user_id
+    yours.profile_id = you.profile_id
   LEFT OUTER JOIN
     profiles AS them
     JOIN
     user_answers AS theirs
     ON
-    theirs.user_id = them.user_id
+    theirs.profile_id = them.profile_id
   ON
     theirs.answer_id = yours.answer_id
 WHERE
@@ -236,7 +236,7 @@ WHERE
       JOIN
       user_answers AS yours
       ON
-      yours.user_id = you.user_id
+      yours.profile_id = you.profile_id
   WHERE
     you.id = 1
 
@@ -248,7 +248,7 @@ WHERE
     JOIN
     user_answers AS theirs
     ON
-    theirs.user_id = them.user_id
+    theirs.profile_id = them.profile_id
   WHERE
     them.id = 2
 
@@ -260,13 +260,13 @@ WHERE
     JOIN
     user_answers AS yours
     ON
-    yours.user_id = you.user_id
+    yours.uprofile_id = you.id
   LEFT OUTER JOIN
     profiles AS them
     JOIN
     user_answers AS theirs
     ON
-    theirs.user_id = them.user_id
+    theirs.profile_id = them.profile_id
   ON
     theirs.answer_id = yours.answer_id
   WHERE
@@ -287,7 +287,7 @@ SELECT
     JOIN
       user_answers AS yours
     ON
-      yours.user_id = you.user_id
+      yours.profile_id = you.profile_id
     JOIN
       answers
     ON
@@ -303,7 +303,7 @@ SELECT
     JOIN
       user_answers AS theirs
     ON
-      theirs.user_id = them.user_id
+      theirs.profile_id = them.profile_id
     JOIN
       answers
     ON
@@ -337,7 +337,7 @@ JOIN
 ON
   your_user_answers.answer_id = your_answers.id
 WHERE
-  your_user_answers.user_id = ?
+  your_user_answers.profile_id = ?
 
 
 -- "they" in this section is semantically plural
@@ -361,7 +361,7 @@ FROM
   ON
     your_user_answers.answer_id = your_answers.id
   WHERE
-    your_user_answers.user_id = 1) as your
+    your_user_answers.profile_id = 1) as your
 JOIN
   questions AS their_questions
   ON
@@ -373,7 +373,7 @@ JOIN
   JOIN
   users AS them
   ON
-  their_answers.user_id = user_id;
+  their_answers.profile_id = 2
 
 -- WRONG!!! It results in this table:
 /*
@@ -422,11 +422,11 @@ LEFT OUTER JOIN
     FROM
       user_answers
     WHERE
-      user_id = 2
+      profile_id = 2
   ) AS matches
 ON
   matches.answer_id = yours.answer_id
 WHERE
-  yours.user_id = 1
+  yours.profile_id = 1
 GROUP BY
-  theirs.user_id
+  theirs.profile_id

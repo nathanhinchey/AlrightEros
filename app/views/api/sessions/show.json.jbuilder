@@ -7,4 +7,4 @@ if current_user.profile
 else
   json.username "friend! Please make your profile"
 end
-json.answered_questions current_user.question_ids
+json.answered_questions current_user.profile.question_ids
