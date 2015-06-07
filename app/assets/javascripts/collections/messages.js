@@ -9,9 +9,9 @@
 			var date1 = new Date(model1.get('timestamp'));
 			var date2 = new Date(model2.get('timestamp'));
 			if (date1 > date2){
-				return -1
+				return -1;
 			} else {
-				return 1
+				return 1;
 			}
 		}
 	});

@@ -39,7 +39,7 @@
     // This says "user" in places that should say "profile"
 		messagesShow: function(id){
       var profile = this._profileHeader(id);
-			window.messages;
+			window.AlrightEros.messages;
 			var messageArray;
 
 			AlrightEros.messages.fetch({
@@ -47,16 +47,16 @@
 					messageArray = AlrightEros.messages.where({
 						other_user: Number(id)
 					});
-					window.messages.set(messageArray);
+					window.AlrightEros.messages.set(messageArray);
 				}
 			});
 
-			window.messages = new AlrightEros.Collections.Messages();
+			window.AlrightEros.messages = new AlrightEros.Collections.Messages();
 
 			var conversationView = new AlrightEros.Views.MessagesIndex({
-				collection: window.messages,
+				collection: window.AlrightEros.messages,
 				otherUserId: id
-			})
+			});
 
 			this._swapContentBodyView(conversationView);
 
