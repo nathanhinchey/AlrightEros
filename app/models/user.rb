@@ -20,11 +20,6 @@ class User < ActiveRecord::Base
     user.is_password?(password) ? user : nil
   end
 
-
-  def messages
-    Message.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
-  end
-
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

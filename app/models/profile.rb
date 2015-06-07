@@ -12,6 +12,10 @@ class Profile < ActiveRecord::Base
   has_many :user_answers, dependent: :destroy
   has_many :answers, through: :user_answers, source: :answer
   has_many :questions, through: :user_answers, source: :question
+  
+  def messages
+    Message.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
+  end
 
   has_many :sent_messages,
     class_name: 'Message',
