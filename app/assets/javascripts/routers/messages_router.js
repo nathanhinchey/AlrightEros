@@ -25,7 +25,7 @@
 
 		show: function(userId){
 			this._swapContentHeaderView();
-			window.messages;
+			window.AlrightEros.allMessages;
 			var messageArray;
 
 			AlrightEros.messages.fetch({
@@ -33,14 +33,14 @@
 					messageArray = AlrightEros.messages.where({
 						other_user: Number(userId)
 					});
-					window.messages.set(messageArray);
+					window.AlrightEros.allMessages.set(messageArray);
 				}
 			})
 
-			window.messages = new AlrightEros.Collections.Messages();
+			window.AlrightEros.allMessages = new AlrightEros.Collections.Messages();
 
 			var conversationView = new AlrightEros.Views.MessagesIndex({
-				collection: window.messages
+				collection: window.AlrightEros.allMessages
 			})
 
 			this._swapContentBodyView(conversationView);
