@@ -20,8 +20,9 @@ class Api::ProfilesController < ApplicationController
   def new
     @motivations = []
     Motivation.all.each do |motivation|
-      @motivations << motivation.body
+      @motivations << {body: motivation.body, id: motivation.id}
     end
+
     render :new
   end
 
@@ -66,7 +67,7 @@ class Api::ProfilesController < ApplicationController
     def profile_params
       params
         .require(:profile)
-        .permit(:username, :birthday, :summary, :picture)
+        .permit(:username, :birthday, :summary, :picture, :motivation_id)
     end
 
     def paginated_profiles(options)

@@ -23,24 +23,18 @@
 .profile-snapshot > a {
   padding: 10px;
   display: block;
-  /* width: 100%; */
-  /* height: 100%; */
-}
-
-.username {
-  color: white;
 }
 
 .profile-snapshot > a:hover{
   background: lightblue;
-  color: white;
+  color: darkblue;
 }
 
 .snapshot-profile-attributes > li {
   text-align: right;
   display: block;
-  color: white;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 .profiles-list h2 {
@@ -84,6 +78,7 @@
   padding: 5px;
   background: #15A;
   width: 400px;
+  text-transform: capitalize;
 }
 
 .profile-picture {

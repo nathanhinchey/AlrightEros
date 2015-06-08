@@ -100,9 +100,9 @@ img {
 
 #main-view {
   display: block;
-  max-width: 700px;
-  min-width: 550px;
-  padding: 50px;
+  max-width: 655px;
+  min-width: 505px;
+  padding: 50px 5px;
   margin: 0 auto;
 }
 

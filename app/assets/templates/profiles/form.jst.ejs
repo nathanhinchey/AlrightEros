@@ -30,13 +30,13 @@
   <label
     class="select-label"
     for="profile-motivation">Motivation</label>
-  <select name="profile[motivation]" id="profile-motivation" class="select">
+  <select name="profile[motivation_id]" id="profile-motivation" class="select">
     <% if(motivations){ %>
       <% motivations.forEach(function(motivation){ %>
         <option
-          value="<%= motivation %>"
-          <%= profile.escape('motivation') === motivation ? "selected" : "" %>>
-          <%= motivation %>
+          value="<%= motivation.id %>"
+          <%= profile.escape('motivation') === motivation.body ? "selected" : "" %>>
+          <%= motivation.body %>
         </option>
       <% }) %>
     <% } %>
