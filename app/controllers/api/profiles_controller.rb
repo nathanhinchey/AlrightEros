@@ -7,7 +7,10 @@ class Api::ProfilesController < ApplicationController
     else
       profiles_info = paginated_profiles({
         page: params[:page].to_i,
-        per: 4
+        per: 4,
+        min_age: params[:min_age],
+        max_age: params[:max_age],
+        motivation_id: params[:motivation_id],
         })
       @percentages = profiles_info[:match_percentages]
       @profiles = profiles_info[:profiles].sort {
@@ -77,8 +80,11 @@ class Api::ProfilesController < ApplicationController
       per = options[:per]
       per ||= 5
 
-
-      matches = current_user.profile.match_percentages
+      matches = current_user.profile.match_percentages(
+        min_age: options[:min_age],
+        max_age: options[:max_age],
+        motivation_id: options[:motivation_id]
+      )
 
       total = matches.count / per
       #build query

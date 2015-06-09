@@ -34,9 +34,38 @@ class Profile < ActiveRecord::Base
     age
   end
 
-  def match_percentages
+
+
+
+
+  def match_percentages(options)
+    constraints = []
+    values = []
+
+    if options[:min_age]
+      constraints << "them.birthday <= ?"
+      values << age_to_date_in_SQL(options[:min_age].to_i)
+    end
+
+    if options[:max_age]
+      constraints << "them.birthday >= ?"
+      values << age_to_date_in_SQL(options[:max_age].to_i)
+    end
+
+    if options[:motivation_id]
+      constraints << "them.motivation_id = ?"
+      values << options[:motivation_id].to_i
+    end
+
+    if constraints.empty?
+      where_clause = ""
+    else
+      where_clause = "WHERE\n" + constraints.join(" AND ") unless constraints.empty?
+    end
+
     # This is three queries that can probably be two.
-    # I'm working on improving it.
+    # I'm working on improving it, but at least it's a
+    # constant number of queries for all matches.
     match_percentages = <<-SQL
     SELECT
       theirs.their_id AS id,
@@ -90,7 +119,9 @@ class Profile < ActiveRecord::Base
         LEFT OUTER JOIN
           questions as their_questions
         ON
-          their_answers.question_id = their_questions.id) AS theirs
+          their_answers.question_id = their_questions.id
+        #{where_clause}
+        ) AS theirs
     ON
       theirs.question_id = yours.question_id
     FULL OUTER JOIN
@@ -125,7 +156,7 @@ class Profile < ActiveRecord::Base
     SQL
     results = ComplexQuery.query_by_sql(
       match_percentages,
-      [self.id, self.id]
+      [self.id].concat(values.concat([self.id]))
     )
     matches = []
     results.each do |hash|
@@ -134,6 +165,12 @@ class Profile < ActiveRecord::Base
 
     matches
   end
+
+
+
+
+
+
 
   def match_percentage(other_profile)
     # Do not use this on index! it calculates for just one other_profile
@@ -189,6 +226,15 @@ class Profile < ActiveRecord::Base
 
 
   private
+    def age_to_date_in_SQL(age)
+      y = (Date.today.year - age).to_s.rjust(4, '0')
+      m = Date.today.month.to_s.rjust(2, '0')
+      d = Date.today.day.to_s.rjust(2, '0')
+      date = "#{y}-#{m}-#{d}"
+      # debugger
+      # date
+    end
+
     def must_have_at_least_one_gender
       if genders.length < 1
         errors.add(:gender, "must select at least one gender")
@@ -203,22 +249,3 @@ class Profile < ActiveRecord::Base
       end
     end
 end
-
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Sid": "Stmt1420751757000",
-#       "Effect": "Allow",
-#       "Action": [
-#         "s3:*"
-#       ],
-#       "Resource": [
-#         "arn:aws:s3:::alrighteros-dev",
-#         "arn:aws:s3:::alrighteros-dev/*",
-#         "arn:aws:s3:::alrighteros-pro",
-#         "arn:aws:s3:::alrighteros-pro/*"
-#       ]
-#     }
-#   ]
-# }
