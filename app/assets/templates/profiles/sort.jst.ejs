@@ -1,0 +1,26 @@
+<fieldset class="form-fieldset select-fieldset group">
+  <label
+    class="select-label"
+    for="profile-motivation">Motivation</label>
+  <select name="profile[motivation_id]" id="profile-motivation" class="select">
+    <% if(motivations){ %>
+      <% motivations.forEach(function(motivation){ %>
+        <option
+          value="<%= motivation.id %>"
+          <%= profile.escape('motivation') === motivation.body ? "selected" : "" %>>
+          <%= motivation.body %>
+        </option>
+      <% }) %>
+    <% } %>
+  </select>
+</fieldset>
+
+<fieldset class="form-fieldset text-input-fieldset">
+  <label for="profile-min-age">Minimum Age</label>
+  <input type="text" name="profile[min_age]">
+</fieldset>
+
+<fieldset class="form-fieldset text-input-fieldset">
+  <label for="profile-min-age">Minimum Age</label>
+  <input type="text" name="profile[min_age]">
+</fieldset>

@@ -23,8 +23,14 @@
     },
 
 		index: function (page_string) {
-			var page = parseInt(page_string, 10);
+
+			var sortView = new AlrightEros.Views.ProfileSort({
+				
+			});
+
 			this._swapContentHeaderView();
+
+			var page = parseInt(page_string, 10);
 			if (!this._requireSignedIn()) {return;}
 			if (!this._requireHasProfile()) {return;}
 
@@ -32,8 +38,10 @@
 				collection: AlrightEros.profiles,
 				page: page
 			});
-
 			this._swapContentBodyView(indexView);
+
+
+
 		},
 
     // This says "user" in places that should say "profile"
@@ -76,8 +84,6 @@
 
       this._swapContentBodyView(answerView);
     },
-
-    //TODO make essay view
 
     essayShow: function (id) {
       var profile = this._profileHeader(id);
@@ -134,6 +140,10 @@
       this._swapContentHeaderView(showView);
 
       return profile;
-    }
+    },
+
+		_sortHeader: function () {
+
+		}
   });
 })();
