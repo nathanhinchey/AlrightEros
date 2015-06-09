@@ -33,7 +33,7 @@
 		submitForm: function(event){
 			var formData = $(event.currentTarget).serializeJSON();
 			formData['message']['receiver_id'] = this.otherUserId;
-			var message = new AlrightEros.Models.Message(formData.message)
+			var message = new AlrightEros.Models.Message(formData.message);
 			message.save({},{
 				success: function () {
 					this.collection.add(message);

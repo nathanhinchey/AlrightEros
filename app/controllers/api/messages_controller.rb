@@ -1,7 +1,7 @@
 class Api::MessagesController < ApplicationController
 	def create
 		@message = Message.new(message_params)
-		@message.sender_id = current_user.id
+		@message.sender_id = current_user.profile.id
 		if @message.save
 			render :show
 		else
@@ -11,7 +11,7 @@ class Api::MessagesController < ApplicationController
 
 	def show
 		@message = Message.find(params[:id])
-		if current_user.messages.include? @message
+		if current_user.profile.messages.include? @message
 			render :show
 		else
 			head status: :forbidden
@@ -19,6 +19,13 @@ class Api::MessagesController < ApplicationController
 	end
 
 	def index
+		if current_user
+			@messages = current_user.profile.messages
+			@profile = current_user.profile.id
+			render :index
+		else
+		  render json: []
+		end
 	end
 
 	private

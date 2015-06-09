@@ -22,8 +22,8 @@
 
     },
 
-		index: function (page) {
-			var page = parseInt(page);
+		index: function (page_string) {
+			var page = parseInt(page_string, 10);
 			this._swapContentHeaderView();
 			if (!this._requireSignedIn()) {return;}
 			if (!this._requireHasProfile()) {return;}
@@ -36,8 +36,7 @@
 			this._swapContentBodyView(indexView);
 		},
 
-		// HACK: FIXME: this relies on the assumption that
-		// user_id and profile_id will always be the same
+    // This says "user" in places that should say "profile"
 		messagesShow: function(id){
       var profile = this._profileHeader(id);
 			window.messages;
@@ -50,7 +49,7 @@
 					});
 					window.messages.set(messageArray);
 				}
-			})
+			});
 
 			window.messages = new AlrightEros.Collections.Messages();
 
@@ -73,7 +72,7 @@
       var answerView = new AlrightEros.Views.ProfileAnswers({
         collection: answers,
         model: profile
-      })
+      });
 
       this._swapContentBodyView(answerView);
     },
@@ -85,7 +84,7 @@
 
       var essayView = new AlrightEros.Views.ProfileEssays({
         model: profile
-      })
+      });
 
       this._swapContentBodyView(essayView);
     },
@@ -136,5 +135,5 @@
 
       return profile;
     }
-  })
+  });
 })();

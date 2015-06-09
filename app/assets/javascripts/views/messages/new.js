@@ -2,7 +2,7 @@
 	"use strict";
 	AlrightEros.Views.NewMessage = Backbone.View.extend({
 		initialize: function (options){
-			this.listenTo(this.profile, 'sync', this.render)
+			this.listenTo(this.profile, 'sync', this.render);
 		},
 
 		tagName: 'form',
@@ -14,5 +14,5 @@
 				profile: this.model
 			});
 		}
-	})
+	});
 })();
