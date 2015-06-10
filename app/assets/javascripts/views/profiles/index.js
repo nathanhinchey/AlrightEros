@@ -42,21 +42,24 @@
     },
 
 		next: function (event) {
-			event.preventDefault();
-			this.searchOptions.page++;
-			Backbone.history.navigate(
-				"profileindex/" + (this.searchOptions.page),
-				{trigger: true}
-			)
+			this.changePage(event, 1);
 		},
 
 		previous: function (event) {
+			this.changePage(event, -1);
+		},
+
+		changePage: function(event, direction) {
 			event.preventDefault();
-			this.searchOptions.page--;
+			this.searchOptions.page += direction;
 			Backbone.history.navigate(
 				"profileindex/" + (this.searchOptions.page),
-				{trigger: true}
+				{trigger: false}
 			)
+
+			this.collection.fetch({
+				data: this.searchOptions
+			})
 		}
 
   })

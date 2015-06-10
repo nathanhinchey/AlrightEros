@@ -28,8 +28,9 @@
 		index: function (page_string) {
 
 			this._indexHeader();
-
-			var page = parseInt(page_string, 10);
+			if (page_string){
+				this.searchOptions.page = parseInt(page_string, 10);
+			}
 			if (!this._requireSignedIn()) {return;}
 			if (!this._requireHasProfile()) {return;}
 
