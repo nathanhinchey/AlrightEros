@@ -2,15 +2,17 @@
 	"use strict";
 	AlrightEros.Views.MessagesIndex = Backbone.View.extend({
 		initialize: function (options) {
-			this.listenTo(this.collection, "add", this.render);
+			this.listenTo(this.collection, "add sync", this.render);
 			this.otherUserId = options.otherUserId;
+			this.inboxView = options.inboxView;
 		},
 
 		template: JST['messages'],
 
 		render: function () {
 			var content = this.template({
-				messages: this.collection.sort()
+				messages: this.collection.sort(),
+				inboxView: this.inboxView
 			});
 			this.$el.html(content);
 

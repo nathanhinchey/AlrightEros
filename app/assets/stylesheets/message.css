@@ -91,3 +91,15 @@
   right: 18px;
   bottom: 10px;
 }
+
+.message-thumb {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: -20px;
+}
+
+.message-thumb > img {
+  height: 100%;
+  width: 100%;
+}
