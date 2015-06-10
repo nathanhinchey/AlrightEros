@@ -144,14 +144,11 @@
       if (!this._requireSignedIn()) { return; }
       if (!this._requireHasProfile()) { return; }
 
-			if (!this._sortView){
-				this._sortView = new AlrightEros.Views.ProfileSort({
-					searchOptions: this.searchOptions
-				});
+			this._sortView = new AlrightEros.Views.ProfileSort({
+				searchOptions: this.searchOptions
+			});
 
-				this._swapContentHeaderView(this._sortView);
-			}
-
+			this._swapContentHeaderView(this._sortView);
     },
   });
 })();
