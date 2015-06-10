@@ -84,7 +84,7 @@
 .new-message-textarea-wrapper::after {
   content: "";
   display: block;
-  border-left: 20px solid lightblue;
+  border-left: 21px solid lightblue;
   border-top: 10px solid transparent;
   border-bottom: 0 solid transparent;
   position: absolute;

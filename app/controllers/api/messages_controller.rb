@@ -23,12 +23,13 @@ class Api::MessagesController < ApplicationController
 			render json: []
 			return
 		end
+		@profile = current_user.profile.id
 		if params["recent"]
 			seen = {}
 			@messages = current_user.profile.messages.sort do |m1, m2|
 				m2.created_at <=> m1.created_at
 			end.select do |m|
-				other = m.sender_id == current_user.id ? m.receiver_id : m.sender_id
+				other = m.sender_id == current_user.id ? m.sender_id : m.receiver_id
 				if seen[other]
 					false
 				else
@@ -37,7 +38,6 @@ class Api::MessagesController < ApplicationController
 			end
 		else
 			@messages = current_user.profile.messages
-			@profile = current_user.profile.id
 			render :index
 		end
 	end
