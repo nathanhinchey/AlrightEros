@@ -23,12 +23,11 @@
       "profiles/:id/questions": "questionShow",
 			"profiles/:id/messages": "messagesShow",
 			"profileindex/:page": "index",
-
     },
 
 		index: function (page_string) {
 
-			this._profileHeader();
+			this._indexHeader();
 
 			var page = parseInt(page_string, 10);
 			if (!this._requireSignedIn()) {return;}
@@ -39,12 +38,20 @@
 				searchOptions: this.searchOptions
 			});
 			this._swapContentBodyView(indexView);
-
-
-
 		},
 
-    // This says "user" in places that should say "profile"
+    essayShow: function (id) {
+      var profile = this._profileHeader(id);
+      var essayView = new AlrightEros.Views.ProfileEssays({
+        model: profile
+      });
+
+      this._swapContentBodyView(essayView);
+    },
+
+    // This says "user" in places that should say "profile";
+		// the code points to write place, but should be re-written
+		// for improved readability
 		messagesShow: function(id){
       var profile = this._profileHeader(id);
 			window.AlrightEros.allMessages;
@@ -83,16 +90,6 @@
       });
 
       this._swapContentBodyView(answerView);
-    },
-
-    essayShow: function (id) {
-      var profile = this._profileHeader(id);
-
-      var essayView = new AlrightEros.Views.ProfileEssays({
-        model: profile
-      });
-
-      this._swapContentBodyView(essayView);
     },
 
     edit: function () {
@@ -142,7 +139,7 @@
       return profile;
     },
 
-		_profileHeader: function (id) {
+		_indexHeader: function (id) {
       if (!this._requireSignedIn()) { return; }
       if (!this._requireHasProfile()) { return; }
 

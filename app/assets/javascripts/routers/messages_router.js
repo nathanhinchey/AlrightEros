@@ -9,9 +9,7 @@
 		},
 
 		routes: {
-			"messages" : "index",
-			"messages/:userId" : "show",
-			"messages/:userId/new" : "new"
+			"messages" : "index"
 		},
 
 		index: function(){
@@ -21,34 +19,6 @@
 				collection: AlrightEros.messages
 			});
 			this._swapContentBodyView(indexView);
-		},
-
-		show: function(userId){
-			this._swapContentHeaderView();
-			window.AlrightEros.allMessages;
-			var messageArray;
-
-			AlrightEros.messages.fetch({
-				success: function (){
-					messageArray = AlrightEros.messages.where({
-						other_user: Number(userId)
-					});
-					window.AlrightEros.allMessages.set(messageArray);
-				}
-			})
-
-			window.AlrightEros.allMessages = new AlrightEros.Collections.Messages();
-
-			var conversationView = new AlrightEros.Views.MessagesIndex({
-				collection: window.AlrightEros.allMessages
-			})
-
-			this._swapContentBodyView(conversationView);
-
-		},
-
-		new: function(userId){
-
 		}
 	})
 })();
