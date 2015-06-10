@@ -7,7 +7,7 @@
 			AlrightEros.motivations.fetch();
     },
 
-    this.tagName: 'form'
+    tagName: 'form',
 
     template: JST['profiles/sort'],
 
@@ -20,6 +20,5 @@
 
       return this;
     }
-    });
   });
-}());
+})();
