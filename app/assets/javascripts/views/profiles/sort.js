@@ -29,7 +29,17 @@
 
     search: function(){
       event.preventDefault();
-
+      this.searchOptions["page"] = 1;
+      delete this.searchOptions["min_age"];
+      delete this.searchOptions["max_age"];
+      delete this.searchOptions["motivation_id"];
+      $.each(this.$el.serializeArray(), function(i, field) {
+          if (field.value){
+            this.searchOptions[field.name] = field.value;
+          }
+      }.bind(this));
+      Backbone.history.navigate("");
+      Backbone.history.loadUrl("");
     }
   });
 })();

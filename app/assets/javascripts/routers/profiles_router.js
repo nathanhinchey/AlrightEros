@@ -11,6 +11,7 @@
 			this.searchOptions = {
 				page: 1
 			};
+			window.searchOptions = this.searchOptions;
     },
 
     routes: {

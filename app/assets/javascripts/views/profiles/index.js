@@ -7,7 +7,6 @@
       this.listenTo(this.collection, "remove", this.removeProfileView);
 			this.listenTo(this.collection, "sync", this.render);
 			this.searchOptions = options.searchOptions;
-			options.page && (this.collection.page = options.page);
 			this.collection.fetch({
 				data: this.searchOptions
 			});
@@ -25,7 +24,7 @@
 
     render: function () {
       var content = this.template({
-				moreAfter: true,//this.searchOptions.page,// < this.collection.last_page,
+				moreAfter: this.searchOptions.page <= this.collection.last_page,
 				moreBefore: this.searchOptions.page > 1
 			});
       this.$el.html(content);

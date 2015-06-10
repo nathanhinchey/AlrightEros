@@ -4,7 +4,7 @@
   <label
     class="select-label"
     for="profile-motivation">Motivation</label>
-  <select name="profile[motivation_id]" id="profile-motivation" class="select">
+  <select name="motivation_id" id="profile-motivation" class="select">
     <option></option>
     <% if(motivations){ %>
       <% motivations.forEach(function(motivation){ %>
@@ -18,12 +18,12 @@
 
 <fieldset class="form-fieldset text-input-fieldset">
   <label for="profile-min-age">Minimum Age</label>
-  <input type="text" name="profile[min_age]" class="text-input">
+  <input type="text" name="min_age" class="text-input">
 </fieldset>
 
 <fieldset class="form-fieldset text-input-fieldset">
   <label for="profile-min-age">Maximum Age</label>
-  <input type="text" name="profile[min_age]" class="text-input">
+  <input type="text" name="max_age" class="text-input">
 </fieldset>
 
 <button name="search" class="submit">Search</button>
