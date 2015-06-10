@@ -38,8 +38,7 @@
             this.searchOptions[field.name] = field.value;
           }
       }.bind(this));
-      Backbone.history.navigate("");
-      Backbone.history.loadUrl("");
+      this.collection.fetch({data: this.searchOptions});
     }
   });
 })();

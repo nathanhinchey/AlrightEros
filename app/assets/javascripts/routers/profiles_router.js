@@ -145,6 +145,7 @@
       if (!this._requireHasProfile()) { return; }
 
 			this._sortView = new AlrightEros.Views.ProfileSort({
+				collection: AlrightEros.profiles,
 				searchOptions: this.searchOptions
 			});
 
