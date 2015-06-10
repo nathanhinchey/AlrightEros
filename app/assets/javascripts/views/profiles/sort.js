@@ -1,9 +1,10 @@
 ;(function() {
   'use strict';
   AlrightEros.Views.ProfileSort = Backbone.View.extend({
-    intialize: function(options) {
+
+    initialize: function(options) {
       AlrightEros.motivations = new AlrightEros.Models.MotivationOptions();
-			this.listenTo(AlrightEros.motivations, "sync", this.render)
+			this.listenTo(AlrightEros.motivations, "sync", this.render);
 			AlrightEros.motivations.fetch();
     },
 
@@ -13,7 +14,7 @@
 
     render: function () {
       var content = this.template({
-        motivations: AlrightEros.motivations
+        motivations: AlrightEros.motivations.motivations
       });
 
       this.$el.html(content);

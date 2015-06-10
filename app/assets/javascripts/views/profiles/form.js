@@ -5,7 +5,7 @@
     initialize: function (options) {
       this.listenTo(this.model, "sync", this.render);
 			AlrightEros.motivations = new AlrightEros.Models.MotivationOptions();
-			this.listenTo(AlrightEros.motivations, "sync", this.render)
+			this.listenTo(AlrightEros.motivations, "sync", this.render);
 			AlrightEros.motivations.fetch();
     },
 

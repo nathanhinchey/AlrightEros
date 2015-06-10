@@ -25,10 +25,10 @@
 		index: function (page_string) {
 
 			var sortView = new AlrightEros.Views.ProfileSort({
-				
+
 			});
 
-			this._swapContentHeaderView();
+			this._swapContentHeaderView(sortView);
 
 			var page = parseInt(page_string, 10);
 			if (!this._requireSignedIn()) {return;}

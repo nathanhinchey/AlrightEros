@@ -1,3 +1,5 @@
+<h1>Search Profiles</h2>
+
 <fieldset class="form-fieldset select-fieldset group">
   <label
     class="select-label"
@@ -5,9 +7,7 @@
   <select name="profile[motivation_id]" id="profile-motivation" class="select">
     <% if(motivations){ %>
       <% motivations.forEach(function(motivation){ %>
-        <option
-          value="<%= motivation.id %>"
-          <%= profile.escape('motivation') === motivation.body ? "selected" : "" %>>
+        <option value="<%= motivation.id %>">
           <%= motivation.body %>
         </option>
       <% }) %>
@@ -17,10 +17,10 @@
 
 <fieldset class="form-fieldset text-input-fieldset">
   <label for="profile-min-age">Minimum Age</label>
-  <input type="text" name="profile[min_age]">
+  <input type="text" name="profile[min_age]" class="text-input">
 </fieldset>
 
 <fieldset class="form-fieldset text-input-fieldset">
-  <label for="profile-min-age">Minimum Age</label>
-  <input type="text" name="profile[min_age]">
+  <label for="profile-min-age">Maximum Age</label>
+  <input type="text" name="profile[min_age]" class="text-input">
 </fieldset>
