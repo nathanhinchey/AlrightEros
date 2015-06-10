@@ -19,12 +19,26 @@ class Api::MessagesController < ApplicationController
 	end
 
 	def index
-		if current_user
+		unless current_user
+			render json: []
+			return
+		end
+		if params["recent"]
+			seen = {}
+			@messages = current_user.profile.messages.sort do |m1, m2|
+				m2.created_at <=> m1.created_at
+			end.select do |m|
+				other = m.sender_id == current_user.id ? m.receiver_id : m.sender_id
+				if seen[other]
+					false
+				else
+					seen[other] = true
+				end
+			end
+		else
 			@messages = current_user.profile.messages
 			@profile = current_user.profile.id
 			render :index
-		else
-		  render json: []
 		end
 	end
 
