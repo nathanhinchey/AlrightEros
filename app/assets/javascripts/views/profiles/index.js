@@ -6,10 +6,10 @@
       this.listenTo(this.collection, "add", this.addProfileView);
       this.listenTo(this.collection, "remove", this.removeProfileView);
 			this.listenTo(this.collection, "sync", this.render);
-			this.collection.page = 1;
+			this.searchOptions = options.searchOptions;
 			options.page && (this.collection.page = options.page);
 			this.collection.fetch({
-				data: {page: this.collection.page}
+				data: this.searchOptions
 			});
 			this.collection.each(this.addProfileView.bind(this));
     },
@@ -25,8 +25,8 @@
 
     render: function () {
       var content = this.template({
-				moreAfter: this.collection.page < this.collection.last_page,
-				moreBefore: this.collection.page > 1
+				moreAfter: true,//this.searchOptions.page,// < this.collection.last_page,
+				moreBefore: this.searchOptions.page > 1
 			});
       this.$el.html(content);
       this.attachSubviews();
@@ -44,18 +44,18 @@
 
 		next: function (event) {
 			event.preventDefault();
-			this.collection.page++;
+			this.searchOptions.page++;
 			Backbone.history.navigate(
-				"profileindex/" + (this.collection.page),
+				"profileindex/" + (this.searchOptions.page),
 				{trigger: true}
 			)
 		},
 
 		previous: function (event) {
 			event.preventDefault();
-			this.collection.page--;
+			this.searchOptions.page--;
 			Backbone.history.navigate(
-				"profileindex/" + (this.collection.page),
+				"profileindex/" + (this.searchOptions.page),
 				{trigger: true}
 			)
 		}

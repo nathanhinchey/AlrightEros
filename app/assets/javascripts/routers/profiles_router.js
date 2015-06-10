@@ -8,6 +8,9 @@
       AlrightEros.currentUser.fetch();
 			AlrightEros.messages = new AlrightEros.Collections.Messages();
 			AlrightEros.messages.fetch();
+			this.searchOptions = {
+				page: 1
+			};
     },
 
     routes: {
@@ -24,11 +27,7 @@
 
 		index: function (page_string) {
 
-			var sortView = new AlrightEros.Views.ProfileSort({
-
-			});
-
-			this._swapContentHeaderView(sortView);
+			this._profileHeader();
 
 			var page = parseInt(page_string, 10);
 			if (!this._requireSignedIn()) {return;}
@@ -36,7 +35,7 @@
 
 			var indexView = new AlrightEros.Views.ProfilesIndex({
 				collection: AlrightEros.profiles,
-				page: page
+				searchOptions: this.searchOptions
 			});
 			this._swapContentBodyView(indexView);
 
@@ -142,8 +141,18 @@
       return profile;
     },
 
-		_sortHeader: function () {
+		_profileHeader: function (id) {
+      if (!this._requireSignedIn()) { return; }
+      if (!this._requireHasProfile()) { return; }
 
-		}
+			if (!this._sortView){
+				this._sortView = new AlrightEros.Views.ProfileSort({
+					searchOptions: this.searchOptions
+				});
+
+				this._swapContentHeaderView(this._sortView);
+			}
+
+    },
   });
 })();

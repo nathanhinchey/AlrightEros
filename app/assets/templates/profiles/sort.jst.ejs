@@ -5,6 +5,7 @@
     class="select-label"
     for="profile-motivation">Motivation</label>
   <select name="profile[motivation_id]" id="profile-motivation" class="select">
+    <option></option>
     <% if(motivations){ %>
       <% motivations.forEach(function(motivation){ %>
         <option value="<%= motivation.id %>">
@@ -24,3 +25,5 @@
   <label for="profile-min-age">Maximum Age</label>
   <input type="text" name="profile[min_age]" class="text-input">
 </fieldset>
+
+<button name="search" class="submit">Search</button>

@@ -6,6 +6,11 @@
       AlrightEros.motivations = new AlrightEros.Models.MotivationOptions();
 			this.listenTo(AlrightEros.motivations, "sync", this.render);
 			AlrightEros.motivations.fetch();
+      this.searchOptions = options.searchOptions;
+    },
+
+    events: {
+      "submit": "search",
     },
 
     tagName: 'form',
@@ -20,6 +25,11 @@
       this.$el.html(content);
 
       return this;
+    },
+
+    search: function(){
+      event.preventDefault();
+
     }
   });
 })();
