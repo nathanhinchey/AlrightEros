@@ -1,7 +1,8 @@
 
 /*    FORM    */
 .textarea-fieldset,
-.text-input-fieldset {
+.text-input-fieldset,
+.select-fieldset {
   margin: 0 auto;
   width: 500px;
   display: block;
