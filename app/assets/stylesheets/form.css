@@ -2,7 +2,8 @@
 /*    FORM    */
 .textarea-fieldset,
 .text-input-fieldset,
-.select-fieldset {
+.select-fieldset,
+.date-input {
   margin: 0 auto;
   width: 500px;
   display: block;
@@ -183,8 +184,36 @@ h1.logo {
   float: left;
 }
 
-.select {
+.select,
+.date-input > input {
   background: darkblue;
   box-shadow: 0 0 3px lightblue;
   outline: none;
+}
+
+.file-input {
+  color: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+.file-input > input {
+  opacity: 0;
+}
+
+.file-input-label::after {
+  content: "Upload a profile picture";
+  color: darkblue;
+  position: absolute;
+  top: 7px;
+  left: 125px;
+  opacity: 1.0;
+  padding: 4px;
+  border-radius: 3px;
+  box-shadow: 0 0 3px darkblue;
+  background: lightblue;
+}
+
+.file-input-label {
+  color: white;
 }
