@@ -34,6 +34,7 @@
         model: question,
 				modal: true,
 				parentView: this,
+				profileToFetch: this.model
       });
 			$("#modal-view").removeClass("hidden");
 			$("#modal-pop-up").html(answerView.render().$el);

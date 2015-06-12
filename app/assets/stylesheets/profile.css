@@ -124,6 +124,7 @@
 }
 
 .answer-button {
+  color: darkblue;
   cursor: pointer;
   border-radius: 2px;
   background: lightblue;

@@ -85,6 +85,7 @@
       });
 
       answers.fetch();
+			profile.fetch();
       var answerView = new AlrightEros.Views.ProfileAnswers({
         collection: answers,
         model: profile

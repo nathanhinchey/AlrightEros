@@ -10,6 +10,7 @@
       AlrightEros.questions.fetch();
 			this.modal = options.modal;
 			this.parentView = options.parentView;
+			this.profileToFetch = options.profileToFetch;
     },
 
     events: {
@@ -37,11 +38,13 @@
 // TODO: refactor this monstrosity
       userAnswer.submitUserAnswer(formData, {
         success: function() {
+					AlrightEros.profiles.fetch();
           AlrightEros.currentUser.attributes.answered_questions.push(this.model.id);
 					if (this.modal){
 						$("#modal-view").addClass("hidden");
 						this.parentView.collection.fetch({
 							success: function(){
+								this.profileToFetch.fetch();
 								this.parentView.render();
 							}.bind(this)
 						});
