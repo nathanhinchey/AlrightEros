@@ -22,6 +22,7 @@ gem "figaro"
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'spring'
 end
 
@@ -29,10 +30,11 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec'
 end
 
 group :test do
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
 end
