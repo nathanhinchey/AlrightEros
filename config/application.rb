@@ -31,16 +31,16 @@ module AlrightEros
         :secret_access_key => ENV["s3_secret_access_key"]
       }
     }
-  end
-end
 
-config.generators do |g|
-  g.test_framework :rspec,
-    fixtures: false,
-    view_specs: false,
-    helper_specs: false,
-    routing_specs: false,
-    controller_specs: false,
-    request_specs: false
-  f.fixture_resplacement :factor_girl, dir: "spec/factories"
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: false,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: false,
+        request_specs: false
+      g.fixture_resplacement :factor_girl, dir: "spec/factories"
+    end
+  end
 end
