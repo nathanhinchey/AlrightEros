@@ -7,73 +7,89 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # MOTIVATIONS
-# evil = Motivation.create({
-#   body: 'evil'
-#   })
-#
-# greed = Motivation.create({
-#   body: 'greed'
-#   })
-#
-# power = Motivation.create({
-#   body: 'power'
-#   })
-#
-# greater_good = Motivation.create({
-#   body: 'the greater good'
-#   })
+evil = Motivation.create({
+  body: 'evil'
+  })
 
-# following_orders = Motivation.create({
-#   body: 'following orders'
-#   })
-#
-# revenge = Motivation.create({
-#   body: 'revenge'
-#   })
+greed = Motivation.create({
+  body: 'greed'
+  })
+
+power = Motivation.create({
+  body: 'power'
+  })
+
+greater_good = Motivation.create({
+  body: 'the greater good'
+  })
+
+following_orders = Motivation.create({
+  body: 'following orders'
+  })
+
+revenge = Motivation.create({
+  body: 'revenge'
+  })
 
 # USERS AND PROFILES
-# potato = User.create({
-#   email: 'potato@potato.potato',
-#   password: 'potato'
-#   })
-#
-# potatoprofile = Profile.create({
-#   user_id: potato.id,
-#   username: "potato",
-#   summary: "I am a potato. I like to be a potato. Potato potato potato.",
-#   birthday: Date.today - 18.years,
-#   motivation: power
-#
-#   })
-#
-# tomato = User.create({
-#   email: 'tomato@tomato.tomato',
-#   password: 'tomato'
-#   })
-#
-# tomatoprofile = Profile.create({
-#   user_id: tomato.id,
-#   username: "tomato",
-#   summary: "I am a tomato. I like to be a tomato. Tomato tomato tomato.",
-#   birthday: Date.today - 48.years,
-#   motivation: greater_good
-#
-#   })
-#
-# 5.times do |index|
-#   temp = User.create({
-#     email: index, #Faker::Internet.email,
-#     password: 'password'
-#     })
-#
-#   Profile.create ({
-#     user_id: temp.id,
-#     username: Faker::Internet.domain_word + "_" + SecureRandom.urlsafe_base64(2),
-#     summary: Faker::Lorem.paragraph,
-#     birthday: Faker::Date.between(18.years.ago, 99.years.ago)
-#     })
-# end
-#
+potato = User.create({
+  email: 'potato@potato.potato',
+  password: 'potato'
+  })
+
+potatoprofile = Profile.create({
+  user_id: potato.id,
+  username: "potato",
+  summary: "I am a potato. I like to be a potato. Potato potato potato.",
+  birthday: Date.today - 18.years,
+  motivation: power
+
+  })
+
+tomato = User.create({
+  email: 'tomato@tomato.tomato',
+  password: 'tomato'
+  })
+
+tomatoprofile = Profile.create({
+  user_id: tomato.id,
+  username: "tomato",
+  summary: "I am a tomato. I like to be a tomato. Tomato tomato tomato.",
+  birthday: Date.today - 48.years,
+  motivation: greater_good
+
+  })
+
+5.times do |index|
+  temp = User.create({
+    email: index, #Faker::Internet.email,
+    password: 'password'
+    })
+
+  Profile.create ({
+    user_id: temp.id,
+    username: Faker::Internet.domain_word + "_" + SecureRandom.urlsafe_base64(2),
+    summary: Faker::Lorem.paragraph,
+    birthday: Faker::Date.between(18.years.ago, 99.years.ago)
+    })
+end
+
+
+# DEMO USER
+demo_user = User.create({
+  email: 'thecount',
+  password: '1234567890'
+  })
+
+demo_profile = Profile.create({
+  user_id: demo_user.id,
+  username: "The Count",
+  summary: "1! hahahaha 2! hahahaha 3! hahaha 4! haahaha 5! hahahaha",
+  birthday: Date.today - 42.years,
+  motivation: greed
+  })
+
+
 # QUESTIONS
 questions = [
   ["When fighting a hero, I'm usually","in the fray","back at my HQ, pulling strings from afar","monologuing","I have underlings for that"],
